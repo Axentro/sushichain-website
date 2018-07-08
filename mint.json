@@ -1,0 +1,20 @@
+{
+  "name": "sushichain-website",
+  "source-directories": [
+    "source"
+  ],
+  "application": {
+    "title": "SushiChain - Open Source Blockchain Platform",
+    "head": "assets/head.html",
+    "icon": "assets/icon.png"
+  },
+  "test-directories": [
+    "tests"
+  ],
+  "dependencies": {
+    "mint-core": {
+      "repository": "https://github.com/mint-lang/mint-core",
+      "constraint": "0.0.0 <= v < 1.0.0"
+    }
+  }
+}
