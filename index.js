@@ -1710,14 +1710,14 @@ class $Main extends Component {
       className: `row`
     }, [_createElement("div", {
       className: `column column-m-12 column-t-5`
-    }, [_createElement("span", {}, [`Blockchain`]), _createElement("h1", {}, [`Decentralized applications without Smart Contracts`]), _createElement("p", {}, [`SushiChain is an open source blockchain platform developed using the Crystal programming language. The core technology takes inspiration mostly from Bitcoin and Ethereum.`]), _createElement("p", {}, [`SushiChain aims to provide developers with a platform to build complex decentralized applications using simple and easy to use tools.`])])])]), _createElement("section", {
+    }, [_createElement("span", {}, [`Blockchain`]), _createElement("h1", {}, [`Decentralized applications with off-chain smart contracts`]), _createElement("p", {}, [`SushiChain is an open source blockchain platform developed from scratch using the Crystal programming language. The core technology takes inspiration mostly from Bitcoin and Ethereum.`]), _createElement("p", {}, [`SushiChain aims to provide developers with a platform to build complex decentralized applications using simple and easy to use tools.`])])])]), _createElement("section", {
       "id": `about`,
       className: `sc__about`
     }, [_createElement("div", {
       className: `row row--end`
     }, [_createElement("div", {
       className: `column colum-m-12 column-t-5`
-    }, [_createElement("span", {}, [`About`]), _createElement("h2", {}, [`Why Sushi Chain`]), _createElement("p", {}, [`The name SushiChain comes from our collective love of Sushi. Simplicity and elegance binding together high quality ingredients makes for delicious Sushi and a delicious blockchain.`]), _createElement("p", {}, [`Our Japanese founder Taichiro loves Sushi and he loves blockchain. It was this combination of passions that led him to start work on this project in order to evolve his skills and knowledge.`])])])]), _createElement("section", {
+    }, [_createElement("span", {}, [`About`]), _createElement("h2", {}, [`Why Sushi Chain`]), _createElement("p", {}, [`The name SushiChain comes from our collective love of Sushi and a reminder of our Japanese roots.`]), _createElement("p", {}, [`We believe we are the first blockchain platform to empower developers to create amazing decentralized apps with simplicity and ease. dApps that run in browers and on mobile phones.`])])])]), _createElement("section", {
       "id": `features`,
       className: `sc__features`
     }, [_createElement("div", {
@@ -1726,26 +1726,33 @@ class $Main extends Component {
       className: `column column-m12 column-t-8`
     }, [_createElement("span", {}, [`Features`]), _createElement("h2", {}, [`What problems does it solve`]), _createElement("ul", {
       className: `features`
-    }, [_createElement("li", {}, [_createElement("h3", {}, [`Decentralized applications without smart contracts`]), _createElement("p", {}, [`We think embedding code into the blockchain is still a bit risky and there are so many ways to build great decentralized applications without using smart contracts.`])]), _createElement("li", {}, [_createElement("h3", {}, [`Built-in human readable addresses`]), _createElement("p", {}, [`Optionally create your own human readable address to make sending and receiving coins much easier. These can be bought and sold within the blockchain as well`])]), _createElement("li", {}, [_createElement("h3", {}, [`CPU only mining`]), _createElement("p", {}, [`We want to give everyone a chance to participate in our blockchain using consumer grade equipment. We don't want to restrict it only to people who can afford to buy custom mining rigs.`])]), _createElement("li", {}, [_createElement("h3", {}, [`Two Factor Auth`]), _createElement("p", {}, [`Optionally secure your transactions right at the blockchain level. This also makes any wallet much more secure and increases the overall level of security for users.`])])])])])]), _createElement("section", {
+    }, [_createElement("li", {}, [_createElement("h3", {}, [`Decentralized applications with off-chain smart contracts`]), _createElement("p", {}, [`We think embedding code into the blockchain is still a bit risky and there are so many ways to build great decentralized applications without using embedded smart contracts.`])]), _createElement("li", {}, [_createElement("h3", {}, [`Built-in human readable addresses`]), _createElement("p", {}, [`Optionally create your own human readable address to make sending and receiving coins much easier. These can be bought and sold within the blockchain as well`])]), _createElement("li", {}, [_createElement("h3", {}, [`CPU only mining`]), _createElement("p", {}, [`We want to give everyone a chance to participate in our blockchain using consumer grade equipment. We don't want to restrict it only to people who can afford to buy custom mining rigs.`])]), _createElement("li", {}, [_createElement("h3", {}, [`Two Factor Auth`]), _createElement("p", {}, [`Optionally secure your transactions right at the blockchain level. This also makes any wallet much more secure and increases the overall level of security for users.`])])])])])]), _createElement("section", {
       "id": `team`,
       className: `sc__team`
     }, [_createElement("div", {
       className: `row row--center`
     }, [_createElement("div", {
       className: `column column-m-12 column-t-8`
-    }, [_createElement("span", {}, [`Team`]), _createElement("h2", {}, [`Who is Sushi Chain`]), _createElement("p", {}, [`SushiChain was founded by Taichiro Suzuki at the start of 2018. He is the original founder and maintainer. Kingsley Hendrickse joined the core team shortly after.`]), _createElement("div", {
+    }, [_createElement("span", {}, [`Team`]), _createElement("h2", {}, [`Who is Sushi Chain`]), _createElement("p", {}, [`SushiChain was founded at the start of 2018. The team is organically growing as required. Meet the core members!`]), _createElement("div", {
       className: `row row--justified team__members`
     }, [_createElement("div", {
       className: `column column-m-12 column-t-6`
     }, [_createElement("img", {
-      "src": `assets/images/taichiro.jpg`,
+      "src": `assets/images/taichiro2.png`,
       "alt": `Taichiro Suzuki`
     }), _createElement("h3", {}, [`Taichiro Suzuki`]), _createElement("span", {}, [`Founder/Core Developer`]), _createElement("p", {}, [`Taichiro Suzuki is the founder of SushiChain. He is a backend software engineer. He has merged 3 things he really likes - Sushi, Blockchain and Crystal. That's a SushiChain.`])]), _createElement("div", {
       className: `column column-m-12 column-t-6`
     }, [_createElement("img", {
-      "src": `assets/images/kingsley.jpg`,
+      "src": `assets/images/kingsley2.png`,
       "alt": `Kingsley Hendrickse`
-    }), _createElement("h3", {}, [`Kingsley Hendrickse`]), _createElement("span", {}, [`Co-Creator/Core Developer`]), _createElement("p", {}, [`Kingsley is an agile software developer and technology enthusiast. He is very interested blockchain and cryptocurrency technologies. He also loves to eat Sushi - which is one of the main reasons he loves working on SushiChain!`])])])])])]), _createElement("section", {
+    }), _createElement("h3", {}, [`Kingsley Hendrickse`]), _createElement("span", {}, [`Co-Creator/Core Developer`]), _createElement("p", {}, [`Kingsley is an agile software developer and technology enthusiast. He is very interested in blockchain and cryptocurrency technologies. He also loves to eat Sushi - which is one of the main reasons he loves working on SushiChain!`])])]), _createElement("div", {
+      className: `row row--justified team__members`
+    }, [_createElement("div", {
+      className: `column column-m-12 column-t-6`
+    }, [_createElement("img", {
+      "src": `assets/images/minesh2.png`,
+      "alt": `Minesh Patel`
+    }), _createElement("h3", {}, [`Minesh Patel`]), _createElement("span", {}, [``]), _createElement("p", {}, [``])])])])])]), _createElement("section", {
       "id": `contact`,
       className: `sc__contact`
     }, [_createElement("div", {
@@ -1762,6 +1769,18 @@ class $Main extends Component {
     }, [_createElement("a", {
       "href": `https://github.com/sushichain`
     }, [`Github`])]), _createElement("li", {
+      className: `telegram`
+    }, [_createElement("a", {
+      "href": `https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw`
+    }, [`Telegram`])]), _createElement("li", {
+      className: `discord`
+    }, [_createElement("a", {
+      "href": `https://discord.gg/qBqfJPv`
+    }, [`Discord`])]), _createElement("li", {
+      className: `gitter`
+    }, [_createElement("a", {
+      "href": `https://gitter.im/SushiChain/Lobby`
+    }, [`Gitter`])]), _createElement("li", {
       className: `twitter`
     }, [_createElement("a", {
       "href": `https://www.twitter.com/sushichainhq`
