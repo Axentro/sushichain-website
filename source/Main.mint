@@ -131,8 +131,8 @@ component Main {
                                   <div class="column column-m-12 column-t-6">
                                       <img src="assets/images/minesh2.png" alt="Minesh Patel" />
                                       <h3><{"Minesh Patel"}></h3>
-                                      <span><{"Some title goes here"}></span>
-                                      <p><{"Coming soon..."}></p>
+                                      <span><{""}></span>
+                                      <p><{""}></p>
                                   </div>
                               </div>
 
@@ -149,9 +149,9 @@ component Main {
                               <a href="https://bit.ly/2HJBu1z" class="button"><{"Join Our Slack Channel"}></a>
                               <ul class="social">
                                   <li class="github"><a href="https://github.com/sushichain"><{"Github"}></a></li>
-                                  <li class="telegram"><a href="https://www.twitter.com/sushichainhq"><{"Telegram"}></a></li>
-                                  <li class="discord"><a href="https://www.twitter.com/sushichainhq"><{"Discord"}></a></li>
-                                  <li class="gitter"><a href="https://www.twitter.com/sushichainhq"><{"Gitter"}></a></li>
+                                  <li class="telegram"><a href="https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw"><{"Telegram"}></a></li>
+                                  <li class="discord"><a href="https://discord.gg/qBqfJPv"><{"Discord"}></a></li>
+                                  <li class="gitter"><a href="https://gitter.im/SushiChain/Lobby"><{"Gitter"}></a></li>
                                   <li class="twitter"><a href="https://www.twitter.com/sushichainhq"><{"Twitter"}></a></li>
                               </ul>
                           </div>
