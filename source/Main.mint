@@ -59,8 +59,8 @@ component Main {
                       <div class="row">
                           <div class="column column-m-12 column-t-5">
                               <span><{"Blockchain"}></span>
-                              <h1><{"Decentralized applications without Smart Contracts"}></h1>
-                              <p><{"SushiChain is an open source blockchain platform developed using the Crystal programming language. The core technology takes inspiration mostly from Bitcoin and Ethereum."}></p>
+                              <h1><{"Decentralized applications with off-chain smart contracts"}></h1>
+                              <p><{"SushiChain is an open source blockchain platform developed from scratch using the Crystal programming language. The core technology takes inspiration mostly from Bitcoin and Ethereum."}></p>
                               <p><{"SushiChain aims to provide developers with a platform to build complex decentralized applications using simple and easy to use tools."}></p>
                           </div>
                       </div>
@@ -71,8 +71,8 @@ component Main {
                           <div class="column colum-m-12 column-t-5">
                               <span><{"About"}></span>
                               <h2><{"Why Sushi Chain"}></h2>
-                              <p><{"The name SushiChain comes from our collective love of Sushi. Simplicity and elegance binding together high quality ingredients makes for delicious Sushi and a delicious blockchain."}></p>
-                              <p><{"Our Japanese founder Taichiro loves Sushi and he loves blockchain. It was this combination of passions that led him to start work on this project in order to evolve his skills and knowledge."}></p>
+                              <p><{"The name SushiChain comes from our collective love of Sushi and a reminder of our Japanese roots."}></p>
+                              <p><{"We believe we are the first blockchain platform to empower developers to create amazing decentralized apps with simplicity and ease. dApps that run in browers and on mobile phones."}></p>
                           </div>
                       </div>
                   </section>
@@ -84,8 +84,8 @@ component Main {
                               <h2><{"What problems does it solve"}></h2>
                               <ul class="features">
                                   <li>
-                                      <h3><{"Decentralized applications without smart contracts"}></h3>
-                                      <p><{"We think embedding code into the blockchain is still a bit risky and there are so many ways to build great decentralized applications without using smart contracts."}></p>
+                                      <h3><{"Decentralized applications with off-chain smart contracts"}></h3>
+                                      <p><{"We think embedding code into the blockchain is still a bit risky and there are so many ways to build great decentralized applications without using embedded smart contracts."}></p>
                                   </li>
                                   <li>
                                       <h3><{"Built-in human readable addresses"}></h3>
@@ -109,21 +109,30 @@ component Main {
                           <div class="column column-m-12 column-t-8">
                               <span><{"Team"}></span>
                               <h2><{"Who is Sushi Chain"}></h2>
-                              <p><{"SushiChain was founded by Taichiro Suzuki at the start of 2018. He is the original founder and maintainer. Kingsley Hendrickse joined the core team shortly after."}></p>
+                              <p><{"SushiChain was founded at the start of 2018. The team is organically growing as required. Meet the core members!"}></p>
 
                               <div class="row row--justified team__members">
                                   <div class="column column-m-12 column-t-6">
-                                      <img src="assets/images/taichiro.jpg" alt="Taichiro Suzuki" />
+                                      <img src="assets/images/taichiro2.png" alt="Taichiro Suzuki" />
                                       <h3><{"Taichiro Suzuki"}></h3>
                                       <span><{"Founder/Core Developer"}></span>
                                       <p><{"Taichiro Suzuki is the founder of SushiChain. He is a backend software engineer. He has merged 3 things he really likes - Sushi, Blockchain and Crystal. That's a SushiChain."}></p>
                                   </div>
 
                                   <div class="column column-m-12 column-t-6">
-                                      <img src="assets/images/kingsley.jpg" alt="Kingsley Hendrickse" />
+                                      <img src="assets/images/kingsley2.png" alt="Kingsley Hendrickse" />
                                       <h3><{"Kingsley Hendrickse"}></h3>
                                       <span><{"Co-Creator/Core Developer"}></span>
-                                      <p><{"Kingsley is an agile software developer and technology enthusiast. He is very interested blockchain and cryptocurrency technologies. He also loves to eat Sushi - which is one of the main reasons he loves working on SushiChain!"}></p>
+                                      <p><{"Kingsley is an agile software developer and technology enthusiast. He is very interested in blockchain and cryptocurrency technologies. He also loves to eat Sushi - which is one of the main reasons he loves working on SushiChain!"}></p>
+                                  </div>
+                              </div>
+
+                              <div class="row row--justified team__members">
+                                  <div class="column column-m-12 column-t-6">
+                                      <img src="assets/images/minesh2.png" alt="Minesh Patel" />
+                                      <h3><{"Minesh Patel"}></h3>
+                                      <span><{"Some title goes here"}></span>
+                                      <p><{"Coming soon..."}></p>
                                   </div>
                               </div>
 
@@ -140,6 +149,9 @@ component Main {
                               <a href="https://bit.ly/2HJBu1z" class="button"><{"Join Our Slack Channel"}></a>
                               <ul class="social">
                                   <li class="github"><a href="https://github.com/sushichain"><{"Github"}></a></li>
+                                  <li class="telegram"><a href="https://www.twitter.com/sushichainhq"><{"Telegram"}></a></li>
+                                  <li class="discord"><a href="https://www.twitter.com/sushichainhq"><{"Discord"}></a></li>
+                                  <li class="gitter"><a href="https://www.twitter.com/sushichainhq"><{"Gitter"}></a></li>
                                   <li class="twitter"><a href="https://www.twitter.com/sushichainhq"><{"Twitter"}></a></li>
                               </ul>
                           </div>
