@@ -166,6 +166,159 @@ detach() {
 }
 })
 
+_program.addRoutes([{
+  handler: (() => {
+    (async () => {
+  try {
+     await $Application.setPage(`donations`)
+  }
+  catch(_error) {
+    if (_error instanceof DoError) {
+    } else {
+      console.warn(`Unhandled error in do statement`)
+      console.log(_error)
+    }
+  } 
+})()
+  }),
+  mapping: [],
+  path: `/donations`
+}, {
+  handler: (() => {
+    (async () => {
+  try {
+     await $Application.setPage(`roadmap`)
+  }
+  catch(_error) {
+    if (_error instanceof DoError) {
+    } else {
+      console.warn(`Unhandled error in do statement`)
+      console.log(_error)
+    }
+  } 
+})()
+  }),
+  mapping: [],
+  path: `/roadmap`
+}, {
+  handler: (() => {
+    (async () => {
+  try {
+     await $Application.setPage(`home`)
+  }
+  catch(_error) {
+    if (_error instanceof DoError) {
+    } else {
+      console.warn(`Unhandled error in do statement`)
+      console.log(_error)
+    }
+  } 
+})()
+  }),
+  mapping: [],
+  path: `/home`
+}, {
+  handler: (() => {
+    (async () => {
+  try {
+     await $Application.setPage(`home`)
+  }
+  catch(_error) {
+    if (_error instanceof DoError) {
+    } else {
+      console.warn(`Unhandled error in do statement`)
+      console.log(_error)
+    }
+  } 
+})()
+  }),
+  mapping: [],
+  path: `/`
+}, {
+  handler: (() => {
+    $Application.setPage(`not_found`)
+  }),
+  mapping: [],
+  path: `*`
+}])
+
+const $AssetLoader = new(class {
+  loadStyle(url) {
+    return new Promise((resolve, reject) => {
+          let link = document.createElement('link')
+          link.rel = "stylesheet"
+          document.body.appendChild(link)
+          link.onload = resolve
+          link.href = url
+        })
+  }
+
+  loadScript(url) {
+    return new Promise((resolve, reject) => {
+          let script = document.createElement('script')
+          document.body.appendChild(script)
+          script.onload = () => {
+            document.body.removeChild(script)
+            resolve()
+          }
+          script.src = url
+        })
+  }
+
+  loadMisc() {
+    return (async () => {
+      try {
+         await (async ()=> {
+      try {
+        return await $AssetLoader.loadStyle.bind($AssetLoader)(`https://unpkg.com/purecss@1.0.0/build/pure-min.css`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadStyle.bind($AssetLoader)(`https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadStyle.bind($AssetLoader)(`https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadStyle.bind($AssetLoader)(`/dist/css/misc.css`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+      }
+      catch(_error) {
+        if (_error instanceof DoError) {
+        } else {
+          console.warn(`Unhandled error in do statement`)
+          console.log(_error)
+        }
+      } 
+    })()
+  }
+})
+
 const $Maybe = new(class {
   nothing() {
     return new Nothing
@@ -1632,9 +1785,418 @@ const $Debug = new(class {
   }
 })
 
-class $Main extends Component {
-  render() {
+const $Application = new (class extends Store {
+    constructor() {
+    super()
+    this.props = {
+        page: ``
+    }
+  }
+
+  get page () {
+    if (this.props.page != undefined) {
+      return this.props.page
+    } else {
+      return ``
+    }
+  }
+
+  get state () {
+    return {
+    page: this.page
+    }
+  }
+
+  setPage(a) {
+    return (async () => {
+      try {
+         await $Http.abortAll()
+
+     await new Promise((_resolve) => {
+      this.setState(_update(this.state, { page: a }), _resolve)
+    })
+      }
+      catch(_error) {
+        if (_error instanceof DoError) {
+        } else {
+          console.warn(`Unhandled error in do statement`)
+          console.log(_error)
+        }
+      } 
+    })()
+  }
+})
+$Application.__displayName = `Application`
+
+const $Ui = new (class extends Store {
+    constructor() {
+    super()
+    this.props = {
+        theme: new Record({
+      fontFamily: `-apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif`,
+      colors: new Record({
+        warning: new Record({
+          background: `#FF9730`,
+          focus: `#ffb163`,
+          text: `#FFF`
+        }),
+        danger: new Record({
+          background: `#E04141`,
+          focus: `#e76d6d`,
+          text: `#FFF`
+        }),
+        success: new Record({
+          background: `#3fb543`,
+          focus: `#60c863`,
+          text: `#FFF`
+        }),
+        secondary: new Record({
+          background: `#222`,
+          focus: `#333`,
+          text: `#FFF`
+        }),
+        primary: new Record({
+          background: `#3aad57`,
+          focus: `#0fa334`,
+          text: `#FFF`
+        }),
+        disabled: new Record({
+          background: `#D7D7D7`,
+          text: `#9A9A9A`,
+          focus: ``
+        }),
+        inputSecondary: new Record({
+          background: `#F3F3F3`,
+          text: `#616161`,
+          focus: ``
+        }),
+        input: new Record({
+          background: `#FDFDFD`,
+          text: `#606060`,
+          focus: `#FFF`
+        })
+      }),
+      hover: new Record({
+        color: `#26e200`
+      }),
+      outline: new Record({
+        fadedColor: `hsla(110, 100%, 44%, 0.5)`,
+        color: `hsla(110, 100%, 44%, 1)`
+      }),
+      border: new Record({
+        color: `#DDD`,
+        radius: `2px`
+      })
+    })
+    }
+  }
+
+  get theme () {
+    if (this.props.theme != undefined) {
+      return this.props.theme
+    } else {
+      return new Record({
+      fontFamily: `-apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif`,
+      colors: new Record({
+        warning: new Record({
+          background: `#FF9730`,
+          focus: `#ffb163`,
+          text: `#FFF`
+        }),
+        danger: new Record({
+          background: `#E04141`,
+          focus: `#e76d6d`,
+          text: `#FFF`
+        }),
+        success: new Record({
+          background: `#3fb543`,
+          focus: `#60c863`,
+          text: `#FFF`
+        }),
+        secondary: new Record({
+          background: `#222`,
+          focus: `#333`,
+          text: `#FFF`
+        }),
+        primary: new Record({
+          background: `#3aad57`,
+          focus: `#0fa334`,
+          text: `#FFF`
+        }),
+        disabled: new Record({
+          background: `#D7D7D7`,
+          text: `#9A9A9A`,
+          focus: ``
+        }),
+        inputSecondary: new Record({
+          background: `#F3F3F3`,
+          text: `#616161`,
+          focus: ``
+        }),
+        input: new Record({
+          background: `#FDFDFD`,
+          text: `#606060`,
+          focus: `#FFF`
+        })
+      }),
+      hover: new Record({
+        color: `#26e200`
+      }),
+      outline: new Record({
+        fadedColor: `hsla(110, 100%, 44%, 0.5)`,
+        color: `hsla(110, 100%, 44%, 1)`
+      }),
+      border: new Record({
+        color: `#DDD`,
+        radius: `2px`
+      })
+    })
+    }
+  }
+
+  get state () {
+    return {
+    theme: this.theme
+    }
+  }
+
+  setFontFamily(fontFamily) {
+    let theme = this.state.theme
+
+    let updatedTheme = _update(theme, { fontFamily: fontFamily })
+
+    return new Promise((_resolve) => {
+      this.setState(_update(this.state, { theme: updatedTheme }), _resolve)
+    })
+  }
+
+  setPrimaryBackground(color) {
+    let theme = this.state.theme
+
+    let colors = theme.colors
+
+    let primary = colors.primary
+
+    let updatedPrimary = _update(primary, { background: color })
+
+    let updatedColors = _update(colors, { primary: updatedPrimary })
+
+    let updatedTheme = _update(theme, { colors: updatedColors })
+
+    return new Promise((_resolve) => {
+      this.setState(_update(this.state, { theme: updatedTheme }), _resolve)
+    })
+  }
+})
+$Ui.__displayName = `Ui`
+
+class $Donations extends Component {
+  constructor(props) {
+    super(props)
+    this.state = new Record({
+      ready: false
+    })
+  }
+
+  componentDidMount() {
+    return (async () => {
+      try {
+         await $AssetLoader.loadMisc()
+
+     await new Promise((_resolve) => {
+      this.setState(_update(this.state, { ready: true }), _resolve)
+    })
+      }
+      catch(_error) {
+        if (_error instanceof DoError) {
+        } else {
+          console.warn(`Unhandled error in do statement`)
+          console.log(_error)
+        }
+      } 
+    })()
+  }
+
+  socialLink(name, url, image) {
     return _createElement("div", {
+      className: `pure-u-1-6`
+    }, [_createElement("a", {
+      "href": url,
+      className: `link`
+    }, [_createElement("img", {
+      "src": `assets/images/social-` + image + `.svg`
+    }), _createElement("br", {}), name])])
+  }
+
+  nav(name, url, current) {
+    let klass = (current ? `pure-menu-selected` : ``)
+
+    return _createElement("li", {
+      className: `pure-menu-item ` + klass
+    }, [_createElement("a", {
+      "href": url,
+      className: `pure-menu-link`
+    }, [name])])
+  }
+
+  render() {
+    return (this.state.ready ? _createElement("div", {}, [_createElement("div", {
+      className: `header`
+    }, [_createElement("div", {
+      className: `home-menu pure-menu pure-menu-horizontal pure-menu-fixed`
+    }, [_createElement("a", {
+      "href": ``,
+      className: `pure-menu-heading`
+    }, [_createElement("img", {
+      "src": `assets/images/logo.svg`
+    })]), _createElement("ul", {
+      className: `pure-menu-list`
+    }, [this.nav.bind(this)(`Home`, `/`, false), this.nav.bind(this)(`About`, `/`, false), this.nav.bind(this)(`Team`, `/`, false), this.nav.bind(this)(`Contact`, `/`, false), this.nav.bind(this)(`Blog`, `/`, false), this.nav.bind(this)(`Roadmap`, `/`, false), this.nav.bind(this)(`Donations`, `/`, true)])])]), _createElement("div", {
+      className: `content-wrapper` + ` donations-spacer`
+    }, [_createElement("div", {
+      className: `content`
+    }, [_createElement("h2", {
+      className: `content-head is-center`
+    }, [`Help us raise money by donating`]), _createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
+    }, [_createElement("h3", {
+      className: `content-subhead`
+    }, [_createElement("i", {
+      className: `fa fa-rocket`
+    }), `Get Started Quickly`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])]), _createElement("div", {
+      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
+    }, [_createElement("h3", {
+      className: `content-subhead`
+    }, [_createElement("i", {
+      className: `fa fa-mobile`
+    }), `  Responsive Layouts`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])]), _createElement("div", {
+      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
+    }, [_createElement("h3", {
+      className: `content-subhead`
+    }, [_createElement("i", {
+      className: `fa fa-th-large`
+    }), `Modular`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])]), _createElement("div", {
+      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
+    }, [_createElement("h3", {
+      className: `content-subhead`
+    }, [_createElement("i", {
+      className: `fa fa-check-square-o`
+    }), `Plays Nice`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])])])]), _createElement("div", {
+      className: `ribbon l-box-lrg pure-g`
+    }, [_createElement("div", {
+      className: `l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5`
+    }, [_createElement("img", {
+      "width": `200`,
+      "alt": `File Icons`,
+      "src": `assets/images/kingsley2.png`,
+      className: `pure-img-responsive`
+    })]), _createElement("div", {
+      className: `pure-u-1 pure-u-md-1-2 pure-u-lg-3-5`
+    }, [_createElement("h2", {
+      className: `content-head content-head-ribbon`
+    }, [`Laboris nisi ut aliquip.`]), _createElement("p", {}, [`  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor.`])])]), _createElement("div", {
+      className: `content`
+    }, [_createElement("h2", {
+      className: `content-head is-center`
+    }, [`Dolore magna aliqua. Uis aute irure.`]), _createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `l-box-lrg pure-u-1 pure-u-md-2-5`
+    }, [_createElement("form", {
+      className: `pure-form pure-form-stacked`
+    }, [_createElement("fieldset", {}, [_createElement("label", {
+      "for": `name`
+    }, [`Your Name`]), _createElement("input", {
+      "id": `name`,
+      "type": `text`,
+      "placeholder": `Your Name`
+    }), _createElement("label", {
+      "for": `email`
+    }, [`Your Email`]), _createElement("input", {
+      "id": `email`,
+      "type": `email`,
+      "placeholder": `Your Email`
+    }), _createElement("label", {
+      "for": `password`
+    }, [`Your Password`]), _createElement("input", {
+      "id": `password`,
+      "type": `password`,
+      "placeholder": `Your Password`
+    }), _createElement("button", {
+      "type": `submit`,
+      className: `pure-button`
+    }, [`Sign Up`])])])]), _createElement("div", {
+      className: `l-box-lrg pure-u-1 pure-u-md-3-5`
+    }, [_createElement("h4", {}, [`Contact Us`]), _createElement("p", {}, [`Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                              consequat.`]), _createElement("h4", {}, [`More Information`]), _createElement("p", {}, [`Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                              tempor incididunt ut labore et dolore magna aliqua.`])])])]), _createElement("div", {
+      className: `footer l-box is-center`
+    }, [_createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `pure-u-1-3`
+    }, [_createElement("p", {
+      className: `copyright`
+    }, [`© SushiChain 2018. All Rights Reserved.`])]), _createElement("div", {
+      className: `pure-u-1-3`
+    }, [_createElement("div", {
+      className: `pure-g`
+    }, [this.socialLink.bind(this)(`Twitter`, ``, `twitter`), this.socialLink.bind(this)(`Slack`, ``, `slack-2`), this.socialLink.bind(this)(`Telegram`, ``, `telegram`), this.socialLink.bind(this)(`Discord`, ``, `discord`), this.socialLink.bind(this)(`Gitter`, ``, `gitter`), this.socialLink.bind(this)(`Github`, ``, `github`)])]), _createElement("div", {
+      className: `pure-u-1-3`
+    }, [_createElement("p", {}, [_createElement("a", {
+      "href": `mailto:info@sushichain.io`,
+      "target": `_top`,
+      className: `link`
+    }, [`info@sushichain.io`])])])])])])]) : _createElement("div", {}))
+  }
+}
+
+$Donations.displayName = "Donations"
+
+class $Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = new Record({
+      ready: false
+    })
+  }
+
+  componentDidMount() {
+    return (async () => {
+      try {
+         await (async ()=> {
+      try {
+        return await $AssetLoader.loadStyle(`/dist/css/style.min.css`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await new Promise((_resolve) => {
+      this.setState(_update(this.state, { ready: true }), _resolve)
+    })
+      }
+      catch(_error) {
+        if (_error instanceof DoError) {
+        } else {
+          console.warn(`Unhandled error in do statement`)
+          console.log(_error)
+        }
+      } 
+    })()
+  }
+
+  render() {
+    return (this.state.ready ? _createElement("div", {
       className: `wrapper`
     }, [_createElement("header", {
       "role": `banner`,
@@ -1649,7 +2211,7 @@ class $Main extends Component {
     }), _createElement("img", {
       "src": `assets/images/logo-white.svg`,
       "alt": `Flowers`,
-      className: `main-auto-width`
+      className: `home-auto-width`
     })]), _createElement("nav", {
       className: `nav-primary`
     }, [_createElement("a", {
@@ -1752,7 +2314,7 @@ class $Main extends Component {
     }, [_createElement("img", {
       "src": `assets/images/minesh2.png`,
       "alt": `Minesh Patel`
-    }), _createElement("h3", {}, [`Minesh Patel`]), _createElement("span", {}, [``]), _createElement("p", {}, [``])])])])])]), _createElement("section", {
+    }), _createElement("h3", {}, [`Minesh Patel`]), _createElement("span", {}, [`Product Manager`]), _createElement("p", {}, [`Minesh is an agile business analyst with a passion for solving problems through technology. Takes ideas from conception to launch. Excited about how Blockchain will reinvigorate the internet as we know it. Often found savouring sashimi!`])])])])])]), _createElement("section", {
       "id": `contact`,
       className: `sc__contact`
     }, [_createElement("div", {
@@ -1818,7 +2380,57 @@ class $Main extends Component {
     }, [`Contact`])]), _createElement("li", {}, [_createElement("a", {
       "href": `http://blog.sushichain.io/`,
       "target": `_blank`
-    }, [`Blog`])])])])])])])])
+    }, [`Blog`])])])])])])])]) : _createElement("div", {}))
+  }
+}
+
+$Home.displayName = "Home"
+
+class $RoadMap extends Component {
+  render() {
+    return _createElement("h1", {}, [`RoadMap`])
+  }
+}
+
+$RoadMap.displayName = "RoadMap"
+
+class $Main extends Component {
+  get pages() {
+    return [new Record({
+      name: `home`,
+      contents: _createElement($Home, {  })
+    }), new Record({
+      name: `donations`,
+      contents: _createElement($Donations, {  })
+    }), new Record({
+      name: `roadmap`,
+      contents: _createElement($RoadMap, {  })
+    }), new Record({
+      name: `not_found`,
+      contents: _createElement("div", {}, [`404`])
+    })]
+  }
+
+  get page () { return $Application.page }
+
+  setPage (...params) { return $Application.setPage(...params) }
+
+  componentWillUnmount () {
+    $Application._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Application._subscribe(this)
+  }
+
+  render() {
+    let content = $Maybe.withDefault(_createElement("div", {}), $Maybe.map(((item) => {
+    return item.contents
+    }), $Array.find(((item) => {
+    return _compare(item.name, this.page)
+    }), this.pages)))
+
+    return _createElement("div", {}, [content])
   }
 }
 
@@ -1900,9 +2512,3021 @@ $If.defaultProps = {
   children: [],condition: true
 }
 
+class $Ui_Loader extends Component {
+  get pointerEvents() {
+    return (this.shown ? `` : `none`)
+  }
+
+  get opacity() {
+    return (this.shown ? 1 : 0)
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get shown () {
+    if (this.props.shown != undefined) {
+      return this.props.shown
+    } else {
+      return false
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-loader-base`
+    }, [this.children, _createElement("div", {
+      className: `ui-loader-loader`,
+      style: {
+        [`--ui-loader-loader-pointer-events`]: this.pointerEvents,
+        [`--ui-loader-loader-opacity`]: this.opacity
+      }
+    }, [`Loading...`])])
+  }
+}
+
+$Ui_Loader.displayName = "Ui.Loader"
+
+$Ui_Loader.defaultProps = {
+  children: [],shown: false
+}
+
+class $Ui_Form_Label extends Component {
+  get fontSize () {
+    if (this.props.fontSize != undefined) {
+      return this.props.fontSize
+    } else {
+      return 16
+    }
+  }
+
+  get text () {
+    if (this.props.text != undefined) {
+      return this.props.text
+    } else {
+      return ``
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-form-label-base`,
+      style: {
+        [`--ui-form-label-base-font-size`]: $Number.toString(this.fontSize) + `px`,
+        [`--ui-form-label-base-font-family`]: this.theme.fontFamily
+      }
+    }, [this.text])
+  }
+}
+
+$Ui_Form_Label.displayName = "Ui.Form.Label"
+
+$Ui_Form_Label.defaultProps = {
+  fontSize: 16,text: ``
+}
+
+class $Ui_Table extends Component {
+  get headers () {
+    if (this.props.headers != undefined) {
+      return this.props.headers
+    } else {
+      return []
+    }
+  }
+
+  get rows () {
+    if (this.props.rows != undefined) {
+      return this.props.rows
+    } else {
+      return []
+    }
+  }
+
+  render() {
+    return _createElement("table", {}, [_createElement("thead", {}, [this.headers])])
+  }
+}
+
+$Ui_Table.displayName = "Ui.Table"
+
+$Ui_Table.defaultProps = {
+  headers: [],rows: []
+}
+
+class $Ui_Button extends Component {
+  get flexDirection() {
+    return (() => {
+      let __condition = this.side
+
+       if (_compare(__condition, `right`)) {
+        return `row-reverse`
+      } else if (_compare(__condition, `left`)) {
+        return `row`
+      } else {
+        return ``
+      }
+    })()
+  }
+
+  get focusBorder() {
+    return (this.outline ? `1px solid ` + this.theme.outline.color : `1px solid transparent`)
+  }
+
+  get focusColor() {
+    return (this.outline ? this.theme.outline.color : this.colors.text)
+  }
+
+  get shadowColor() {
+    return (this.outline ? this.theme.outline.fadedColor : `transparent`)
+  }
+
+  get border() {
+    return (this.outline ? `1px solid ` + this.theme.border.color : `1px solid transparent`)
+  }
+
+  get colors() {
+    return (this.outline ? this.theme.colors.input : (() => {
+      let __condition = this.type
+
+       if (_compare(__condition, `secondary`)) {
+        return this.theme.colors.secondary
+      } else if (_compare(__condition, `warning`)) {
+        return this.theme.colors.warning
+      } else if (_compare(__condition, `success`)) {
+        return this.theme.colors.success
+      } else if (_compare(__condition, `primary`)) {
+        return this.theme.colors.primary
+      } else if (_compare(__condition, `danger`)) {
+        return this.theme.colors.danger
+      } else {
+        return new Record({
+        background: ``,
+        focus: ``,
+        text: ``
+      })
+      }
+    })())
+  }
+
+  get actualIcon() {
+    return (_compare(this.icon, $Html.empty()) ? $Html.empty() : _createElement("div", {
+      className: `ui-button-icon`,
+      style: {
+        [`--ui-button-icon-height`]: this.size + `px`,
+        [`--ui-button-icon-width`]: this.size + `px`
+      }
+    }, [this.icon]))
+  }
+
+  get actualGutter() {
+    return (_compare(this.icon, $Html.empty()) ? $Html.empty() : _createElement("div", {
+      className: `ui-button-gutter`,
+      style: {
+        [`--ui-button-gutter-width`]: this.size * 1.42857142857 + `px`
+      }
+    }))
+  }
+
+  get icon () {
+    if (this.props.icon != undefined) {
+      return this.props.icon
+    } else {
+      return $Html.empty()
+    }
+  }
+
+  get type () {
+    if (this.props.type != undefined) {
+      return this.props.type
+    } else {
+      return `primary`
+    }
+  }
+
+  get side () {
+    if (this.props.side != undefined) {
+      return this.props.side
+    } else {
+      return `left`
+    }
+  }
+
+  get label () {
+    if (this.props.label != undefined) {
+      return this.props.label
+    } else {
+      return ``
+    }
+  }
+
+  get size () {
+    if (this.props.size != undefined) {
+      return this.props.size
+    } else {
+      return 14
+    }
+  }
+
+  get disabled () {
+    if (this.props.disabled != undefined) {
+      return this.props.disabled
+    } else {
+      return false
+    }
+  }
+
+  get readonly () {
+    if (this.props.readonly != undefined) {
+      return this.props.readonly
+    } else {
+      return false
+    }
+  }
+
+  get outline () {
+    if (this.props.outline != undefined) {
+      return this.props.outline
+    } else {
+      return false
+    }
+  }
+
+  get onMouseDown () {
+    if (this.props.onMouseDown != undefined) {
+      return this.props.onMouseDown
+    } else {
+      return ((event) => {
+    return null
+    })
+    }
+  }
+
+  get onClick () {
+    if (this.props.onClick != undefined) {
+      return this.props.onClick
+    } else {
+      return ((event) => {
+    return null
+    })
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("button", {
+      "onMouseDown": (event => (this.onMouseDown)(_normalizeEvent(event))),
+      "disabled": this.disabled,
+      "readonly": this.readonly,
+      "onClick": (event => (this.onClick)(_normalizeEvent(event))),
+      className: `ui-button-styles`,
+      style: {
+        [`--ui-button-styles-border-radius`]: this.theme.border.radius,
+        [`--ui-button-styles-font-family`]: this.theme.fontFamily,
+        [`--ui-button-styles-height`]: this.size * 2.42857142857 + `px`,
+        [`--ui-button-styles-flexDirection`]: this.flexDirection,
+        [`--ui-button-styles-padding`]: `0 ` + this.size * 1.5 + `px`,
+        [`--ui-button-styles-background`]: this.colors.background,
+        [`--ui-button-styles-color`]: this.colors.text,
+        [`--ui-button-styles-font-size`]: this.size + `px`,
+        [`--ui-button-styles-border`]: this.border,
+        [`--ui-button-styles-focus-box-shadow`]: `0 0 2px ` + this.shadowColor + ` inset,
+                          0 0 2px ` + this.shadowColor,
+        [`--ui-button-styles-focus-background`]: this.colors.focus,
+        [`--ui-button-styles-focus-border`]: this.focusBorder,
+        [`--ui-button-styles-focus-color`]: this.focusColor,
+        [`--ui-button-styles-disabled-background`]: this.theme.colors.disabled.background,
+        [`--ui-button-styles-disabled-color`]: this.theme.colors.disabled.text
+      }
+    }, [_createElement("div", {
+      className: `ui-button-label`
+    }, [this.label]), this.actualGutter, this.actualIcon])
+  }
+}
+
+$Ui_Button.displayName = "Ui.Button"
+
+$Ui_Button.defaultProps = {
+  icon: $Html.empty(),type: `primary`,side: `left`,label: ``,size: 14,disabled: false,readonly: false,outline: false,onMouseDown: ((event) => {
+  return null
+  }),onClick: ((event) => {
+  return null
+  })
+}
+
+class $Ui_Toolbar_Title extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get href () {
+    if (this.props.href != undefined) {
+      return this.props.href
+    } else {
+      return ``
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-toolbar-title-base`
+    }, [_createElement($Ui_Link, { "href": this.href }, _array(this.children))])
+  }
+}
+
+$Ui_Toolbar_Title.displayName = "Ui.Toolbar.Title"
+
+$Ui_Toolbar_Title.defaultProps = {
+  children: [],href: ``
+}
+
+class $Ui_Breadcrumb extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get target () {
+    if (this.props.target != undefined) {
+      return this.props.target
+    } else {
+      return ``
+    }
+  }
+
+  get label () {
+    if (this.props.label != undefined) {
+      return this.props.label
+    } else {
+      return ``
+    }
+  }
+
+  get type () {
+    if (this.props.type != undefined) {
+      return this.props.type
+    } else {
+      return ``
+    }
+  }
+
+  get href () {
+    if (this.props.href != undefined) {
+      return this.props.href
+    } else {
+      return ``
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-breadcrumb-base`,
+      style: {
+        [`--ui-breadcrumb-base-hover-color`]: this.theme.hover.color,
+        [`--ui-breadcrumb-base-a-focus-color`]: this.theme.hover.color
+      }
+    }, [_createElement($Ui_Link, { "children": this.children, "target": this.target, "type": `inherit`, "label": this.label, "href": this.href })])
+  }
+}
+
+$Ui_Breadcrumb.displayName = "Ui.Breadcrumb"
+
+$Ui_Breadcrumb.defaultProps = {
+  children: [],target: ``,label: ``,type: ``,href: ``
+}
+
+class $Ui_Breadcrumbs extends Component {
+  get span() {
+    return _createElement("span", {
+      className: `ui-breadcrumbs-separator`
+    }, [this.separator])
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get separator () {
+    if (this.props.separator != undefined) {
+      return this.props.separator
+    } else {
+      return `|`
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-breadcrumbs-base`,
+      style: {
+        [`--ui-breadcrumbs-base-background`]: this.theme.colors.inputSecondary.background,
+        [`--ui-breadcrumbs-base-color`]: this.theme.colors.inputSecondary.text,
+        [`--ui-breadcrumbs-base-font-family`]: this.theme.fontFamily
+      }
+    }, [$Array.intersperse(this.span, this.children)])
+  }
+}
+
+$Ui_Breadcrumbs.displayName = "Ui.Breadcrumbs"
+
+$Ui_Breadcrumbs.defaultProps = {
+  children: [],separator: `|`
+}
+
+class $Ui_Card extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-card-base`
+    }, [this.children])
+  }
+}
+
+$Ui_Card.displayName = "Ui.Card"
+
+$Ui_Card.defaultProps = {
+  children: []
+}
+
+class $Ui_Card_Image extends Component {
+  get src () {
+    if (this.props.src != undefined) {
+      return this.props.src
+    } else {
+      return ``
+    }
+  }
+
+  render() {
+    return _createElement("img", {
+      "src": this.src,
+      className: `ui-card-image-base`
+    })
+  }
+}
+
+$Ui_Card_Image.displayName = "Ui.Card.Image"
+
+$Ui_Card_Image.defaultProps = {
+  src: ``
+}
+
+class $Ui_Card_Block extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-card-block-base`
+    }, [this.children])
+  }
+}
+
+$Ui_Card_Block.displayName = "Ui.Card.Block"
+
+$Ui_Card_Block.defaultProps = {
+  children: []
+}
+
+class $Ui_Card_Title extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-card-title-base`
+    }, [this.children])
+  }
+}
+
+$Ui_Card_Title.displayName = "Ui.Card.Title"
+
+$Ui_Card_Title.defaultProps = {
+  children: []
+}
+
+class $Ui_Card_Text extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-card-text-base`
+    }, [this.children])
+  }
+}
+
+$Ui_Card_Text.displayName = "Ui.Card.Text"
+
+$Ui_Card_Text.defaultProps = {
+  children: []
+}
+
+class $Ui_Time extends Component {
+  constructor(props) {
+    super(props)
+    this.state = new Record({
+      now: $Time.now()
+    })
+  }
+
+  get date () {
+    if (this.props.date != undefined) {
+      return this.props.date
+    } else {
+      return $Time.now()
+    }
+  }
+
+  componentWillUnmount () {
+    $Provider_Tick._unsubscribe(this)
+  }
+
+  componentDidUpdate () {
+    if (true) {
+      $Provider_Tick._subscribe(this, new Record({
+      ticks: (() => {
+      return new Promise((_resolve) => {
+        this.setState(new Record({
+        now: $Time.now()
+      }), _resolve)
+      })
+      })
+    }))
+    } else {
+      $Provider_Tick._unsubscribe(this)
+    }
+  }
+
+  componentDidMount () {
+    if (true) {
+      $Provider_Tick._subscribe(this, new Record({
+      ticks: (() => {
+      return new Promise((_resolve) => {
+        this.setState(new Record({
+        now: $Time.now()
+      }), _resolve)
+      })
+      })
+    }))
+    } else {
+      $Provider_Tick._unsubscribe(this)
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      "title": $Time.toIso(this.date),
+      className: `ui-time-base`
+    }, [$Time.relative(this.date, this.state.now)])
+  }
+}
+
+$Ui_Time.displayName = "Ui.Time"
+
+$Ui_Time.defaultProps = {
+  date: $Time.now()
+}
+
+class $Ui_Checkbox extends Component {
+  get opacity() {
+    return (this.checked ? `1` : `0`)
+  }
+
+  get transform() {
+    return (this.checked ? `scale(1)` : `scale(0.4) rotate(45deg)`)
+  }
+
+  get onChange () {
+    if (this.props.onChange != undefined) {
+      return this.props.onChange
+    } else {
+      return ((value) => {
+    return null
+    })
+    }
+  }
+
+  get disabled () {
+    if (this.props.disabled != undefined) {
+      return this.props.disabled
+    } else {
+      return false
+    }
+  }
+
+  get readonly () {
+    if (this.props.readonly != undefined) {
+      return this.props.readonly
+    } else {
+      return false
+    }
+  }
+
+  get checked () {
+    if (this.props.checked != undefined) {
+      return this.props.checked
+    } else {
+      return false
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  toggle() {
+    return this.onChange(!this.checked)
+  }
+
+  render() {
+    return _createElement("button", {
+      "disabled": this.disabled,
+      "onClick": (event => (((event) => {
+      return this.toggle.bind(this)()
+      }))(_normalizeEvent(event))),
+      className: `ui-checkbox-base`,
+      style: {
+        [`--ui-checkbox-base-background-color`]: this.theme.colors.input.background,
+        [`--ui-checkbox-base-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-checkbox-base-border-radius`]: this.theme.border.radius,
+        [`--ui-checkbox-base-color`]: this.theme.colors.input.text,
+        [`--ui-checkbox-base-focus-box-shadow`]: `0 0 2px ` + this.theme.outline.fadedColor + ` inset,
+                          0 0 2px ` + this.theme.outline.fadedColor,
+        [`--ui-checkbox-base-focus-border-color`]: this.theme.outline.color,
+        [`--ui-checkbox-base-focus-color`]: this.theme.outline.color,
+        [`--ui-checkbox-base-disabled-background`]: this.theme.colors.disabled.background,
+        [`--ui-checkbox-base-disabled-color`]: this.theme.colors.disabled.text
+      }
+    }, [_createElement("svg", {
+      "viewBox": `0 0 36 36`,
+      className: `ui-checkbox-icon`,
+      style: {
+        [`--ui-checkbox-icon-transform`]: this.transform,
+        [`--ui-checkbox-icon-opacity`]: this.opacity
+      }
+    }, [_createElement("path", {
+      "d": `M35.792 5.332L31.04 1.584c-.147-.12-.33-.208-.537-.208-.207 0-.398.087-.545.217l-17.286 22.21S5.877 17.27 5.687 17.08c-.19-.19-.442-.51-.822-.51-.38 0-.554.268-.753.467-.148.156-2.57 2.7-3.766 3.964-.07.077-.112.12-.173.18-.104.148-.173.313-.173.494 0 .19.07.347.173.494l.242.225s12.058 11.582 12.257 11.78c.2.2.442.45.797.45.345 0 .63-.37.795-.536l21.562-27.7c.104-.146.173-.31.173-.5 0-.217-.087-.4-.208-.555z`
+    })])])
+  }
+}
+
+$Ui_Checkbox.displayName = "Ui.Checkbox"
+
+$Ui_Checkbox.defaultProps = {
+  onChange: ((value) => {
+  return null
+  }),disabled: false,readonly: false,checked: false
+}
+
+class $Ui_Calendar_Cell extends Component {
+  get colors() {
+    return (this.selected ? this.theme.colors.primary : this.theme.colors.inputSecondary)
+  }
+
+  get opacity() {
+    return (this.active ? `1` : `0.25`)
+  }
+
+  get onClick () {
+    if (this.props.onClick != undefined) {
+      return this.props.onClick
+    } else {
+      return ((day) => {
+    return null
+    })
+    }
+  }
+
+  get day () {
+    if (this.props.day != undefined) {
+      return this.props.day
+    } else {
+      return $Time.now()
+    }
+  }
+
+  get selected () {
+    if (this.props.selected != undefined) {
+      return this.props.selected
+    } else {
+      return false
+    }
+  }
+
+  get active () {
+    if (this.props.active != undefined) {
+      return this.props.active
+    } else {
+      return false
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("div", {
+      "title": $Time.format(`YYYY-MM-DD HH:mm:ss`, this.day),
+      "onClick": (event => (((event) => {
+      return this.onClick(this.day)
+      }))(_normalizeEvent(event))),
+      className: `ui-calendar-cell-style`,
+      style: {
+        [`--ui-calendar-cell-style-border-radius`]: this.theme.border.radius,
+        [`--ui-calendar-cell-style-background`]: this.colors.background,
+        [`--ui-calendar-cell-style-color`]: this.colors.text,
+        [`--ui-calendar-cell-style-opacity`]: this.opacity,
+        [`--ui-calendar-cell-style-hover-background`]: this.theme.colors.primary.background,
+        [`--ui-calendar-cell-style-hover-color`]: this.theme.colors.primary.text
+      }
+    }, [$Number.toString($Time.day(this.day))])
+  }
+}
+
+$Ui_Calendar_Cell.displayName = "Ui.Calendar.Cell"
+
+$Ui_Calendar_Cell.defaultProps = {
+  onClick: ((day) => {
+  return null
+  }),day: $Time.now(),selected: false,active: false
+}
+
+class $Ui_Toggle extends Component {
+  get left() {
+    return (this.checked ? `2px` : `50%`)
+  }
+
+  get onChange () {
+    if (this.props.onChange != undefined) {
+      return this.props.onChange
+    } else {
+      return ((value) => {
+    return null
+    })
+    }
+  }
+
+  get offLabel () {
+    if (this.props.offLabel != undefined) {
+      return this.props.offLabel
+    } else {
+      return `OFF`
+    }
+  }
+
+  get onLabel () {
+    if (this.props.onLabel != undefined) {
+      return this.props.onLabel
+    } else {
+      return `ON`
+    }
+  }
+
+  get disabled () {
+    if (this.props.disabled != undefined) {
+      return this.props.disabled
+    } else {
+      return false
+    }
+  }
+
+  get readonly () {
+    if (this.props.readonly != undefined) {
+      return this.props.readonly
+    } else {
+      return false
+    }
+  }
+
+  get checked () {
+    if (this.props.checked != undefined) {
+      return this.props.checked
+    } else {
+      return false
+    }
+  }
+
+  get width () {
+    if (this.props.width != undefined) {
+      return this.props.width
+    } else {
+      return 100
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  toggle() {
+    return this.onChange(!this.checked)
+  }
+
+  render() {
+    return _createElement("button", {
+      "onClick": (event => (((event) => {
+      return this.toggle.bind(this)()
+      }))(_normalizeEvent(event))),
+      className: `ui-toggle-base`,
+      style: {
+        [`--ui-toggle-base-background-color`]: this.theme.colors.input.background,
+        [`--ui-toggle-base-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-toggle-base-border-radius`]: this.theme.border.radius,
+        [`--ui-toggle-base-color`]: this.theme.colors.input.text,
+        [`--ui-toggle-base-font-family`]: this.theme.fontFamily,
+        [`--ui-toggle-base-width`]: this.width + `px`,
+        [`--ui-toggle-base-focus-box-shadow`]: `0 0 2px ` + this.theme.outline.fadedColor + ` inset,
+                          0 0 2px ` + this.theme.outline.fadedColor,
+        [`--ui-toggle-base-focus-border-color`]: this.theme.outline.color,
+        [`--ui-toggle-base-focus-color`]: this.theme.outline.color,
+        [`--ui-toggle-base-disabled-background`]: this.theme.colors.disabled.background,
+        [`--ui-toggle-base-disabled-color`]: this.theme.colors.disabled.text
+      }
+    }, [_createElement("div", {
+      className: `ui-toggle-label`
+    }, [this.onLabel]), _createElement("div", {
+      className: `ui-toggle-label`
+    }, [this.offLabel]), _createElement("div", {
+      className: `ui-toggle-overlay`,
+      style: {
+        [`--ui-toggle-overlay-background`]: this.theme.colors.primary.background,
+        [`--ui-toggle-overlay-border-radius`]: this.theme.border.radius,
+        [`--ui-toggle-overlay-left`]: this.left
+      }
+    })])
+  }
+}
+
+$Ui_Toggle.displayName = "Ui.Toggle"
+
+$Ui_Toggle.defaultProps = {
+  onChange: ((value) => {
+  return null
+  }),offLabel: `OFF`,onLabel: `ON`,disabled: false,readonly: false,checked: false,width: 100
+}
+
+class $Ui_Toolbar_Link extends Component {
+  get target () {
+    if (this.props.target != undefined) {
+      return this.props.target
+    } else {
+      return ``
+    }
+  }
+
+  get label () {
+    if (this.props.label != undefined) {
+      return this.props.label
+    } else {
+      return ``
+    }
+  }
+
+  get href () {
+    if (this.props.href != undefined) {
+      return this.props.href
+    } else {
+      return ``
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-toolbar-link-base`
+    }, [_createElement($Ui_Link, { "target": this.target, "label": this.label, "href": this.href })])
+  }
+}
+
+$Ui_Toolbar_Link.displayName = "Ui.Toolbar.Link"
+
+$Ui_Toolbar_Link.defaultProps = {
+  target: ``,label: ``,href: ``
+}
+
+class $Ui_Link extends Component {
+  get colors() {
+    return (() => {
+      let __condition = this.type
+
+       if (_compare(__condition, `secondary`)) {
+        return this.theme.colors.secondary
+      } else if (_compare(__condition, `warning`)) {
+        return this.theme.colors.warning
+      } else if (_compare(__condition, `success`)) {
+        return this.theme.colors.success
+      } else if (_compare(__condition, `primary`)) {
+        return this.theme.colors.primary
+      } else if (_compare(__condition, `danger`)) {
+        return this.theme.colors.danger
+      } else if (_compare(__condition, `inherit`)) {
+        return new Record({
+        background: `inherit`,
+        focus: `inherit`,
+        text: `inherit`
+      })
+      } else {
+        return new Record({
+        background: ``,
+        focus: ``,
+        text: ``
+      })
+      }
+    })()
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get type () {
+    if (this.props.type != undefined) {
+      return this.props.type
+    } else {
+      return `primary`
+    }
+  }
+
+  get target () {
+    if (this.props.target != undefined) {
+      return this.props.target
+    } else {
+      return ``
+    }
+  }
+
+  get label () {
+    if (this.props.label != undefined) {
+      return this.props.label
+    } else {
+      return ``
+    }
+  }
+
+  get href () {
+    if (this.props.href != undefined) {
+      return this.props.href
+    } else {
+      return ``
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("a", {
+      "target": this.target,
+      "href": this.href,
+      className: `ui-link-base`,
+      style: {
+        [`--ui-link-base-color`]: this.colors.background,
+        [`--ui-link-base-hover-color`]: this.colors.focus,
+        [`--ui-link-base-focus-color`]: this.colors.focus
+      }
+    }, [this.label, this.children])
+  }
+}
+
+$Ui_Link.displayName = "Ui.Link"
+
+$Ui_Link.defaultProps = {
+  children: [],type: `primary`,target: ``,label: ``,href: ``
+}
+
+class $Ui_Pager_Page extends Component {
+  get pointerEvents() {
+    return (_compare(this.transition, `fade`) && _compare(this.opacity, 0) ? `none` : ``)
+  }
+
+  get transform() {
+    return (_compare(this.transition, `slide`) ? `translate3d(0,0,0) translateX(` + $Number.toString(this.position) + `%)` : ``)
+  }
+
+  get opacity() {
+    return (_compare(this.transition, `fade`) ? 1 - $Math.abs(this.position) / 100 : 1)
+  }
+
+  get transitionDuration() {
+    return (this.transitioning ? this.duration : 0)
+  }
+
+  get transition () {
+    if (this.props.transition != undefined) {
+      return this.props.transition
+    } else {
+      return `slide`
+    }
+  }
+
+  get transitioning () {
+    if (this.props.transitioning != undefined) {
+      return this.props.transitioning
+    } else {
+      return false
+    }
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get duration () {
+    if (this.props.duration != undefined) {
+      return this.props.duration
+    } else {
+      return 1000
+    }
+  }
+
+  get position () {
+    if (this.props.position != undefined) {
+      return this.props.position
+    } else {
+      return 0
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-pager-page-base`,
+      style: {
+        [`--ui-pager-page-base-transition`]: this.transitionDuration + `ms`,
+        [`--ui-pager-page-base-pointer-events`]: this.pointerEvents,
+        [`--ui-pager-page-base-transform`]: this.transform,
+        [`--ui-pager-page-base-opacity`]: this.opacity
+      }
+    }, [this.children])
+  }
+}
+
+$Ui_Pager_Page.displayName = "Ui.Pager.Page"
+
+$Ui_Pager_Page.defaultProps = {
+  transition: `slide`,transitioning: false,children: [],duration: 1000,position: 0
+}
+
+class $Ui_Pager extends Component {
+  constructor(props) {
+    super(props)
+    this.state = new Record({
+      transitioning: false,
+      left: ``,
+      center: ``
+    })
+  }
+
+  get isPage() {
+    return $Array.any(((item) => {
+    return _compare(item.name, this.state.center)
+    }), this.pages)
+  }
+
+  get hasPage() {
+    return $Array.any(((item) => {
+    return _compare(item.name, this.active)
+    }), this.pages)
+  }
+
+  get pages () {
+    if (this.props.pages != undefined) {
+      return this.props.pages
+    } else {
+      return []
+    }
+  }
+
+  get transition () {
+    if (this.props.transition != undefined) {
+      return this.props.transition
+    } else {
+      return `slide`
+    }
+  }
+
+  get duration () {
+    if (this.props.duration != undefined) {
+      return this.props.duration
+    } else {
+      return 1000
+    }
+  }
+
+  get active () {
+    if (this.props.active != undefined) {
+      return this.props.active
+    } else {
+      return ``
+    }
+  }
+
+  componentDidUpdate() {
+    return (!_compare(this.state.center, this.active) && this.hasPage ? (this.isPage ? this.switchPages.bind(this)() : new Promise((_resolve) => {
+      this.setState(_update(this.state, { center: this.active }), _resolve)
+    })) : null)
+  }
+
+  switchPages() {
+    return (async () => {
+      try {
+         await new Promise((_resolve) => {
+      this.setState(_update(this.state, { left: this.state.center, center: this.active, transitioning: true }), _resolve)
+    })
+
+     await (async ()=> {
+      try {
+        return await $Timer.timeout(this.duration, `a`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await new Promise((_resolve) => {
+      this.setState(_update(this.state, { transitioning: false, left: `` }), _resolve)
+    })
+      }
+      catch(_error) {
+        if (_error instanceof DoError) {
+        } else {
+          console.warn(`Unhandled error in do statement`)
+          console.log(_error)
+        }
+      } 
+    })()
+  }
+
+  renderPage(item) {
+    let transitioning = (_compare(this.state.left, item.name) || _compare(this.state.center, item.name)) && this.state.transitioning
+
+    let position = (_compare(this.state.left, item.name) ? -100 : (_compare(this.state.center, item.name) ? 0 : 100))
+
+    return _createElement($Ui_Pager_Page, { "transitioning": transitioning, "transition": this.transition, "position": position, "duration": this.duration }, _array(item.contents))
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-pager-base`
+    }, [$Array.map(this.renderPage.bind(this), this.pages)])
+  }
+}
+
+$Ui_Pager.displayName = "Ui.Pager"
+
+$Ui_Pager.defaultProps = {
+  pages: [],transition: `slide`,duration: 1000,active: ``
+}
+
+class $Ui_Pagination extends Component {
+  get pages() {
+    return $Math.floor($Math.max(this.total - 1, 0) / this.perPage)
+  }
+
+  get buttonRange() {
+    return $Array.range($Math.max(1, this.page - this.sidePages), $Math.min(this.page + this.sidePages + 1, this.pages))
+  }
+
+  get buttons() {
+    return $Array.map(((index) => {
+    return _createElement($Ui_Button, { "onClick": ((event) => {
+    return this.onChange(index)
+    }), "label": $Number.toString(index + 1), "key": $Number.toString(index), "outline": !_compare(index, this.page) })
+    }), this.buttonRange)
+  }
+
+  get previousButton() {
+    return (!_compare(this.page, 0) && this.pages > 0 ? _createElement($Ui_Button, { "onClick": ((event) => {
+    return this.onChange(this.page - 1)
+    }), "outline": true, "label": `Prev` }) : $Html.empty())
+  }
+
+  get nextButton() {
+    return (!_compare(this.page, this.pages) && this.pages > 0 ? _createElement($Ui_Button, { "onClick": ((event) => {
+    return this.onChange(this.page + 1)
+    }), "outline": true, "label": `Next` }) : $Html.empty())
+  }
+
+  get leftDots() {
+    return (this.sidePages < (this.page - 1) && this.pages > 0 ? _createElement("span", {
+      className: `ui-pagination-span`
+    }) : $Html.empty())
+  }
+
+  get rightDots() {
+    return ((this.page + this.sidePages + 1 < this.pages) && this.pages > 0 ? _createElement("span", {
+      className: `ui-pagination-span`
+    }) : $Html.empty())
+  }
+
+  get rightButton() {
+    return (this.pages > 1 ? _createElement($Ui_Button, { "onClick": ((event) => {
+    return this.onChange(this.pages)
+    }), "label": $Number.toString(this.pages + 1), "outline": !_compare(this.page, this.pages) }) : $Html.empty())
+  }
+
+  get leftButton() {
+    return (this.pages >= 1 ? _createElement($Ui_Button, { "onClick": ((event) => {
+    return this.onChange(0)
+    }), "outline": !_compare(this.page, 0), "label": `1` }) : $Html.empty())
+  }
+
+  get onChange () {
+    if (this.props.onChange != undefined) {
+      return this.props.onChange
+    } else {
+      return ((page) => {
+    return null
+    })
+    }
+  }
+
+  get sidePages () {
+    if (this.props.sidePages != undefined) {
+      return this.props.sidePages
+    } else {
+      return 2
+    }
+  }
+
+  get perPage () {
+    if (this.props.perPage != undefined) {
+      return this.props.perPage
+    } else {
+      return 10
+    }
+  }
+
+  get total () {
+    if (this.props.total != undefined) {
+      return this.props.total
+    } else {
+      return 0
+    }
+  }
+
+  get page () {
+    if (this.props.page != undefined) {
+      return this.props.page
+    } else {
+      return 0
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-pagination-base`
+    }, [this.previousButton, this.leftButton, this.leftDots, this.buttons, this.rightDots, this.rightButton, this.nextButton])
+  }
+}
+
+$Ui_Pagination.displayName = "Ui.Pagination"
+
+$Ui_Pagination.defaultProps = {
+  onChange: ((page) => {
+  return null
+  }),sidePages: 2,perPage: 10,total: 0,page: 0
+}
+
+class $Ui_Calendar extends Component {
+  get nextMonthIcon() {
+    return _createElement($Ui_Icon_Path, { "onClick": ((event) => {
+    return this.nextMonth.bind(this)()
+    }), "viewbox": `0 0 9 16`, "height": `16px`, "width": `9px`, "path": `M6 8L.1 1.78c-.14-.16-.14-.4.02-.57L1.17.13c.15-.16.4-.16.54 0l7.2 7.6c.07.07.1.18.1.28 0 .1-.03.2-.1.3l-7.2 7.6c-.14.14-.38.14-.53-.02l-1.05-1.1c-.16-.15-.16-.4 0-.56L5.98 8z` })
+  }
+
+  get previousMonthIcon() {
+    return _createElement($Ui_Icon_Path, { "onClick": ((event) => {
+    return this.previousMonth.bind(this)()
+    }), "viewbox": `0 0 9 16`, "height": `16px`, "width": `9px`, "path": `M3 8l5.9-6.22c.14-.16.14-.4-.02-.57L7.83.13c-.15-.16-.4-.16-.54 0L.1 7.7c-.07.07-.1.17-.1.28 0 .1.03.2.1.3l7.2 7.6c.14.14.38.14.53-.02l1.05-1.1c.16-.15.16-.4 0-.56L3.02 8z` })
+  }
+
+  get onMonthChange () {
+    if (this.props.onMonthChange != undefined) {
+      return this.props.onMonthChange
+    } else {
+      return ((date) => {
+    return null
+    })
+    }
+  }
+
+  get onChange () {
+    if (this.props.onChange != undefined) {
+      return this.props.onChange
+    } else {
+      return ((day) => {
+    return null
+    })
+    }
+  }
+
+  get changeMonthOnSelect () {
+    if (this.props.changeMonthOnSelect != undefined) {
+      return this.props.changeMonthOnSelect
+    } else {
+      return false
+    }
+  }
+
+  get month () {
+    if (this.props.month != undefined) {
+      return this.props.month
+    } else {
+      return $Time.today()
+    }
+  }
+
+  get date () {
+    if (this.props.date != undefined) {
+      return this.props.date
+    } else {
+      return $Time.today()
+    }
+  }
+
+  get disabled () {
+    if (this.props.disabled != undefined) {
+      return this.props.disabled
+    } else {
+      return false
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  days() {
+    let startDate = $Time.startOf(`week`, $Time.startOf(`month`, this.month))
+
+    let endDate = $Time.endOf(`week`, $Time.endOf(`month`, this.month))
+
+    return $Time.range(startDate, endDate)
+  }
+
+  onCellClick(day) {
+    return (!_compare($Time.month(day), $Time.month(this.month)) && this.changeMonthOnSelect ? (async () => {
+      try {
+         await this.onMonthChange(day)
+
+     await this.onChange(day)
+      }
+      catch(_error) {
+        if (_error instanceof DoError) {
+        } else {
+          console.warn(`Unhandled error in do statement`)
+          console.log(_error)
+        }
+      } 
+    })() : this.onChange(day))
+  }
+
+  cells() {
+    let range = $Time.range($Time.startOf(`month`, this.month), $Time.endOf(`month`, this.month))
+
+    return $Array.map(((day) => {
+    return _createElement($Ui_Calendar_Cell, { "active": $Array.any(((item) => {
+    return _compare(day, item)
+    }), range), "selected": _compare(this.date, day), "onClick": this.onCellClick.bind(this), "day": day })
+    }), this.days.bind(this)())
+  }
+
+  dayName(day) {
+    return _createElement("div", {
+      className: `ui-calendar-day-name`
+    }, [$Time.format(`ddd`, day)])
+  }
+
+  dayNames() {
+    return $Array.map(this.dayName.bind(this), $Time.range($Time.startOf(`week`, this.date), $Time.endOf(`week`, this.date)))
+  }
+
+  previousMonth() {
+    return this.onMonthChange($Time.previousMonth(this.month))
+  }
+
+  nextMonth() {
+    return this.onMonthChange($Time.nextMonth(this.month))
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-calendar-base`,
+      style: {
+        [`--ui-calendar-base-background`]: this.theme.colors.input.background,
+        [`--ui-calendar-base-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-calendar-base-border-radius`]: this.theme.border.radius,
+        [`--ui-calendar-base-color`]: this.theme.colors.input.text,
+        [`--ui-calendar-base-font-family`]: this.theme.fontFamily
+      }
+    }, [_createElement("div", {
+      className: `ui-calendar-header`
+    }, [this.previousMonthIcon, _createElement("div", {
+      className: `ui-calendar-text`
+    }, [$Time.format(`MMMM - YYYY`, this.month)]), this.nextMonthIcon]), _createElement("div", {
+      className: `ui-calendar-day-names`,
+      style: {
+        [`--ui-calendar-day-names-border-bottom`]: `1px dashed ` + this.theme.border.color,
+        [`--ui-calendar-day-names-border-top`]: `1px dashed ` + this.theme.border.color
+      }
+    }, [this.dayNames.bind(this)()]), _createElement("div", {
+      className: `ui-calendar-table`
+    }, [this.cells.bind(this)()])])
+  }
+}
+
+$Ui_Calendar.displayName = "Ui.Calendar"
+
+$Ui_Calendar.defaultProps = {
+  onMonthChange: ((date) => {
+  return null
+  }),onChange: ((day) => {
+  return null
+  }),changeMonthOnSelect: false,month: $Time.today(),date: $Time.today(),disabled: false
+}
+
+class $Ui_Toolbar_Spacer extends Component {
+  render() {
+    return _createElement("div", {
+      className: `ui-toolbar-spacer-base`
+    })
+  }
+}
+
+$Ui_Toolbar_Spacer.displayName = "Ui.Toolbar.Spacer"
+
+class $Ui_Toolbar_Separator extends Component {
+  render() {
+    return _createElement("div", {
+      className: `ui-toolbar-separator-base`
+    })
+  }
+}
+
+$Ui_Toolbar_Separator.displayName = "Ui.Toolbar.Separator"
+
+class $Ui_Icon_Path extends Component {
+  get pointerEvents() {
+    return (this.clickable ? `` : `none`)
+  }
+
+  get cursor() {
+    return (this.clickable ? `pointer` : ``)
+  }
+
+  get handler() {
+    return (this.clickable ? this.onClick : ((event) => {
+    return null
+    }))
+  }
+
+  get onClick () {
+    if (this.props.onClick != undefined) {
+      return this.props.onClick
+    } else {
+      return ((event) => {
+    return null
+    })
+    }
+  }
+
+  get clickable () {
+    if (this.props.clickable != undefined) {
+      return this.props.clickable
+    } else {
+      return true
+    }
+  }
+
+  get viewbox () {
+    if (this.props.viewbox != undefined) {
+      return this.props.viewbox
+    } else {
+      return ``
+    }
+  }
+
+  get height () {
+    if (this.props.height != undefined) {
+      return this.props.height
+    } else {
+      return ``
+    }
+  }
+
+  get width () {
+    if (this.props.width != undefined) {
+      return this.props.width
+    } else {
+      return ``
+    }
+  }
+
+  get path () {
+    if (this.props.path != undefined) {
+      return this.props.path
+    } else {
+      return ``
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("svg", {
+      "onClick": (event => (this.handler)(_normalizeEvent(event))),
+      "viewBox": this.viewbox,
+      "height": this.height,
+      "width": this.width,
+      className: `ui-icon-path-svg`,
+      style: {
+        [`--ui-icon-path-svg-pointer-events`]: this.pointerEvents,
+        [`--ui-icon-path-svg-hover-fill`]: this.theme.hover.color,
+        [`--ui-icon-path-svg-hover-cursor`]: this.cursor
+      }
+    }, [_createElement("path", {
+      "d": this.path
+    })])
+  }
+}
+
+$Ui_Icon_Path.displayName = "Ui.Icon.Path"
+
+$Ui_Icon_Path.defaultProps = {
+  onClick: ((event) => {
+  return null
+  }),clickable: true,viewbox: ``,height: ``,width: ``,path: ``
+}
+
+class $Ui_Table_Td extends Component {
+  get borderBottom() {
+    return (this.header ? `2px solid ` + this.theme.border.color : ``)
+  }
+
+  get fontWeight() {
+    return (this.header ? `bold` : `normal`)
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get align () {
+    if (this.props.align != undefined) {
+      return this.props.align
+    } else {
+      return `left`
+    }
+  }
+
+  get width () {
+    if (this.props.width != undefined) {
+      return this.props.width
+    } else {
+      return `auto`
+    }
+  }
+
+  get header () {
+    if (this.props.header != undefined) {
+      return this.props.header
+    } else {
+      return false
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("td", {
+      className: `ui-table-td-td`,
+      style: {
+        [`--ui-table-td-td-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-table-td-td-border-bottom`]: this.borderBottom,
+        [`--ui-table-td-td-font-weight`]: this.fontWeight,
+        [`--ui-table-td-td-text-align`]: this.align,
+        [`--ui-table-td-td-width`]: this.width
+      }
+    }, [this.children])
+  }
+}
+
+$Ui_Table_Td.displayName = "Ui.Table.Td"
+
+$Ui_Table_Td.defaultProps = {
+  children: [],align: `left`,width: `auto`,header: false
+}
+
+class $Ui_Toolbar extends Component {
+  get backgroundColor() {
+    return ($String.isEmpty(this.background) ? this.theme.colors.primary.background : this.background)
+  }
+
+  get textColor() {
+    return ($String.isEmpty(this.color) ? this.theme.colors.primary.text : this.color)
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get background () {
+    if (this.props.background != undefined) {
+      return this.props.background
+    } else {
+      return ``
+    }
+  }
+
+  get color () {
+    if (this.props.color != undefined) {
+      return this.props.color
+    } else {
+      return ``
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-toolbar-base`,
+      style: {
+        [`--ui-toolbar-base-background`]: this.backgroundColor,
+        [`--ui-toolbar-base-color`]: this.textColor
+      }
+    }, [this.children])
+  }
+}
+
+$Ui_Toolbar.displayName = "Ui.Toolbar"
+
+$Ui_Toolbar.defaultProps = {
+  children: [],background: ``,color: ``
+}
+
+class $Ui_Table_Th extends Component {
+  get align () {
+    if (this.props.align != undefined) {
+      return this.props.align
+    } else {
+      return `left`
+    }
+  }
+
+  get width () {
+    if (this.props.width != undefined) {
+      return this.props.width
+    } else {
+      return `auto`
+    }
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  render() {
+    return _createElement($Ui_Table_Td, { "children": this.children, "header": true, "align": this.align, "width": this.width })
+  }
+}
+
+$Ui_Table_Th.displayName = "Ui.Table.Th"
+
+$Ui_Table_Th.defaultProps = {
+  align: `left`,width: `auto`,children: []
+}
+
+class $Ui_Slider extends Component {
+  get onChange () {
+    if (this.props.onChange != undefined) {
+      return this.props.onChange
+    } else {
+      return ((value) => {
+    return null
+    })
+    }
+  }
+
+  get disabled () {
+    if (this.props.disabled != undefined) {
+      return this.props.disabled
+    } else {
+      return false
+    }
+  }
+
+  get max () {
+    if (this.props.max != undefined) {
+      return this.props.max
+    } else {
+      return 100
+    }
+  }
+
+  get value () {
+    if (this.props.value != undefined) {
+      return this.props.value
+    } else {
+      return 0
+    }
+  }
+
+  get step () {
+    if (this.props.step != undefined) {
+      return this.props.step
+    } else {
+      return 1
+    }
+  }
+
+  get min () {
+    if (this.props.min != undefined) {
+      return this.props.min
+    } else {
+      return 0
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  changed(event) {
+    return this.onChange($Maybe.withDefault(0, $Number.fromString($Dom.getValue(event.target))))
+  }
+
+  render() {
+    return _createElement("input", {
+      "value": $Number.toString(this.value),
+      "step": $Number.toString(this.step),
+      "max": $Number.toString(this.max),
+      "min": $Number.toString(this.min),
+      "disabled": this.disabled,
+      "onChange": (event => (this.changed.bind(this))(_normalizeEvent(event))),
+      "type": `range`,
+      className: `ui-slider-base`,
+      style: {
+        [`--ui-slider-base-webkit-slider-thumb-background-color`]: this.theme.colors.primary.background,
+        [`--ui-slider-base-webkit-slider-thumb-border-radius`]: this.theme.border.radius,
+        [`--ui-slider-base-moz-range-thumb-background-color`]: this.theme.colors.primary.background,
+        [`--ui-slider-base-moz-range-thumb-border-radius`]: this.theme.border.radius,
+        [`--ui-slider-base-ms-thumb-background-color`]: this.theme.colors.primary.background,
+        [`--ui-slider-base-ms-thumb-border-radius`]: this.theme.border.radius,
+        [`--ui-slider-base-focus-webkit-slider-thumb-background-color`]: this.theme.hover.color,
+        [`--ui-slider-base-focus-moz-range-thumb-background-color`]: this.theme.hover.color,
+        [`--ui-slider-base-focus-ms-thumb-background-color`]: this.theme.hover.color,
+        [`--ui-slider-base-webkit-slider-runnable-track-background-color`]: this.theme.colors.input.background,
+        [`--ui-slider-base-webkit-slider-runnable-track-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-slider-base-webkit-slider-runnable-track-border-radius`]: this.theme.border.radius,
+        [`--ui-slider-base-moz-range-track-background-color`]: this.theme.colors.input.background,
+        [`--ui-slider-base-moz-range-track-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-slider-base-moz-range-track-border-radius`]: this.theme.border.radius,
+        [`--ui-slider-base-ms-track-background-color`]: this.theme.colors.input.background,
+        [`--ui-slider-base-ms-track-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-slider-base-ms-track-border-radius`]: this.theme.border.radius,
+        [`--ui-slider-base-focus-webkit-slider-runnable-track-box-shadow`]: `0 0 2px ` + this.theme.outline.fadedColor + ` inset,
+                          0 0 2px ` + this.theme.outline.fadedColor,
+        [`--ui-slider-base-focus-webkit-slider-runnable-track-border-color`]: this.theme.outline.color,
+        [`--ui-slider-base-focus-moz-range-track-box-shadow`]: `0 0 2px ` + this.theme.outline.fadedColor + ` inset,
+                          0 0 2px ` + this.theme.outline.fadedColor,
+        [`--ui-slider-base-focus-moz-range-track-border-color`]: this.theme.outline.color,
+        [`--ui-slider-base-focus-ms-track-box-shadow`]: `0 0 2px ` + this.theme.outline.fadedColor + ` inset,
+                          0 0 2px ` + this.theme.outline.fadedColor,
+        [`--ui-slider-base-focus-ms-track-border-color`]: this.theme.outline.color
+      }
+    })
+  }
+}
+
+$Ui_Slider.displayName = "Ui.Slider"
+
+$Ui_Slider.defaultProps = {
+  onChange: ((value) => {
+  return null
+  }),disabled: false,max: 100,value: 0,step: 1,min: 0
+}
+
+class $Ui_Input extends Component {
+  get showCloseIcon() {
+    return this.showClearIcon && !_compare(this.value, ``) && !this.disabled && !this.readonly
+  }
+
+  get paddingRight() {
+    return (this.showCloseIcon ? `30px` : `9px`)
+  }
+
+  get closeIcon() {
+    return (this.showCloseIcon ? _createElement("svg", {
+      "onClick": (event => (((event) => {
+      return this.onClear()
+      }))(_normalizeEvent(event))),
+      "viewBox": `0 0 36 36`,
+      "height": `36`,
+      "width": `36`,
+      className: `ui-input-icon`,
+      style: {
+        [`--ui-input-icon-fill`]: this.theme.colors.input.text,
+        [`--ui-input-icon-hover-fill`]: this.theme.hover.color
+      }
+    }, [_createElement("path", {
+      "d": `M35.592 30.256l-12.3-12.34L35.62 5.736c.507-.507.507-1.332 0-1.838L32.114.375C31.87.13 31.542 0 31.194 0c-.346 0-.674.14-.917.375L18.005 12.518 5.715.384C5.47.14 5.14.01 4.794.01c-.347 0-.675.14-.918.374L.38 3.907c-.507.506-.507 1.33 0 1.837l12.328 12.18L.418 30.257c-.245.244-.385.572-.385.918 0 .347.13.675.384.92l3.506 3.522c.254.253.582.384.92.384.327 0 .665-.122.918-.384l12.245-12.294 12.253 12.284c.253.253.58.385.92.385.327 0 .664-.12.917-.384l3.507-3.523c.243-.243.384-.57.384-.918-.01-.337-.15-.665-.394-.91z`
+    })]) : $Html.empty())
+  }
+
+  get placeholder () {
+    if (this.props.placeholder != undefined) {
+      return this.props.placeholder
+    } else {
+      return ``
+    }
+  }
+
+  get type () {
+    if (this.props.type != undefined) {
+      return this.props.type
+    } else {
+      return `text`
+    }
+  }
+
+  get value () {
+    if (this.props.value != undefined) {
+      return this.props.value
+    } else {
+      return ``
+    }
+  }
+
+  get showClearIcon () {
+    if (this.props.showClearIcon != undefined) {
+      return this.props.showClearIcon
+    } else {
+      return true
+    }
+  }
+
+  get disabled () {
+    if (this.props.disabled != undefined) {
+      return this.props.disabled
+    } else {
+      return false
+    }
+  }
+
+  get readonly () {
+    if (this.props.readonly != undefined) {
+      return this.props.readonly
+    } else {
+      return false
+    }
+  }
+
+  get onChange () {
+    if (this.props.onChange != undefined) {
+      return this.props.onChange
+    } else {
+      return ((value) => {
+    return null
+    })
+    }
+  }
+
+  get onInput () {
+    if (this.props.onInput != undefined) {
+      return this.props.onInput
+    } else {
+      return ((value) => {
+    return null
+    })
+    }
+  }
+
+  get onFocus () {
+    if (this.props.onFocus != undefined) {
+      return this.props.onFocus
+    } else {
+      return (() => {
+    return null
+    })
+    }
+  }
+
+  get onClear () {
+    if (this.props.onClear != undefined) {
+      return this.props.onClear
+    } else {
+      return (() => {
+    return null
+    })
+    }
+  }
+
+  get theme () { return $Ui.theme }
+
+  componentWillUnmount () {
+    $Ui._unsubscribe(this)
+  }
+
+  componentDidMount () {
+    $Ui._subscribe(this)
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-input-base`
+    }, [_createElement("input", {
+      "onChange": (event => (((event) => {
+      return this.onChange($Dom.getValue(event.target))
+      }))(_normalizeEvent(event))),
+      "onInput": (event => (((event) => {
+      return this.onInput($Dom.getValue(event.target))
+      }))(_normalizeEvent(event))),
+      "onFocus": (event => (((event) => {
+      return this.onFocus()
+      }))(_normalizeEvent(event))),
+      "placeholder": this.placeholder,
+      "disabled": this.disabled,
+      "readonly": this.readonly,
+      "value": this.value,
+      "type": this.type,
+      className: `ui-input-input`,
+      style: {
+        [`--ui-input-input-background-color`]: this.theme.colors.input.background,
+        [`--ui-input-input-border`]: `1px solid ` + this.theme.border.color,
+        [`--ui-input-input-border-radius`]: this.theme.border.radius,
+        [`--ui-input-input-color`]: this.theme.colors.input.text,
+        [`--ui-input-input-font-family`]: this.theme.fontFamily,
+        [`--ui-input-input-padding-right`]: this.paddingRight,
+        [`--ui-input-input-disabled-background-color`]: this.theme.colors.disabled.background,
+        [`--ui-input-input-disabled-color`]: this.theme.colors.disabled.text,
+        [`--ui-input-input-focus-box-shadow`]: `0 0 2px ` + this.theme.outline.fadedColor + ` inset,
+                          0 0 2px ` + this.theme.outline.fadedColor,
+        [`--ui-input-input-focus-border-color`]: this.theme.outline.color
+      }
+    }), this.closeIcon])
+  }
+}
+
+$Ui_Input.displayName = "Ui.Input"
+
+$Ui_Input.defaultProps = {
+  placeholder: ``,type: `text`,value: ``,showClearIcon: true,disabled: false,readonly: false,onChange: ((value) => {
+  return null
+  }),onInput: ((value) => {
+  return null
+  }),onFocus: (() => {
+  return null
+  }),onClear: (() => {
+  return null
+  })
+}
+
+class $Ui_Dropdown extends Component {
+  constructor(props) {
+    super(props)
+    this.state = new Record({
+      uid: $Uid.generate(),
+      left: 0,
+      top: 0
+    })
+  }
+
+  get panel() {
+    return _createElement("div", {
+      "id": this.state.uid,
+      className: `ui-dropdown-panel`,
+      style: {
+        [`--ui-dropdown-panel-left`]: this.state.left + `px`,
+        [`--ui-dropdown-panel-top`]: this.state.top + `px`
+      }
+    }, [this.children])
+  }
+
+  get panelPortal() {
+    return (this.open ? _createElement($Html_Portals_Body, {  }, _array(this.panel)) : $Html.empty())
+  }
+
+  get element () {
+    if (this.props.element != undefined) {
+      return this.props.element
+    } else {
+      return $Html.empty()
+    }
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get open () {
+    if (this.props.open != undefined) {
+      return this.props.open
+    } else {
+      return true
+    }
+  }
+
+  componentWillUnmount () {
+    $Provider_Mouse._unsubscribe(this);$Provider_AnimationFrame._unsubscribe(this)
+  }
+
+  componentDidUpdate () {
+    if (this.open) {
+      $Provider_Mouse._subscribe(this, new Record({
+      clicks: ((event) => {
+      return null
+      }),
+      moves: ((data) => {
+      return null
+      }),
+      ups: ((data) => {
+      return null
+      })
+    }))
+    } else {
+      $Provider_Mouse._unsubscribe(this)
+    };if (this.open) {
+      $Provider_AnimationFrame._subscribe(this, new Record({
+      frames: this.updateDimensions.bind(this)
+    }))
+    } else {
+      $Provider_AnimationFrame._unsubscribe(this)
+    }
+  }
+
+  componentDidMount () {
+    if (this.open) {
+      $Provider_Mouse._subscribe(this, new Record({
+      clicks: ((event) => {
+      return null
+      }),
+      moves: ((data) => {
+      return null
+      }),
+      ups: ((data) => {
+      return null
+      })
+    }))
+    } else {
+      $Provider_Mouse._unsubscribe(this)
+    };if (this.open) {
+      $Provider_AnimationFrame._subscribe(this, new Record({
+      frames: this.updateDimensions.bind(this)
+    }))
+    } else {
+      $Provider_AnimationFrame._unsubscribe(this)
+    }
+  }
+
+  updateDimensions() {
+    let dom = $Maybe.withDefault($Dom.createElement(`div`), $Dom.getElementById(this.state.uid))
+
+    let width = $Window.width()
+
+    let height = $Window.height()
+
+    let panelDimensions = $Dom.getDimensions(dom)
+
+    let dimensions = $Dom.getDimensions(ReactDOM.findDOMNode(this))
+
+    let top = dimensions.top + dimensions.height
+
+    let left = dimensions.left
+
+    return new Promise((_resolve) => {
+      this.setState(_update(this.state, { top: top, left: left }), _resolve)
+    })
+  }
+
+  render() {
+    return [this.element, this.panelPortal]
+  }
+}
+
+$Ui_Dropdown.displayName = "Ui.Dropdown"
+
+$Ui_Dropdown.defaultProps = {
+  element: $Html.empty(),children: [],open: true
+}
+
+class $Ui_Form_Separator extends Component {
+  render() {
+    return _createElement("div", {
+      className: `ui-form-separator-base`
+    })
+  }
+}
+
+$Ui_Form_Separator.displayName = "Ui.Form.Separator"
+
+class $Ui_Form_Field extends Component {
+  get marginRight() {
+    return (() => {
+      let __condition = this.orientation
+
+       if (_compare(__condition, `horizontal`)) {
+        return `10px`
+      } else {
+        return ``
+      }
+    })()
+  }
+
+  get marginBottom() {
+    return (() => {
+      let __condition = this.orientation
+
+       if (_compare(__condition, `vertical`)) {
+        return `5px`
+      } else {
+        return ``
+      }
+    })()
+  }
+
+  get alignItems() {
+    return (() => {
+      let __condition = this.orientation
+
+       if (_compare(__condition, `horizontal`)) {
+        return `center`
+      } else {
+        return ``
+      }
+    })()
+  }
+
+  get flexDirection() {
+    return (() => {
+      let __condition = this.orientation
+
+       if (_compare(__condition, `vertical`)) {
+        return `column-reverse`
+      } else {
+        return `row`
+      }
+    })()
+  }
+
+  get labelSize() {
+    return (() => {
+      let __condition = this.orientation
+
+       if (_compare(__condition, `vertical`)) {
+        return 14
+      } else {
+        return 16
+      }
+    })()
+  }
+
+  get orientation () {
+    if (this.props.orientation != undefined) {
+      return this.props.orientation
+    } else {
+      return `vertical`
+    }
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get label () {
+    if (this.props.label != undefined) {
+      return this.props.label
+    } else {
+      return ``
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `ui-form-field-base`,
+      style: {
+        [`--ui-form-field-base-flex-direction`]: this.flexDirection,
+        [`--ui-form-field-base-align-items`]: this.alignItems,
+        [`--ui-form-field-base-first-child-margin-right`]: this.marginRight,
+        [`--ui-form-field-base-last-child-margin-bottom`]: this.marginBottom
+      }
+    }, [this.children, _createElement($Ui_Form_Label, { "text": this.label, "fontSize": this.labelSize })])
+  }
+}
+
+$Ui_Form_Field.displayName = "Ui.Form.Field"
+
+$Ui_Form_Field.defaultProps = {
+  orientation: `vertical`,children: [],label: ``
+}
+
 _insertStyles(`
-  .main-auto-width {
+  .donations-spacer {
+    margin-top: 50px;
+  }
+
+  .home-auto-width {
     width: auto;
+  }
+
+  .ui-loader-base {
+    position: relative;
+  }
+
+  .ui-loader-loader {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background: rgba(255,255,255,0.8);
+    transition-delay: 320ms;
+    transition: 320ms;
+    pointer-events: var(--ui-loader-loader-pointer-events);
+    opacity: var(--ui-loader-loader-opacity);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .ui-form-label-base {
+    font-size: var(--ui-form-label-base-font-size);
+    font-family: var(--ui-form-label-base-font-family);
+    font-weight: bold;
+    opacity: 0.8;
+    color: #333;
+    flex: 1;
+  }
+
+  .ui-button-styles {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: var(--ui-button-styles-border-radius);
+    font-family: var(--ui-button-styles-font-family);
+    display: inline-flex;
+    white-space: nowrap;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    height: var(--ui-button-styles-height);
+    flexDirection: var(--ui-button-styles-flexDirection);
+    padding: var(--ui-button-styles-padding);
+    background: var(--ui-button-styles-background);
+    color: var(--ui-button-styles-color);
+    font-size: var(--ui-button-styles-font-size);
+    border: var(--ui-button-styles-border);
+  }
+
+  .ui-button-styles::-moz-focus-inner {
+    border: 0;
+  }
+
+  .ui-button-styles:focus {
+    box-shadow: var(--ui-button-styles-focus-box-shadow);
+    background: var(--ui-button-styles-focus-background);
+    border: var(--ui-button-styles-focus-border);
+    color: var(--ui-button-styles-focus-color);
+  }
+
+  .ui-button-styles:disabled {
+    background: var(--ui-button-styles-disabled-background);
+    color: var(--ui-button-styles-disabled-color);
+    cursor: not-allowed;
+  }
+
+  .ui-button-label {
+    text-overflow: ellipsis;
+    grid-area: label;
+    overflow: hidden;
+  }
+
+  .ui-button-icon {
+    height: var(--ui-button-icon-height);
+    width: var(--ui-button-icon-width);
+  }
+
+  .ui-button-gutter {
+    width: var(--ui-button-gutter-width);
+  }
+
+  .ui-toolbar-title-base {
+    font-family: sans;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  .ui-toolbar-title-base > a {
+    color: inherit;
+  }
+
+  .ui-toolbar-title-base:hover > a {
+    color: inherit;
+  }
+
+  .ui-toolbar-title-base > a:focus {
+    color: inherit;
+  }
+
+  .ui-toolbar-title-base:not(:first-child) {
+    margin-left: 15px;
+  }
+
+  .ui-breadcrumb-base {
+    display: inline-block;
+  }
+
+  .ui-breadcrumb-base:hover {
+    color: var(--ui-breadcrumb-base-hover-color);
+  }
+
+  .ui-breadcrumb-base a:focus {
+    color: var(--ui-breadcrumb-base-a-focus-color);
+  }
+
+  .ui-breadcrumbs-separator {
+    display: inline-block;
+    margin: 0 12px;
+    opacity: 0.4;
+  }
+
+  .ui-breadcrumbs-base {
+    background: var(--ui-breadcrumbs-base-background);
+    color: var(--ui-breadcrumbs-base-color);
+    font-family: var(--ui-breadcrumbs-base-font-family);
+    padding: 14px 24px;
+  }
+
+  .ui-card-base {
+    border: 1px solid #e4e4e4;
+    flex-direction: column;
+    border-radius: 4px;
+    display: flex;
+  }
+
+  .ui-card-image-base {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+
+  .ui-card-image-base:first-child {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    width: calc(100% + 2px);
+    margin-left: -1px;
+    margin-top: -1px;
+  }
+
+  .ui-card-block-base {
+    padding: 1.25em;
+    flex: 1;
+  }
+
+  .ui-card-title-base {
+    margin-bottom: 0.75em;
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+
+  .ui-card-text-base {
+    line-height: 1.5;
+  }
+
+  .ui-time-base {
+    display: inline-block;
+  }
+
+  .ui-checkbox-base {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    background-color: var(--ui-checkbox-base-background-color);
+    border: var(--ui-checkbox-base-border);
+    border-radius: var(--ui-checkbox-base-border-radius);
+    color: var(--ui-checkbox-base-color);
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    height: 34px;
+    width: 34px;
+    padding: 0;
+  }
+
+  .ui-checkbox-base::-moz-focus-inner {
+    border: 0;
+  }
+
+  .ui-checkbox-base:focus {
+    box-shadow: var(--ui-checkbox-base-focus-box-shadow);
+    border-color: var(--ui-checkbox-base-focus-border-color);
+    color: var(--ui-checkbox-base-focus-color);
+  }
+
+  .ui-checkbox-base:disabled {
+    background: var(--ui-checkbox-base-disabled-background);
+    color: var(--ui-checkbox-base-disabled-color);
+    cursor: not-allowed;
+  }
+
+  .ui-checkbox-icon {
+    transform: var(--ui-checkbox-icon-transform);
+    opacity: var(--ui-checkbox-icon-opacity);
+    fill: currentColor;
+    transition: 200ms;
+    height: 16px;
+    width: 16px;
+  }
+
+  .ui-calendar-cell-style {
+    border-radius: var(--ui-calendar-cell-style-border-radius);
+    justify-content: center;
+    line-height: 34px;
+    cursor: pointer;
+    display: flex;
+    height: 34px;
+    width: 34px;
+    background: var(--ui-calendar-cell-style-background);
+    color: var(--ui-calendar-cell-style-color);
+    opacity: var(--ui-calendar-cell-style-opacity);
+  }
+
+  .ui-calendar-cell-style:hover {
+    background: var(--ui-calendar-cell-style-hover-background);
+    color: var(--ui-calendar-cell-style-hover-color);
+  }
+
+  .ui-toggle-base {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--ui-toggle-base-background-color);
+    border: var(--ui-toggle-base-border);
+    border-radius: var(--ui-toggle-base-border-radius);
+    color: var(--ui-toggle-base-color);
+    font-family: var(--ui-toggle-base-font-family);
+    display: inline-flex;
+    position: relative;
+    font-weight: bold;
+    width: var(--ui-toggle-base-width);
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    height: 34px;
+    padding: 0;
+  }
+
+  .ui-toggle-base::-moz-focus-inner {
+    border: 0;
+  }
+
+  .ui-toggle-base:focus {
+    box-shadow: var(--ui-toggle-base-focus-box-shadow);
+    border-color: var(--ui-toggle-base-focus-border-color);
+    color: var(--ui-toggle-base-focus-color);
+  }
+
+  .ui-toggle-base:disabled {
+    background: var(--ui-toggle-base-disabled-background);
+    color: var(--ui-toggle-base-disabled-color);
+    cursor: not-allowed;
+  }
+
+  .ui-toggle-label {
+    text-align: center;
+    width: 50%;
+  }
+
+  .ui-toggle-overlay {
+    background: var(--ui-toggle-overlay-background);
+    border-radius: var(--ui-toggle-overlay-border-radius);
+    width: calc(50% - 2px);
+    position: absolute;
+    transition: 320ms;
+    left: var(--ui-toggle-overlay-left);
+    bottom: 2px;
+    top: 2px;
+  }
+
+  .ui-toolbar-link-base {
+    font-size: 18px;
+  }
+
+  .ui-toolbar-link-base a {
+    cursor: pointer;
+    display: block;
+    color: inherit;
+  }
+
+  .ui-toolbar-link-base a:focus {
+    color: inherit;
+  }
+
+  .ui-toolbar-link-base a:hover {
+    color: inherit;
+  }
+
+  .ui-link-base {
+    color: var(--ui-link-base-color);
+    text-decoration: none;
+    outline: none;
+  }
+
+  .ui-link-base:hover {
+    text-decoration: underline;
+    color: var(--ui-link-base-hover-color);
+  }
+
+  .ui-link-base:focus {
+    text-decoration: underline;
+    color: var(--ui-link-base-focus-color);
+  }
+
+  .ui-pager-page-base {
+    transition: var(--ui-pager-page-base-transition);
+    pointer-events: var(--ui-pager-page-base-pointer-events);
+    transform: var(--ui-pager-page-base-transform);
+    position: absolute;
+    opacity: var(--ui-pager-page-base-opacity);
+    display: grid;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+
+  .ui-pager-base {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .ui-pagination-base {
+    align-items: center;
+    display: flex;
+  }
+
+  .ui-pagination-base * + * {
+    margin-left: 5px;
+  }
+
+  .ui-pagination-span {
+    margin: 0 5px 0 10px;
+  }
+
+  .ui-pagination-span:before {
+    content: "\\2219 \\2219 \\2219";
+    line-height: 8px;
+  }
+
+  .ui-calendar-base {
+    -moz-user-select: none;
+    user-select: none;
+    background: var(--ui-calendar-base-background);
+    border: var(--ui-calendar-base-border);
+    border-radius: var(--ui-calendar-base-border-radius);
+    color: var(--ui-calendar-base-color);
+    font-family: var(--ui-calendar-base-font-family);
+    padding: 10px;
+    width: 300px;
+  }
+
+  .ui-calendar-table {
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+    display: grid;
+    width: 100%;
+  }
+
+  .ui-calendar-header {
+    align-items: center;
+    display: flex;
+    height: 26px;
+  }
+
+  .ui-calendar-text {
+    text-align: center;
+    flex: 1;
+  }
+
+  .ui-calendar-day-name {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 0.5;
+    width: 34px;
+  }
+
+  .ui-calendar-day-names {
+    border-bottom: var(--ui-calendar-day-names-border-bottom);
+    border-top: var(--ui-calendar-day-names-border-top);
+    justify-content: space-between;
+    padding: 6px 0;
+    margin: 10px 0;
+    display: flex;
+  }
+
+  .ui-toolbar-spacer-base {
+    flex: 1;
+  }
+
+  .ui-toolbar-separator-base {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 15px;
+    height: 30px;
+  }
+
+  .ui-icon-path-svg {
+    pointer-events: var(--ui-icon-path-svg-pointer-events);
+    fill: currentColor;
+  }
+
+  .ui-icon-path-svg:hover {
+    fill: var(--ui-icon-path-svg-hover-fill);
+    cursor: var(--ui-icon-path-svg-hover-cursor);
+  }
+
+  .ui-table-td-td {
+    border: var(--ui-table-td-td-border);
+    border-bottom: var(--ui-table-td-td-border-bottom);
+    font-weight: var(--ui-table-td-td-font-weight);
+    text-align: var(--ui-table-td-td-text-align);
+    padding: 7px 10px;
+    width: var(--ui-table-td-td-width);
+  }
+
+  .ui-toolbar-base {
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    background: var(--ui-toolbar-base-background);
+    align-items: center;
+    color: var(--ui-toolbar-base-color);
+    padding: 0 24px;
+    display: flex;
+    height: 56px;
+  }
+
+  .ui-slider-base {
+    -webkit-appearance: none;
+    background: transparent;
+    height: 34px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ui-slider-base::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -10px;
+    background-color: var(--ui-slider-base-webkit-slider-thumb-background-color);
+    border-radius: var(--ui-slider-base-webkit-slider-thumb-border-radius);
+    cursor: pointer;
+    height: 28px;
+    width: 12px;
+    border: 0;
+  }
+
+  .ui-slider-base::-moz-range-thumb {
+    background-color: var(--ui-slider-base-moz-range-thumb-background-color);
+    border-radius: var(--ui-slider-base-moz-range-thumb-border-radius);
+    cursor: pointer;
+    height: 28px;
+    width: 12px;
+    border: 0;
+  }
+
+  .ui-slider-base::-ms-thumb {
+    background-color: var(--ui-slider-base-ms-thumb-background-color);
+    border-radius: var(--ui-slider-base-ms-thumb-border-radius);
+    cursor: pointer;
+    height: 28px;
+    width: 12px;
+    border: 0;
+  }
+
+  .ui-slider-base:focus::-webkit-slider-thumb {
+    background-color: var(--ui-slider-base-focus-webkit-slider-thumb-background-color);
+  }
+
+  .ui-slider-base:focus::-moz-range-thumb {
+    background-color: var(--ui-slider-base-focus-moz-range-thumb-background-color);
+  }
+
+  .ui-slider-base:focus::-ms-thumb {
+    background-color: var(--ui-slider-base-focus-ms-thumb-background-color);
+  }
+
+  .ui-slider-base::-webkit-slider-runnable-track {
+    background-color: var(--ui-slider-base-webkit-slider-runnable-track-background-color);
+    border: var(--ui-slider-base-webkit-slider-runnable-track-border);
+    border-radius: var(--ui-slider-base-webkit-slider-runnable-track-border-radius);
+    height: 8px;
+  }
+
+  .ui-slider-base::-moz-range-track {
+    background-color: var(--ui-slider-base-moz-range-track-background-color);
+    border: var(--ui-slider-base-moz-range-track-border);
+    border-radius: var(--ui-slider-base-moz-range-track-border-radius);
+    height: 8px;
+  }
+
+  .ui-slider-base::-ms-track {
+    background-color: var(--ui-slider-base-ms-track-background-color);
+    border: var(--ui-slider-base-ms-track-border);
+    border-radius: var(--ui-slider-base-ms-track-border-radius);
+    height: 8px;
+  }
+
+  .ui-slider-base:focus::-webkit-slider-runnable-track {
+    box-shadow: var(--ui-slider-base-focus-webkit-slider-runnable-track-box-shadow);
+    border-color: var(--ui-slider-base-focus-webkit-slider-runnable-track-border-color);
+  }
+
+  .ui-slider-base:focus::-moz-range-track {
+    box-shadow: var(--ui-slider-base-focus-moz-range-track-box-shadow);
+    border-color: var(--ui-slider-base-focus-moz-range-track-border-color);
+  }
+
+  .ui-slider-base:focus::-ms-track {
+    box-shadow: var(--ui-slider-base-focus-ms-track-box-shadow);
+    border-color: var(--ui-slider-base-focus-ms-track-border-color);
+  }
+
+  .ui-slider-base:focus {
+    outline: none;
+  }
+
+  .ui-slider-base::-moz-focus-outer {
+    border: 0;
+  }
+
+  .ui-input-input {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    background-color: var(--ui-input-input-background-color);
+    border: var(--ui-input-input-border);
+    border-radius: var(--ui-input-input-border-radius);
+    color: var(--ui-input-input-color);
+    font-family: var(--ui-input-input-font-family);
+    line-height: 14px;
+    font-size: 14px;
+    outline: none;
+    height: 34px;
+    width: 100%;
+    padding: 6px 9px;
+    padding-right: var(--ui-input-input-padding-right);
+  }
+
+  .ui-input-input:disabled {
+    background-color: var(--ui-input-input-disabled-background-color);
+    color: var(--ui-input-input-disabled-color);
+    border-color: transparent;
+    cursor: not-allowed;
+    user-select: none;
+  }
+
+  .ui-input-input:-moz-read-only::-moz-selection {
+    background: transparent;
+  }
+
+  .ui-input-input:read-only::selection {
+    background: transparent;
+  }
+
+  .ui-input-input::-webkit-input-placeholder {
+    opacity: 0.5;
+  }
+
+  .ui-input-input:-ms-input-placeholder {
+    opacity: 0.5;
+  }
+
+  .ui-input-input::-moz-placeholder {
+    opacity: 0.5;
+  }
+
+  .ui-input-input:-moz-placeholder {
+    opacity: 0.5;
+  }
+
+  .ui-input-input:focus {
+    box-shadow: var(--ui-input-input-focus-box-shadow);
+    border-color: var(--ui-input-input-focus-border-color);
+  }
+
+  .ui-input-base {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    display: inline-block;
+    position: relative;
+  }
+
+  .ui-input-icon {
+    fill: var(--ui-input-icon-fill);
+    position: absolute;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    right: 12px;
+    top: 11px;
+  }
+
+  .ui-input-icon:hover {
+    fill: var(--ui-input-icon-hover-fill);
+  }
+
+  .ui-dropdown-panel {
+    position: fixed;
+    left: var(--ui-dropdown-panel-left);
+    top: var(--ui-dropdown-panel-top);
+  }
+
+  .ui-form-separator-base {
+    border-top: 1px solid #EEE;
+  }
+
+  .ui-form-field-base {
+    flex-direction: var(--ui-form-field-base-flex-direction);
+    align-items: var(--ui-form-field-base-align-items);
+    display: flex;
+  }
+
+  .ui-form-field-base > *:first-child {
+    margin-right: var(--ui-form-field-base-first-child-margin-right);
+  }
+
+  .ui-form-field-base > *:last-child {
+    margin-bottom: var(--ui-form-field-base-last-child-margin-bottom);
   }
 `)
 _program.render($Main)
