@@ -1,9 +1,9 @@
-record Home.State {
+record Page.State {
   ready : Bool
 }
 component Home {
 
-  state : Home.State { ready = false }
+  state : Page.State { ready = false }
 
   fun componentDidMount : Void {
         do {
