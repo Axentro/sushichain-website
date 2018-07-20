@@ -1,17 +1,21 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 /*
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
  */
-body {
+/* body {
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 13px;
+} */
+
+body {
+    line-height: 1.7;
+    /* font-size: 1.8rem; */
+    font-size: 13px;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    color: #7f8c8d;
 }
 
 h1,
@@ -180,7 +184,7 @@ a.pure-button-primary {
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
     position: absolute;
-    top: 87%;
+    /* top: 87%; */
     width: 100%;
     min-height: 12%;
     z-index: 2;
