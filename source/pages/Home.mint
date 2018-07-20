@@ -144,8 +144,8 @@ component Home {
                                   <div class="column column-m-12 column-t-6">
                                       <img src="assets/images/minesh2.png" alt="Minesh Patel" />
                                       <h3><{"Minesh Patel"}></h3>
-                                      <span><{""}></span>
-                                      <p><{""}></p>
+                                      <span><{"Product Manager"}></span>
+                                      <p><{"Minesh is an agile business analyst with a passion for solving problems through technology. Takes ideas from conception to launch. Excited about how Blockchain will reinvigorate the internet as we know it. Often found savouring sashimi!"}></p>
                                   </div>
                               </div>
 
