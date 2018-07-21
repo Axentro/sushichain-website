@@ -8,6 +8,9 @@ component Home {
   fun componentDidMount : Void {
         do {
           AssetLoader.loadStyle("/dist/css/style.min.css")
+          AssetLoader.loadScript("https://code.jquery.com/jquery-3.3.1.min.js")
+          AssetLoader.loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js")
+          AssetLoader.loadScript("/dist/js/mirai.min.js")
           next { state | ready = true}
       }
     }
