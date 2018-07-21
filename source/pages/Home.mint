@@ -5,13 +5,32 @@ component Home {
 
   state : Page.State { ready = false }
 
+  fun scrollOnLoad() : Void {
+    `(()=>{
+      try {
+       var loc = window.location.hash
+       var id = loc.substr(1);
+       var donate = document.getElementById(id);
+        zenscroll.to(donate, 400);
+      } catch (err) {
+
+      }
+    })()
+    `
+  }
+
   fun componentDidMount : Void {
         do {
-          AssetLoader.loadStyle("/dist/css/style.min.css")
           AssetLoader.loadScript("https://code.jquery.com/jquery-3.3.1.min.js")
+          AssetLoader.unloadAllStyles()
+          AssetLoader.loadScript("/dist/js/zenscroll-min.js")
+          AssetLoader.loadStyle("/dist/css/style.min.css")
           AssetLoader.loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js")
           AssetLoader.loadScript("/dist/js/mirai.min.js")
+
+
           next { state | ready = true}
+            scrollOnLoad()
       }
     }
 
@@ -36,6 +55,7 @@ component Home {
                           <a href="#team"><{"Team"}></a>
                           <a href="#contact"><{"Contact"}></a>
                           <a href="http://blog.sushichain.io/" target="_blank"><{"Blog"}></a>
+                          <a href="/donations"><{"Donations"}></a>
                       </nav>
 
                       <div class="mobile-trigger">

@@ -1,8 +1,12 @@
 component Donations {
   state : Page.State { ready = false }
 
+
+
   fun componentDidMount : Void {
     do {
+      AssetLoader.loadScript("https://code.jquery.com/jquery-3.3.1.min.js")
+      AssetLoader.unloadAllStyles()
       AssetLoader.loadMisc()
       next { state | ready = true }
     }
@@ -16,29 +20,51 @@ component Donations {
     margin-top: -12px;
   }
 
-  fun socialLink(name : String, url : String, image : String) : Html {
+  style bg {
+    border: 6px solid #F9F9F9;
+    padding: 20px;
+  }
+
+  fun scrollToDonate (event : Html.Event) : Void {
+    `
+    (() => {
+          var donate = document.getElementById("donate-now");
+          zenscroll.to(donate, 400);
+        })()
+    `
+  }
+
+  fun socialLink (name : String, url : String, image : String) : Html {
     <div class="pure-u-1-6">
-     <a class="link" href={url}><img src={"assets/images/social-" + image + ".svg"}/>
-     <br/>
-     <{name}>
-     </a>
+      <a
+        class="link"
+        href={url}>
+
+        <img src={"assets/images/social-" + image + ".svg"}/>
+        <br/>
+        <{ name }>
+
+      </a>
     </div>
   }
 
-  fun nav(name : String, url : String, current : Bool) : Html {
+  fun nav (name : String, url : String, current : Bool) : Html {
     <li class={"pure-menu-item " + klass}>
       <a
         href={url}
         class="pure-menu-link">
-        <{name}>
+
+        <{ name }>
+
       </a>
     </li>
   } where {
-    klass = if(current){
-      "pure-menu-selected"
-    } else {
-      ""
-    }
+    klass =
+      if (current) {
+        "pure-menu-selected"
+      } else {
+        ""
+      }
   }
 
   fun render : Html {
@@ -48,18 +74,20 @@ component Donations {
           <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <a
               class="pure-menu-heading"
-              href="">
+              href="/">
+
               <img src="assets/images/logo.svg"/>
+
             </a>
 
             <ul class="pure-menu-list">
-              <{ nav("Home", "/", false)}>
-              <{ nav("About", "/", false)}>
-              <{ nav("Team", "/", false)}>
-              <{ nav("Contact", "/", false)}>
-              <{ nav("Blog", "/", false)}>
-              <{ nav("Roadmap", "/", false)}>
-              <{ nav("Donations", "/", true)}>
+              <{ nav("Home", "/", false) }>
+              <{ nav("About", "/#about", false) }>
+              <{ nav("Team", "/#team", false) }>
+              <{ nav("Contact", "/#contact", false) }>
+              <{ nav("Blog", "https://blog.sushichain.io", false) }>
+              <{ nav("Roadmap", "/roadmap", false) }>
+              <{ nav("Donations", "/donations", true) }>
             </ul>
           </div>
         </div>
@@ -69,156 +97,222 @@ component Donations {
             <h2 class="content-head is-center">
               <{ "Help us raise money by donating" }>
             </h2>
-
-<div class="pure-g">
-<div class="pure-u-1-1">
-<h3><{"Why help us?"}></h3>
-<p><{"We are currently a self funded blockchain project. You might not realise but it takes a huge amount of time and money to create and run a custom blockchain. On top of that the cost of speaking and exhibiting at expos and conferences is very expensive."}></p>
-<p><{"Here at SushiChain we all work full time and contribute to SushiChain in our spare time. We have families, kids and mortgages and so the costs of driving SushiChain forward means we sacrifice spending money on ourselves and families in order to pursue our dreams of blockchain. So please help up out anyway you can. Any amount of donation is massively appreciated."}></p>
-</div>
-</div>
-
-<div class="pure-g">
-<div class="pure-u-1-1">
-<h3><{"Help us pay for these upcoming events"}></h3>
-
-<div class="pure-g">
-  <div class="pure-u-1-2">
-
-    <h3 class="content-subhead"><{"Malta Blockchain Summit - 1st November 2018"}></h3>
-    <div::up><strong><{"St Julians, Malta"}></strong></div>
-    <div><{"Website: "}><a class="link" href="https://maltablockchainsummit.com/"><{"https://maltablockchainsummit.com/"}></a></div>
-    <div><{"Listing: "}><a class="link" href="https://maltablockchainsummit.com/list-of-partners/"><{"Find us listed half way down the page"}></a></div>
-    <p><{"Kingsley will be speaking and exhibiting at the Malta Blockchain summit to raise awareness for SushiChain. We will have a small booth/stand at the conference from which we will promote SushiChain."}></p>
-    <p><strong><{"Cost breakdown"}></strong></p>
-    <div class="costs">
-    <table class="pure-table pure-table-bordered">
-        <thead>
-            <tr>
-                <th><{"Item"}></th>
-                <th><{"Description"}></th>
-                <th><{"Cost"}></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td><{"Exhibitor fee"}></td>
-                <td><{"Cost of exhibiting and speaking"}></td>
-                <td><{"£3000.00"}></td>
-            </tr>
-
-            <tr>
-                <td><{"Travel & accommodation"}></td>
-                <td><{"Flights, hotel and taxis"}></td>
-                <td><{"£2000.00"}></td>
-            </tr>
-
-            <tr>
-                <td><{"Print media"}></td>
-                <td><{"Booth decoration, flyers"}></td>
-                <td><{"£1000.00"}></td>
-            </tr>
-
-            <tr class="pure-table-odd">
-                <td><{"Total"}></td>
-                <td></td>
-                <td><{"£6000.00"}></td>
-            </tr>
+            </div>
 
 
-        </tbody>
-    </table>
-  </div>
-  </div>
+            <div class="ribbon1 l-box-lrg pure-g">
 
-  <div class="pure-u-1-2">
+              <div class="pure-u-1-1">
+              <h2 class="content-head content-head-ribbon1">
+                <{ "Why help us?" }>
+              </h2>
 
-    <h3 class="content-subhead"><{"London Business Show - 15th November 2018"}></h3>
-    <div::up><{"London, UK"}></div>
+              <p>
+                <{
+                  "We are currently a self funded blockchain project. You m" \
+                  "ight not realise but it takes a huge amount of time and " \
+                  "money to create and run a custom blockchain. On top of t" \
+                  "hat the cost of speaking and exhibiting at expos and con" \
+                  "ferences is very expensive."
+                }>
+              </p>
 
-  </div>
-</div>
+              <p>
+                <{
+                  "Here at SushiChain we all work full time and contribute " \
+                  "to SushiChain in our spare time. We have families, kids " \
+                  "and mortgages and so the costs of driving SushiChain for" \
+                  "ward means we sacrifice spending money on ourselves and " \
+                  "families in order to pursue our dreams of blockchain. So" \
+                  " please help up out anyway you can. Any amount of donati" \
+                  "on is massively appreciated."
+                }>
+              </p>
+              </div>
 
-<div class="pure-g">
-  <div class="pure-u-1-2">
 
-    <h3 class="content-subhead"><{"Silicon Valley Blockchain Expo - 28th November 2018"}></h3>
-    <div::up><{"Santa Clara, USA"}></div>
+            </div>
 
-  </div>
 
-  /* <div class="pure-u-1-2">
-
-    <h3 class="content-subhead"><{"London Business Show - 15th November 2018"}></h3>
-    <div::up><{"London, UK"}></div>
-
-  </div> */
-</div>
-
-</div>
-</div>
-
-            /* <div class="pure-g">
-              <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                  <i class="fa fa-rocket"/>
-                  <{ "Get Started Quickly" }>
+           <div class="content">
+            <div class="pure-g">
+              <div class="pure-u-1-1">
+                <h3>
+                  <{ "Help us pay for these upcoming events" }>
                 </h3>
+              </div>
+            </div>
+
+            <div class="pure-g">
+              <div::bg class="pure-u-1 pure-u-md-11-24">
+                <h3 class="content-subhead">
+                  <{ "Malta Blockchain Summit - 1st November 2018" }>
+                </h3>
+
+                <div::up>
+                  <strong>
+                    <{ "St Julians, Malta" }>
+                  </strong>
+                </div>
+
+                <div>
+                  <{ "Website: " }>
+
+                  <a
+                    class="link"
+                    href="https://maltablockchainsummit.com/">
+
+                    <{ "https://maltablockchainsummit.com/" }>
+
+                  </a>
+                </div>
+
+                <div>
+                  <{ "Listing: " }>
+
+                  <a
+                    class="link"
+                    href="https://maltablockchainsummit.com/list-of-partners/">
+
+                    <{ "Find us listed half way down the page" }>
+
+                  </a>
+                </div>
 
                 <p>
                   <{
-                    "Phasellus eget enim eu lectus faucibus vestibulum. Suspe" \
-                    "ndisse sodales pellentesque elementum."
+                    "Kingsley will be speaking and exhibiting at the Malta Bl" \
+                    "ockchain summit to raise awareness for SushiChain. We wi" \
+                    "ll have a small booth/stand at the conference from which" \
+                    " we will promote SushiChain."
                   }>
                 </p>
-              </div>
 
-              <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                  <i class="fa fa-mobile"/>
-                  <{ "  Responsive Layouts" }>
-                </h3>
+                <button
+                  onClick={scrollToDonate}
+                  class="button-secondary pure-button button-xlarge">
+
+                  <{ "Donate now!" }>
+
+                </button>
 
                 <p>
-                  <{
-                    "Phasellus eget enim eu lectus faucibus vestibulum. Suspe" \
-                    "ndisse sodales pellentesque elementum."
-                  }>
+                  <strong>
+                    <{ "Cost breakdown" }>
+                  </strong>
                 </p>
+
+                <div class="costs">
+                  <table class="pure-table pure-table-bordered">
+                    <thead>
+                      <tr>
+                        <th>
+                          <{ "Item" }>
+                        </th>
+
+                        <th>
+                          <{ "Description" }>
+                        </th>
+
+                        <th>
+                          <{ "Cost" }>
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>
+                          <{ "Exhibitor fee" }>
+                        </td>
+
+                        <td>
+                          <{ "Cost of exhibiting and speaking" }>
+                        </td>
+
+                        <td>
+                          <{ "£3000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <{ "Travel & accommodation" }>
+                        </td>
+
+                        <td>
+                          <{ "Flights, hotel and taxis" }>
+                        </td>
+
+                        <td>
+                          <{ "£2000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <{ "Print media" }>
+                        </td>
+
+                        <td>
+                          <{ "Booth decoration, flyers" }>
+                        </td>
+
+                        <td>
+                          <{ "£1000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr class="pure-table-odd">
+                        <td>
+                          <{ "Total" }>
+                        </td>
+
+                        <td/>
+
+                        <td>
+                          <{ "£6000.00" }>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
-              <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+              <div class="pure-u-1-24">
+                <br class="pure-u-md-1-24"/>
+              </div>
+
+              <div::bg class="pure-u-1 pure-u-md-11-24">
                 <h3 class="content-subhead">
-                  <i class="fa fa-th-large"/>
-                  <{ "Modular" }>
+                  <{ "London Business Show - 15th November 2018" }>
                 </h3>
 
-                <p>
-                  <{
-                    "Phasellus eget enim eu lectus faucibus vestibulum. Suspe" \
-                    "ndisse sodales pellentesque elementum."
-                  }>
-                </p>
+                <div::up>
+                  <{ "London, UK" }>
+                </div>
               </div>
+            </div>
 
-              <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+            <br/>
+
+            <div class="pure-g">
+              <div::bg class="pure-u-11-24">
                 <h3 class="content-subhead">
-                  <i class="fa fa-check-square-o"/>
-                  <{ "Plays Nice" }>
+                  <{ "Silicon Valley Blockchain Expo - 28th November 2018" }>
                 </h3>
 
-                <p>
-                  <{
-                    "Phasellus eget enim eu lectus faucibus vestibulum. Suspe" \
-                    "ndisse sodales pellentesque elementum."
-                  }>
-                </p>
+                <div::up>
+                  <{ "Santa Clara, USA" }>
+                </div>
               </div>
-            </div> */
+            </div>
           </div>
 
-          <div class="ribbon l-box-lrg pure-g">
+          <div
+            id="donate-now"
+            class="ribbon l-box-lrg pure-g">
+
             <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
               <img
                 width="200"
@@ -236,16 +330,19 @@ component Donations {
                 <{
                   "  Lorem ipsum dolor sit amet, consectetur adipisicing el" \
                   "it, sed do eiusmod
-                                    tempor incididunt u" \
-                  "t labore et dolore magna aliqua. Ut enim ad minim veniam" \
-                  ",
-                                    quis nostrud exercitation ullamco la" \
-                  "boris nisi ut aliquip ex ea commodo
-                                    co" \
-                  "nsequat. Duis aute irure dolor."
+                                                       " \
+                  "                 tempor incididunt ut labore et dolore m" \
+                  "agna aliqua. Ut enim ad minim veniam,
+                                    " \
+                  "                                    quis nostrud exercit" \
+                  "ation ullamco laboris nisi ut aliquip ex ea commodo
+                      " \
+                  "                                                  conseq" \
+                  "uat. Duis aute irure dolor."
                 }>
               </p>
             </div>
+
           </div>
 
           <div class="content">
@@ -304,13 +401,15 @@ component Donations {
                   <{
                     "Lorem ipsum dolor sit amet, consectetur adipisicing elit" \
                     ", sed do eiusmod
-                                          tempor incididunt" \
-                    " ut labore et dolore magna aliqua. Ut enim ad minim veni" \
-                    "am,
-                                          quis nostrud exercitation ulla" \
-                    "mco laboris nisi ut aliquip ex ea commodo
-                                  " \
-                    "        consequat."
+                                                           " \
+                    "                       tempor incididunt ut labore et do" \
+                    "lore magna aliqua. Ut enim ad minim veniam,
+                                " \
+                    "                                                  quis n" \
+                    "ostrud exercitation ullamco laboris nisi ut aliquip ex e" \
+                    "a commodo
+                                                                  " \
+                    "                consequat."
                   }>
                 </p>
 
@@ -322,8 +421,9 @@ component Donations {
                   <{
                     "Lorem ipsum dolor sit amet, consectetur adipisicing elit" \
                     ", sed do eiusmod
-                                          tempor incididunt" \
-                    " ut labore et dolore magna aliqua."
+                                                           " \
+                    "                       tempor incididunt ut labore et do" \
+                    "lore magna aliqua."
                   }>
                 </p>
               </div>
@@ -332,44 +432,35 @@ component Donations {
 
           <div class="footer l-box is-center">
             <div class="pure-g">
+              <div class="pure-u-1 pure-u-md-1-3">
+                <p class="copyright">
+                  <{ "© SushiChain 2018. All Rights Reserved." }>
+                </p>
+              </div>
 
-            <div class="pure-u-1-3">
-              <p class="copyright"><{"© SushiChain 2018. All Rights Reserved."}></p>
-            </div>
-
-              <div class="pure-u-1-3">
-                /* <h3><{"Contact Us"}></h3> */
-
-
-
+              <div class="pure-u-1 pure-u-md-1-3">
                 <div class="pure-g">
-
-                <{ socialLink("Twitter", "", "twitter") }>
-                <{ socialLink("Slack", "", "slack-2") }>
-                <{ socialLink("Telegram", "", "telegram") }>
-                <{ socialLink("Discord", "", "discord") }>
-                <{ socialLink("Gitter", "", "gitter") }>
-                <{ socialLink("Github", "", "github") }>
-
+                  <{ socialLink("Slack", "https://bit.ly/2HJBu1z", "slack-2") }>
+                  <{ socialLink("Github", "https://github.com/sushichain", "github") }>
+                  <{ socialLink("Telegram", "https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw", "telegram") }>
+                  <{ socialLink("Discord", "https://discord.gg/qBqfJPv", "discord") }>
+                  <{ socialLink("Gitter", "https://gitter.im/SushiChain/Lobby", "gitter") }>
+                  <{ socialLink("Twitter", "https://www.twitter.com/sushichainhq", "twitter") }>
                 </div>
-
               </div>
 
-              <div class="pure-u-1-3">
-                <p><a class="link" href="mailto:info@sushichain.io" target="_top"><{"info@sushichain.io"}></a></p>
-              </div>
-
-              /* <div class="pure-u-1-3">
+              <div class="pure-u-1 pure-u-md-1-3">
                 <p>
-                  <{ "Thirds" }>
+                  <a
+                    class="link"
+                    href="mailto:info@sushichain.io"
+                    target="_top">
+
+                    <{ "info@sushichain.io" }>
+
+                  </a>
                 </p>
               </div>
-
-              <div class="pure-u-1-3">
-                <p>
-                  <{ "Thirds" }>
-                </p>
-              </div> */
             </div>
           </div>
         </div>
