@@ -214,6 +214,15 @@ a.pure-button-primary {
   color: black;
 }
 
+.cost .pure-table thead {
+  background: #37DAEE;
+  border: 1px solid #37DAEE;
+}
+
+.cost .pure-table {
+  border: 1px solid #37DAEE;
+}
+
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
