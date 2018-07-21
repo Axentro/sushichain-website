@@ -137,9 +137,9 @@ component Donations {
            <div class="content">
             <div class="pure-g">
               <div class="pure-u-1-1">
-                <h3>
-                  <{ "Help us pay for these upcoming events" }>
-                </h3>
+              <h3 class="content-head is-center">
+                <{ "Help us pay for these upcoming events" }>
+              </h3>
               </div>
             </div>
 
