@@ -109,7 +109,7 @@ component Donations {
               <{ nav("Team", "/#team", false) }>
               <{ nav("Contact", "/#contact", false) }>
               <{ nav("Blog", "https://blog.sushichain.io", false) }>
-              <{ nav("Roadmap", "/roadmap", false) }>
+              /* <{ nav("Roadmap", "/roadmap", false) }> */
               <{ nav("Donations", "/donations", true) }>
             </ul>
           </div>
