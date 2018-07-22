@@ -55,6 +55,7 @@ component Home {
                           <a href="#team"><{"Team"}></a>
                           <a href="#contact"><{"Contact"}></a>
                           <a href="http://blog.sushichain.io/" target="_blank"><{"Blog"}></a>
+                          <a href="/roadmap"><{"Roadmap"}></a>
                           <a href="/donations"><{"Donations"}></a>
                       </nav>
 
@@ -230,6 +231,8 @@ component Home {
                               <li><a href="#team"><{"Team"}></a></li>
                               <li><a href="#contact"><{"Contact"}></a></li>
                               <li><a href="http://blog.sushichain.io/" target="_blank"><{"Blog"}></a></li>
+                              <li><a href="/roadmap"><{"Roadmap"}></a></li>
+                              <li><a href="/donations"><{"Donations"}></a></li>
                           </ul>
                       </nav>
                   </div>
