@@ -2014,6 +2014,87 @@ const $Ui = new (class extends Store {
 })
 $Ui.__displayName = `Ui`
 
+class $MiscLayout extends Component {
+  get name () {
+    if (this.props.name != undefined) {
+      return this.props.name
+    } else {
+      return ``
+    }
+  }
+
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  socialLink(name, url, image) {
+    return _createElement("div", {
+      className: `pure-u-1-6`
+    }, [_createElement("a", {
+      "href": url,
+      className: `link`
+    }, [_createElement("img", {
+      "src": `assets/images/social-` + image + `.svg`
+    }), _createElement("br", {}), name])])
+  }
+
+  nav(name, url, current) {
+    let klass = (current ? `pure-menu-selected` : ``)
+
+    return _createElement("li", {
+      className: `pure-menu-item ` + klass
+    }, [_createElement("a", {
+      "href": url,
+      className: `pure-menu-link`
+    }, [name])])
+  }
+
+  render() {
+    return _createElement("div", {}, [_createElement("div", {
+      className: `header`
+    }, [_createElement("div", {
+      className: `home-menu pure-menu pure-menu-horizontal pure-menu-fixed`
+    }, [_createElement("a", {
+      "href": `/`,
+      className: `pure-menu-heading`
+    }, [_createElement("img", {
+      "src": `assets/images/logo.svg`
+    })]), _createElement("ul", {
+      className: `pure-menu-list`
+    }, [this.nav.bind(this)(`Home`, `/`, false), this.nav.bind(this)(`About`, `/#about`, false), this.nav.bind(this)(`Team`, `/#team`, false), this.nav.bind(this)(`Contact`, `/#contact`, false), this.nav.bind(this)(`Blog`, `https://blog.sushichain.io`, false), this.nav.bind(this)(`Roadmap`, `/roadmap`, _compare(`roadmap`, this.name)), this.nav.bind(this)(`Donations`, `/donations`, _compare(`donations`, this.name))])])]), _createElement("div", {
+      className: `content-wrapper` + ` misc-layout-spacer`
+    }, [this.children, _createElement("div", {
+      className: `footer l-box is-center`
+    }, [_createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `pure-u-1 pure-u-md-1-3`
+    }, [_createElement("p", {
+      className: `copyright`
+    }, [`© SushiChain 2018. All Rights Reserved.`])]), _createElement("div", {
+      className: `pure-u-1 pure-u-md-1-3`
+    }, [_createElement("div", {
+      className: `pure-g`
+    }, [this.socialLink.bind(this)(`Slack`, `https://bit.ly/2HJBu1z`, `slack-2`), this.socialLink.bind(this)(`Github`, `https://github.com/sushichain`, `github`), this.socialLink.bind(this)(`Telegram`, `https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw`, `telegram`), this.socialLink.bind(this)(`Discord`, `https://discord.gg/qBqfJPv`, `discord`), this.socialLink.bind(this)(`Gitter`, `https://gitter.im/SushiChain/Lobby`, `gitter`), this.socialLink.bind(this)(`Twitter`, `https://www.twitter.com/sushichainhq`, `twitter`)])]), _createElement("div", {
+      className: `pure-u-1 pure-u-md-1-3`
+    }, [_createElement("p", {}, [_createElement("a", {
+      "href": `mailto:info@sushichain.io`,
+      "target": `_top`,
+      className: `link`
+    }, [`info@sushichain.io`])])])])])])])
+  }
+}
+
+$MiscLayout.displayName = "MiscLayout"
+
+$MiscLayout.defaultProps = {
+  name: ``,children: []
+}
+
 class $Donations extends Component {
   constructor(props) {
     super(props)
@@ -2081,43 +2162,8 @@ class $Donations extends Component {
             })()
   }
 
-  socialLink(name, url, image) {
-    return _createElement("div", {
-      className: `pure-u-1-6`
-    }, [_createElement("a", {
-      "href": url,
-      className: `link`
-    }, [_createElement("img", {
-      "src": `assets/images/social-` + image + `.svg`
-    }), _createElement("br", {}), name])])
-  }
-
-  nav(name, url, current) {
-    let klass = (current ? `pure-menu-selected` : ``)
-
-    return _createElement("li", {
-      className: `pure-menu-item ` + klass
-    }, [_createElement("a", {
-      "href": url,
-      className: `pure-menu-link`
-    }, [name])])
-  }
-
   render() {
-    return (this.state.ready ? _createElement("div", {}, [_createElement("div", {
-      className: `header`
-    }, [_createElement("div", {
-      className: `home-menu pure-menu pure-menu-horizontal pure-menu-fixed`
-    }, [_createElement("a", {
-      "href": `/`,
-      className: `pure-menu-heading`
-    }, [_createElement("img", {
-      "src": `assets/images/logo.svg`
-    })]), _createElement("ul", {
-      className: `pure-menu-list`
-    }, [this.nav.bind(this)(`Home`, `/`, false), this.nav.bind(this)(`About`, `/#about`, false), this.nav.bind(this)(`Team`, `/#team`, false), this.nav.bind(this)(`Contact`, `/#contact`, false), this.nav.bind(this)(`Blog`, `https://blog.sushichain.io`, false), this.nav.bind(this)(`Donations`, `/donations`, true)])])]), _createElement("div", {
-      className: `content-wrapper` + ` donations-spacer`
-    }, [_createElement("div", {
+    return (this.state.ready ? _createElement($MiscLayout, { "name": `donations` }, _array(_createElement("div", {
       className: `content`
     }, [_createElement("h2", {
       className: `content-head is-center`
@@ -2127,7 +2173,7 @@ class $Donations extends Component {
       className: `pure-u-1-1`
     }, [_createElement("h2", {
       className: `content-head content-head-ribbon1`
-    }, [`Why help us?`]), _createElement("p", {}, [`We are currently a self funded blockchain project. You might not realise but it takes a huge amount of time and money to create and run a custom blockchain. On top of that the cost of speaking and exhibiting at expos and conferences is very expensive.`]), _createElement("p", {}, [`Here at SushiChain we all work full time and contribute to SushiChain in our spare time. We have families, kids and mortgages and so the costs of driving SushiChain forward means we sacrifice spending money on ourselves and families in order to pursue our dreams of blockchain. So please help up out anyway you can. Any amount of donation is massively appreciated.`])])]), _createElement("div", {
+    }, [`Why help us?`]), _createElement("p", {}, [`We are currently a self funded blockchain project. You might not realise but it takes a huge amount of time and money to create and run a custom blockchain. On top of that the cost of speaking and exhibiting at expos and conferences is very expensive. We need to do this to raise awareness to help get our platform out there.`]), _createElement("p", {}, [`Here at SushiChain we all work full time and contribute to SushiChain in our spare time. We have families, kids and mortgages and so the costs of driving SushiChain forward means we sacrifice spending money on ourselves and families in order to pursue our dreams of blockchain. So please help up out anyway you can to help get our platform to you as quickly as possible. Any amount of donation is massively appreciated.`])])]), _createElement("div", {
       className: `content`
     }, [_createElement("div", {
       className: `pure-g`
@@ -2261,29 +2307,89 @@ class $Donations extends Component {
       className: `button-primary pure-button`
     }, [`Copy address`])]), _createElement("div", {
       className: `pure-u-1 pure-u-md-1-3`
-    }, [_createElement("h4", {}, [`Paypal`]), _createElement("p", {}, [`Coming soon`])])])]), _createElement("div", {
-      className: `footer l-box is-center`
-    }, [_createElement("div", {
-      className: `pure-g`
-    }, [_createElement("div", {
-      className: `pure-u-1 pure-u-md-1-3`
-    }, [_createElement("p", {
-      className: `copyright`
-    }, [`© SushiChain 2018. All Rights Reserved.`])]), _createElement("div", {
-      className: `pure-u-1 pure-u-md-1-3`
-    }, [_createElement("div", {
-      className: `pure-g`
-    }, [this.socialLink.bind(this)(`Slack`, `https://bit.ly/2HJBu1z`, `slack-2`), this.socialLink.bind(this)(`Github`, `https://github.com/sushichain`, `github`), this.socialLink.bind(this)(`Telegram`, `https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw`, `telegram`), this.socialLink.bind(this)(`Discord`, `https://discord.gg/qBqfJPv`, `discord`), this.socialLink.bind(this)(`Gitter`, `https://gitter.im/SushiChain/Lobby`, `gitter`), this.socialLink.bind(this)(`Twitter`, `https://www.twitter.com/sushichainhq`, `twitter`)])]), _createElement("div", {
-      className: `pure-u-1 pure-u-md-1-3`
-    }, [_createElement("p", {}, [_createElement("a", {
-      "href": `mailto:info@sushichain.io`,
-      "target": `_top`,
-      className: `link`
-    }, [`info@sushichain.io`])])])])])])]) : _createElement("div", {}))
+    }, [_createElement("h4", {}, [`Paypal`]), _createElement("p", {}, [_createElement("form", {
+      "action": `https://www.paypal.com/cgi-bin/webscr`,
+      "method": `post`,
+      "target": `_top`
+    }, [_createElement("input", {
+      "type": `hidden`,
+      "name": `cmd`,
+      "value": `_s-xclick`
+    }), _createElement("input", {
+      "type": `hidden`,
+      "name": `hosted_button_id`,
+      "value": `LSX23XU8RYRHU`
+    }), _createElement("input", {
+      "type": `image`,
+      "src": `https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif`,
+      "border": `0`,
+      "name": `submit`,
+      "alt": `PayPal – The safer, easier way to pay online!`
+    }), _createElement("img", {
+      "alt": ``,
+      "border": `0`,
+      "src": `https://www.paypalobjects.com/en_GB/i/scr/pixel.gif`,
+      "width": `1`,
+      "height": `1`
+    })])])])])]))) : _createElement("div", {}))
   }
 }
 
 $Donations.displayName = "Donations"
+
+class $Pages_Roadmap_Feature extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get icon () {
+    if (this.props.icon != undefined) {
+      return this.props.icon
+    } else {
+      return $Html.empty()
+    }
+  }
+
+  get description () {
+    if (this.props.description != undefined) {
+      return this.props.description
+    } else {
+      return ``
+    }
+  }
+
+  get name () {
+    if (this.props.name != undefined) {
+      return this.props.name
+    } else {
+      return ``
+    }
+  }
+
+  render() {
+    return _createElement("div", {
+      className: `pages-roadmap-feature-base`
+    }, [_createElement("div", {
+      className: `pages-roadmap-feature-icon`
+    }, [this.icon]), _createElement("div", {}, [_createElement("div", {
+      className: `pages-roadmap-feature-title`
+    }, [this.name]), _createElement("div", {
+      className: `pages-roadmap-feature-description`
+    }, [this.description]), ($Array.isEmpty(this.children) ? $Html.empty() : _createElement("div", {
+      className: `pages-roadmap-feature-features`
+    }, [this.children]))])])
+  }
+}
+
+$Pages_Roadmap_Feature.displayName = "Pages.Roadmap.Feature"
+
+$Pages_Roadmap_Feature.defaultProps = {
+  children: [],icon: $Html.empty(),description: ``,name: ``
+}
 
 class $Home extends Component {
   constructor(props) {
@@ -2408,6 +2514,8 @@ class $Home extends Component {
       "href": `http://blog.sushichain.io/`,
       "target": `_blank`
     }, [`Blog`]), _createElement("a", {
+      "href": `/roadmap`
+    }, [`Roadmap`]), _createElement("a", {
       "href": `/donations`
     }, [`Donations`])]), _createElement("div", {
       className: `mobile-trigger`
@@ -2564,15 +2672,129 @@ class $Home extends Component {
     }, [`Contact`])]), _createElement("li", {}, [_createElement("a", {
       "href": `http://blog.sushichain.io/`,
       "target": `_blank`
-    }, [`Blog`])])])])])])])]) : _createElement("div", {}))
+    }, [`Blog`])]), _createElement("li", {}, [_createElement("a", {
+      "href": `/roadmap`
+    }, [`Roadmap`])]), _createElement("li", {}, [_createElement("a", {
+      "href": `/donations`
+    }, [`Donations`])])])])])])])]) : _createElement("div", {}))
   }
 }
 
 $Home.displayName = "Home"
 
-class $RoadMap extends Component {
+class $Roadmap_Version extends Component {
+  get children () {
+    if (this.props.children != undefined) {
+      return this.props.children
+    } else {
+      return []
+    }
+  }
+
+  get version () {
+    if (this.props.version != undefined) {
+      return this.props.version
+    } else {
+      return ``
+    }
+  }
+
   render() {
-    return _createElement("h1", {}, [`RoadMap coming soon`])
+    return _createElement("div", {}, [_createElement("div", {
+      className: `roadmap-version-title`
+    }, [this.version]), _createElement("div", {
+      className: `roadmap-version-features`
+    }, [this.children])])
+  }
+}
+
+$Roadmap_Version.displayName = "Roadmap.Version"
+
+$Roadmap_Version.defaultProps = {
+  children: [],version: ``
+}
+
+class $RoadMap extends Component {
+  constructor(props) {
+    super(props)
+    this.state = new Record({
+      ready: false
+    })
+  }
+
+  get checkmark() {
+    return _createElement("svg", {
+      "xmlns": `http://www.w3.org/2000/svg`,
+      "width": `24`,
+      "height": `24`,
+      "viewBox": `0 0 24 24`
+    }, [_createElement("path", {
+      "d": `M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z`
+    })])
+  }
+
+  get diamond() {
+    return _createElement("svg", {
+      "xmlns": `http://www.w3.org/2000/svg`,
+      "viewBox": `0 0 24 24`,
+      "fillRule": `evenodd`,
+      "clipRule": `evenodd`,
+      "height": `24`,
+      "width": `24`
+    }, [_createElement("path", {
+      "d": `M12 0l-12 12.001 12 11.999 12.001-11.999-12.001-12.001zm-9.171 12.001l9.171-9.172 9.172 9.172-9.172 9.172-9.171-9.172z`
+    })])
+  }
+
+  componentDidMount() {
+    return (async () => {
+      try {
+         await (async ()=> {
+      try {
+        return await $AssetLoader.loadScript(`https://code.jquery.com/jquery-3.3.1.min.js`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await $AssetLoader.unloadAllStyles()
+
+     await $AssetLoader.loadMisc()
+
+     await new Promise((_resolve) => {
+      this.setState(_update(this.state, { ready: true }), _resolve)
+    })
+      }
+      catch(_error) {
+        if (_error instanceof DoError) {
+        } else {
+          console.warn(`Unhandled error in do statement`)
+          console.log(_error)
+        }
+      } 
+    })()
+  }
+
+  render() {
+    return (this.state.ready ? _createElement($MiscLayout, { "name": `roadmap` }, _array(_createElement("div", {
+      className: `content`
+    }, [_createElement("h2", {
+      className: `content-head is-center`
+    }, [`Roadmap`]), _createElement("p", {
+      className: `is-center`
+    }, [`This page contains planned and shipped high level feaures of the SushiChain platform.`])]), _createElement("div", {
+      className: `content`
+    }, [_createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `pure-u-1-24 pure-u-md-1-24`
+    }), _createElement("div", {
+      className: `pure-u-22-24 pure-u-md-22-24`
+    }, [_createElement($Roadmap_Version, { "version": `Planned Features` }, _array(_createElement($Pages_Roadmap_Feature, { "name": `Two factor authentication`, "icon": this.diamond, "description": `Provides google auth/authy optional two factor authentication for transactions` }), _createElement($Pages_Roadmap_Feature, { "name": `Proof of Stake Consensus for dApps`, "icon": this.diamond, "description": `To enable super fast dApps we will implement PoS only for dApp transactions while the rest of the blockchain operates on PoW` }), _createElement($Pages_Roadmap_Feature, { "name": `Yescrypt PoW algorithm`, "icon": this.diamond, "description": `To retain our CPU only mining promise we need to implement Yescrypt in place of the current Scrypt-N algorithm` }), _createElement($Pages_Roadmap_Feature, { "name": `Hierarchical Deterministic Wallet`, "icon": this.diamond, "description": `Implement HD Wallet for better privacy and security` }))), _createElement("br", {}), _createElement("br", {}), _createElement($Roadmap_Version, { "version": `Implemented Features` }, _array(_createElement($Pages_Roadmap_Feature, { "description": `The core blockchain components`, "name": `Blockchain Basics`, "icon": this.checkmark }, _array(_createElement($Pages_Roadmap_Feature, { "name": `Non-Deterministic Wallet`, "description": `Provides ECDSA based private/public key pair wallet` }), _createElement($Pages_Roadmap_Feature, { "name": `Blocks, Transactions, Senders, Recipients`, "description": `The core building blocks of the chain` }), _createElement($Pages_Roadmap_Feature, { "name": `Proof of Work Consensus`, "description": `Scrypt-N based PoW consensus algorithm` }))), _createElement($Pages_Roadmap_Feature, { "description": `Core components build as internal dApps`, "name": `Internal dApps`, "icon": this.checkmark }, _array(_createElement($Pages_Roadmap_Feature, { "name": `UTXO`, "description": `Provides unspent transaction handling` }), _createElement($Pages_Roadmap_Feature, { "name": `Transactions`, "description": `Validation and handling of transactions` }), _createElement($Pages_Roadmap_Feature, { "name": `Blockchain info`, "description": `Indices, node info and general info about the authoritative chain` }), _createElement($Pages_Roadmap_Feature, { "name": `Tokens`, "description": `Creation and management of user defined custom tokens` }), _createElement($Pages_Roadmap_Feature, { "name": `Rejected transactions`, "description": `Handling of rejected transactions` }), _createElement($Pages_Roadmap_Feature, { "name": `Fees`, "description": `Transaction fees system` }), _createElement($Pages_Roadmap_Feature, { "name": `Human readable addresses (SCARS)`, "description": `Buy, sell, trade human readable addresses` }))), _createElement($Pages_Roadmap_Feature, { "name": `Peer-to-Peer Node System`, "icon": this.checkmark, "description": `Blockchain network nodes with peer-to-peer chain syncing` }), _createElement($Pages_Roadmap_Feature, { "name": `Public API`, "icon": this.checkmark, "description": `Public JSON REST API (with documentation) running on nodes and the testnet` }), _createElement($Pages_Roadmap_Feature, { "name": `Command line clients`, "icon": this.checkmark, "description": `Command line clients for the blockchain, node and miner` }, _array(_createElement($Pages_Roadmap_Feature, { "name": `Sushi Client (CLI)`, "description": `Sushi main user command line client - provides all operations for interacting with the blockchain` }), _createElement($Pages_Roadmap_Feature, { "name": `Miner (CLI)`, "description": `Command line Miner` }), _createElement($Pages_Roadmap_Feature, { "name": `Sushi node (CLI)`, "description": `Command line blockchain network node` }))), _createElement($Pages_Roadmap_Feature, { "description": `External decentralized apps system`, "name": `External dApps`, "icon": this.checkmark }, _array(_createElement($Pages_Roadmap_Feature, { "name": `Crystal dApps`, "description": `Plugin style architecture for writing dApps in Crystal` }), _createElement($Pages_Roadmap_Feature, { "name": `Real-time communications`, "description": `Real-time peer-to-peer communications system - capable of token transfer and messaging` })))))]), _createElement("div", {
+      className: `pure-u-1-24 pure-u-md-1-24`
+    })])]))) : _createElement("div", {}))
   }
 }
 
@@ -5071,7 +5293,7 @@ $Ui_Form_Field.defaultProps = {
 }
 
 _insertStyles(`
-  .donations-spacer {
+  .misc-layout-spacer {
     margin-top: 50px;
   }
 
@@ -5084,8 +5306,63 @@ _insertStyles(`
     padding: 20px;
   }
 
+  .pages-roadmap-feature-base {
+    display: flex;
+  }
+
+  .pages-roadmap-feature-icon {
+    margin-right: 10px;
+    opacity: 0.3;
+  }
+
+  .pages-roadmap-feature-icon:empty {
+    display: none;
+  }
+
+  .pages-roadmap-feature-icon > svg {
+    height: 12px;
+    width: 12px;
+  }
+
+  .pages-roadmap-feature-title {
+    font-weight: 600;
+    color: #222;
+  }
+
+  .pages-roadmap-feature-description {
+    font-size: 14px;
+    color: #777;
+  }
+
+  .pages-roadmap-feature-features {
+    border-left: 1px solid #EEE;
+    padding-left: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .pages-roadmap-feature-features > * + * {
+    margin-top: 7px;
+  }
+
   .home-auto-width {
     width: auto;
+  }
+
+  .roadmap-version-title {
+    border-bottom: 2px solid #EEE;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #222;
+  }
+
+  .roadmap-version-features {
+
+  }
+
+  .roadmap-version-features > * + * {
+    margin-top: 20px;
   }
 
   .ui-loader-base {
