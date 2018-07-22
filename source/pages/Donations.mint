@@ -2,11 +2,11 @@ component Donations {
   state : Page.State { ready = false }
 
   get bitcoinAddress : String {
-    "34qLBHKJpMCusj3Uvr9Hye55sS8BhBoK8t"
+    "3E1qHfMMkpi5ekoopNAnHy8nxvd8gafosCx"
   }
 
   get ethereumAddress : String {
-    "0xCd4fEc10C8Ad4873e209062B31DEFb684FF8cb7c"
+    "0x62e293958BB1073B7cd42599cFed4ab38395D42E"
   }
 
   fun componentDidMount : Void {
@@ -307,22 +307,260 @@ component Donations {
                 </h3>
 
                 <div::up>
-                  <{ "London, UK" }>
+                  <strong>
+                    <{ "London, UK" }>
+                  </strong>
                 </div>
+
+                <div>
+                  <{ "Website: " }>
+
+                  <a
+                    class="link"
+                    href="http://www.greatbritishbusinessshow.co.uk/">
+
+                    <{ "http://www.greatbritishbusinessshow.co.uk/" }>
+
+                  </a>
+                </div>
+
+                <div>
+                  <{ "Listing: " }>
+
+                  <a
+                    class="link"
+                    href="http://www.greatbritishbusinessshow.co.uk/">
+
+                    <{ "Our exhibitors page" }>
+
+                  </a>
+                </div>
+
+                <p>
+                  <{
+                    "Kingsley will be speaking and exhibiting at the London " \
+                    "Business Show to raise awareness for SushiChain. We wi" \
+                    "ll have a small booth/stand at the conference from which" \
+                    " we will promote SushiChain."
+                  }>
+                </p>
+
+                <button
+                  onClick={scrollToDonate}
+                  class="button-secondary pure-button button-xlarge">
+
+                  <{ "Donate now!" }>
+
+                </button>
+
+                <p>
+                  <strong>
+                    <{ "Cost breakdown" }>
+                  </strong>
+                </p>
+
+                <div class="costs">
+                  <table class="pure-table pure-table-bordered">
+                    <thead>
+                      <tr>
+                        <th>
+                          <{ "Item" }>
+                        </th>
+
+                        <th>
+                          <{ "Description" }>
+                        </th>
+
+                        <th>
+                          <{ "Cost" }>
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>
+                          <{ "Exhibitor fee" }>
+                        </td>
+
+                        <td>
+                          <{ "Cost of exhibiting and speaking" }>
+                        </td>
+
+                        <td>
+                          <{ "£5000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <{ "Print media" }>
+                        </td>
+
+                        <td>
+                          <{ "Booth decoration, flyers" }>
+                        </td>
+
+                        <td>
+                          <{ "£1000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr class="pure-table-odd">
+                        <td>
+                          <{ "Total" }>
+                        </td>
+
+                        <td/>
+
+                        <td>
+                          <{ "£6000.00" }>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
               </div>
             </div>
 
             <br/>
 
             <div class="pure-g">
-              <div::bg class="pure-u-11-24">
+            <div::bg class="pure-u-1 pure-u-md-11-24">
                 <h3 class="content-subhead">
                   <{ "Silicon Valley Blockchain Expo - 28th November 2018" }>
                 </h3>
 
                 <div::up>
-                  <{ "Santa Clara, USA" }>
+                  <strong>
+                    <{ "Santa Clara, USA" }>
+                  </strong>
                 </div>
+
+                <div>
+                  <{ "Website: " }>
+
+                  <a
+                    class="link"
+                    href="https://blockchain-expo.com/northamerica/">
+
+                    <{ "https://blockchain-expo.com/northamerica/" }>
+
+                  </a>
+                </div>
+
+                <div>
+                  <{ "Listing: " }>
+
+                  <a
+                    class="link"
+                    href="https://blockchain-expo.com/northamerica/partners/shushichain/">
+
+                    <{ "Our exhibitors page" }>
+
+                  </a>
+                </div>
+
+                <p>
+                  <{
+                    "Kingsley will be speaking and exhibiting at the Silicon Valley " \
+                    "Blockchain Expo to raise awareness for SushiChain. We wi" \
+                    "ll have a medium sized booth/stand at the conference from which" \
+                    " we will promote SushiChain."
+                  }>
+                </p>
+
+                <button
+                  onClick={scrollToDonate}
+                  class="button-secondary pure-button button-xlarge">
+
+                  <{ "Donate now!" }>
+
+                </button>
+
+                <p>
+                  <strong>
+                    <{ "Cost breakdown" }>
+                  </strong>
+                </p>
+
+                <div class="costs">
+                  <table class="pure-table pure-table-bordered">
+                    <thead>
+                      <tr>
+                        <th>
+                          <{ "Item" }>
+                        </th>
+
+                        <th>
+                          <{ "Description" }>
+                        </th>
+
+                        <th>
+                          <{ "Cost" }>
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>
+                          <{ "Exhibitor fee" }>
+                        </td>
+
+                        <td>
+                          <{ "Cost of exhibiting and speaking" }>
+                        </td>
+
+                        <td>
+                          <{ "£3000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <{ "Travel & accommodation" }>
+                        </td>
+
+                        <td>
+                          <{ "Flights, hotel and taxis" }>
+                        </td>
+
+                        <td>
+                          <{ "£2000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <{ "Print media" }>
+                        </td>
+
+                        <td>
+                          <{ "Booth decoration, flyers" }>
+                        </td>
+
+                        <td>
+                          <{ "£1000.00" }>
+                        </td>
+                      </tr>
+
+                      <tr class="pure-table-odd">
+                        <td>
+                          <{ "Total" }>
+                        </td>
+
+                        <td/>
+
+                        <td>
+                          <{ "£6000.00" }>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
               </div>
             </div>
           </div>
@@ -333,32 +571,23 @@ component Donations {
             <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
               <img
                 width="200"
-                alt="File Icons"
+                alt="Kingsley"
                 class="pure-img-responsive"
                 src="assets/images/kingsley2.png"/>
             </div>
 
             <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
               <h2 class="content-head content-head-ribbon">
-                <{ "Laboris nisi ut aliquip." }>
+                <{ "We really appreciate your donation!" }>
               </h2>
 
               <p>
                 <{
-                  "  Lorem ipsum dolor sit amet, consectetur adipisicing el" \
-                  "it, sed do eiusmod
-                                                       " \
-                  "                                                     tem" \
-                  "por incididunt ut labore et dolore magna aliqua. Ut enim" \
-                  " ad minim veniam,
-                                                        " \
-                  "                                                    quis" \
-                  " nostrud exercitation ullamco laboris nisi ut aliquip ex" \
-                  " ea commodo
-                                                              " \
-                  "                                              consequat." \
-                  " Duis aute irure dolor."
+                  "We have tried to list out exactly what your donations will be spent on. So you're not just blindly donating money."
                 }>
+                /* <{" If you want to know more about our long term vision and plans read our "}><a class="link2" href="/"><{"Whitepaper"}></a>
+                <{" and check out the "}><a class="link2" href="/roadmap"><{"Roadmap"}></a> */
+                <{" If you want to know more about our long term vision and plans check out our "}><a class="link2" href="/roadmap"><{"Roadmap"}></a>
               </p>
             </div>
 
@@ -388,7 +617,7 @@ component Donations {
                 </h4>
 
                 <img src={generateQrCode(bitcoinAddress)}/>
-
+<br/>
                 <input
                   id="bitcoin-address"
                   size="40"
@@ -412,7 +641,7 @@ component Donations {
                 </h4>
 
                 <img src={generateQrCode(ethereumAddress)}/>
-
+<br/>
                 <input
                   id="ethereum-address"
                   size="50"

@@ -1,5 +1,5 @@
 component RoadMap {
   fun render : Html {
-    <h1><{"RoadMap"}></h1>
+    <h1><{"RoadMap coming soon"}></h1>
   }
 }
