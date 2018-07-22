@@ -1,11 +1,19 @@
 component Donations {
   state : Page.State { ready = false }
 
+  get bitcoinAddress : String {
+    "34qLBHKJpMCusj3Uvr9Hye55sS8BhBoK8t"
+  }
 
+  get ethereumAddress : String {
+    "0xCd4fEc10C8Ad4873e209062B31DEFb684FF8cb7c"
+  }
 
   fun componentDidMount : Void {
     do {
-      AssetLoader.loadScript("https://code.jquery.com/jquery-3.3.1.min.js")
+      AssetLoader.loadScript(
+        "https://code.jquery.com/jquery-3.3.1.min.js")
+
       AssetLoader.unloadAllStyles()
       AssetLoader.loadMisc()
       next { state | ready = true }
@@ -23,6 +31,21 @@ component Donations {
   style bg {
     border: 6px solid #F9F9F9;
     padding: 20px;
+  }
+
+  fun copyAddress (id : String) : Void {
+    `
+    (() => {
+      var targetId = id
+      var copyText = document.getElementById(targetId);
+      copyText.select();
+      document.execCommand("copy");
+    })()
+    `
+  }
+
+  fun generateQrCode (address : String) : String {
+    `new QRious({value: address, size: 150}).toDataURL();`
   }
 
   fun scrollToDonate (event : Html.Event) : Void {
@@ -97,12 +120,10 @@ component Donations {
             <h2 class="content-head is-center">
               <{ "Help us raise money by donating" }>
             </h2>
-            </div>
+          </div>
 
-
-            <div class="ribbon1 l-box-lrg pure-g">
-
-              <div class="pure-u-1-1">
+          <div class="ribbon1 l-box-lrg pure-g">
+            <div class="pure-u-1-1">
               <h2 class="content-head content-head-ribbon1">
                 <{ "Why help us?" }>
               </h2>
@@ -128,18 +149,15 @@ component Donations {
                   "on is massively appreciated."
                 }>
               </p>
-              </div>
-
-
             </div>
+          </div>
 
-
-           <div class="content">
+          <div class="content">
             <div class="pure-g">
               <div class="pure-u-1-1">
-              <h3 class="content-head is-center">
-                <{ "Help us pay for these upcoming events" }>
-              </h3>
+                <h3 class="content-head is-center">
+                  <{ "Help us pay for these upcoming events" }>
+                </h3>
               </div>
             </div>
 
@@ -310,7 +328,6 @@ component Donations {
           </div>
 
           <div
-            id="donate-now"
             class="ribbon l-box-lrg pure-g">
 
             <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
@@ -331,118 +348,176 @@ component Donations {
                   "  Lorem ipsum dolor sit amet, consectetur adipisicing el" \
                   "it, sed do eiusmod
                                                        " \
-                  "                 tempor incididunt ut labore et dolore m" \
-                  "agna aliqua. Ut enim ad minim veniam,
-                                    " \
-                  "                                    quis nostrud exercit" \
-                  "ation ullamco laboris nisi ut aliquip ex ea commodo
-                      " \
-                  "                                                  conseq" \
-                  "uat. Duis aute irure dolor."
+                  "                                                     tem" \
+                  "por incididunt ut labore et dolore magna aliqua. Ut enim" \
+                  " ad minim veniam,
+                                                        " \
+                  "                                                    quis" \
+                  " nostrud exercitation ullamco laboris nisi ut aliquip ex" \
+                  " ea commodo
+                                                              " \
+                  "                                              consequat." \
+                  " Duis aute irure dolor."
                 }>
               </p>
             </div>
 
           </div>
 
-          <div class="content">
+          <div id="donate-now" class="content">
             <h2 class="content-head is-center">
               <{ "How to donate" }>
             </h2>
 
             <div class="pure-g">
-             <div class="pure-u-1">
-             <{"You can donate using Bitcoin, Ethereum or Paypal. If you don't know how to donate using a cryptocurrency then use the Paypal option. If you really want to donate but for some reason can't use any of these options please drop us an email or contact us on Twitter"}>
-             </div>
+              <div class="pure-u-1">
+                <{
+                  "You can donate using Bitcoin, Ethereum or Paypal. If you" \
+                  " don't know how to donate using a cryptocurrency then us" \
+                  "e the Paypal option. If you really want to donate but fo" \
+                  "r some reason can't use any of these options please drop" \
+                  " us an email or contact us on Twitter"
+                }>
+              </div>
             </div>
 
             <div class="pure-g">
-             <div class="pure-u-1 pure-u-md-1-3">
-               <h4><{"Bitcoin"}></h4>
-               
-             </div>
-             <div class="pure-u-1 pure-u-md-1-3"></div>
-             <div class="pure-u-1 pure-u-md-1-3"></div>
+              <div class="pure-u-1 pure-u-md-1-3">
+                <h4>
+                  <{ "Bitcoin" }>
+                </h4>
+
+                <img src={generateQrCode(bitcoinAddress)}/>
+
+                <input
+                  id="bitcoin-address"
+                  size="40"
+                  value={bitcoinAddress}/>
+
+                <br/>
+                <br/>
+
+                <button
+                  class="button-primary pure-button"
+                  onClick={\e : Html.Event => copyAddress("bitcoin-address")}>
+
+                  <{ "Copy address" }>
+
+                </button>
+              </div>
+
+              <div class="pure-u-1 pure-u-md-1-3">
+                <h4>
+                  <{ "Ethereum" }>
+                </h4>
+
+                <img src={generateQrCode(ethereumAddress)}/>
+
+                <input
+                  id="ethereum-address"
+                  size="50"
+                  value={ethereumAddress}/>
+
+                <br/>
+                <br/>
+
+                <button
+                  class="button-primary pure-button"
+                  onClick={\e : Html.Event => copyAddress("ethereum-address")}>
+
+                  <{ "Copy address" }>
+
+                </button>
+              </div>
+
+              <div class="pure-u-1 pure-u-md-1-3">
+              <h4>
+                <{ "Paypal" }>
+              </h4>
+              <p><{"Coming soon"}></p>
+              </div>
             </div>
 
-            /* <div class="pure-g">
-              <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
-                  <fieldset>
-                    <label for="name">
-                      <{ "Your Name" }>
-                    </label>
+            /*
+            <div class="pure-g">
+                         <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                           <form class="pure-form pure-form-stacked">
+                             <fieldset>
+                               <label for="name">
+                                 <{ "Your Name" }>
+                               </label>
 
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder="Your Name"/>
+                               <input
+                                 id="name"
+                                 type="text"
+                                 placeholder="Your Name"/>
 
-                    <label for="email">
-                      <{ "Your Email" }>
-                    </label>
+                               <label for="email">
+                                 <{ "Your Email" }>
+                               </label>
 
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="Your Email"/>
+                               <input
+                                 id="email"
+                                 type="email"
+                                 placeholder="Your Email"/>
 
-                    <label for="password">
-                      <{ "Your Password" }>
-                    </label>
+                               <label for="password">
+                                 <{ "Your Password" }>
+                               </label>
 
-                    <input
-                      id="password"
-                      type="password"
-                      placeholder="Your Password"/>
+                               <input
+                                 id="password"
+                                 type="password"
+                                 placeholder="Your Password"/>
 
-                    <button
-                      type="submit"
-                      class="pure-button">
+                               <button
+                                 type="submit"
+                                 class="pure-button">
 
-                      <{ "Sign Up" }>
+                                 <{ "Sign Up" }>
 
-                    </button>
-                  </fieldset>
-                </form>
-              </div>
+                               </button>
+                             </fieldset>
+                           </form>
+                         </div>
 
-              <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>
-                  <{ "Contact Us" }>
-                </h4>
+                         <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                           <h4>
+                             <{ "Contact Us" }>
+                           </h4>
 
-                <p>
-                  <{
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit" \
-                    ", sed do eiusmod
-                                                           " \
-                    "                       tempor incididunt ut labore et do" \
-                    "lore magna aliqua. Ut enim ad minim veniam,
-                                " \
-                    "                                                  quis n" \
-                    "ostrud exercitation ullamco laboris nisi ut aliquip ex e" \
-                    "a commodo
-                                                                  " \
-                    "                consequat."
-                  }>
-                </p>
+                           <p>
+                             <{
+                               "Lorem ipsum dolor sit amet, consectetur adipisicing elit" \
+                               ", sed do eiusmod
+                                                                      " \
+                               "                       tempor incididunt ut labore et do" \
+                               "lore magna aliqua. Ut enim ad minim veniam,
+                                           " \
+                               "                                                  quis n" \
+                               "ostrud exercitation ullamco laboris nisi ut aliquip ex e" \
+                               "a commodo
+                                                                             " \
+                               "                consequat."
+                             }>
+                           </p>
 
-                <h4>
-                  <{ "More Information" }>
-                </h4>
+                           <h4>
+                             <{ "More Information" }>
+                           </h4>
 
-                <p>
-                  <{
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit" \
-                    ", sed do eiusmod
-                                                           " \
-                    "                       tempor incididunt ut labore et do" \
-                    "lore magna aliqua."
-                  }>
-                </p>
-              </div>
-            </div> */
+                           <p>
+                             <{
+                               "Lorem ipsum dolor sit amet, consectetur adipisicing elit" \
+                               ", sed do eiusmod
+                                                                      " \
+                               "                       tempor incididunt ut labore et do" \
+                               "lore magna aliqua."
+                             }>
+                           </p>
+                         </div>
+                       </div>
+            */
           </div>
 
           <div class="footer l-box is-center">
@@ -456,11 +531,36 @@ component Donations {
               <div class="pure-u-1 pure-u-md-1-3">
                 <div class="pure-g">
                   <{ socialLink("Slack", "https://bit.ly/2HJBu1z", "slack-2") }>
-                  <{ socialLink("Github", "https://github.com/sushichain", "github") }>
-                  <{ socialLink("Telegram", "https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw", "telegram") }>
+
+                  <{
+                    socialLink(
+                      "Github",
+                      "https://github.com/sushichain",
+                      "github")
+                  }>
+
+                  <{
+                    socialLink(
+                      "Telegram",
+                      "https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw",
+                      "telegram")
+                  }>
+
                   <{ socialLink("Discord", "https://discord.gg/qBqfJPv", "discord") }>
-                  <{ socialLink("Gitter", "https://gitter.im/SushiChain/Lobby", "gitter") }>
-                  <{ socialLink("Twitter", "https://www.twitter.com/sushichainhq", "twitter") }>
+
+                  <{
+                    socialLink(
+                      "Gitter",
+                      "https://gitter.im/SushiChain/Lobby",
+                      "gitter")
+                  }>
+
+                  <{
+                    socialLink(
+                      "Twitter",
+                      "https://www.twitter.com/sushichainhq",
+                      "twitter")
+                  }>
                 </div>
               </div>
 

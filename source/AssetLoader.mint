@@ -32,6 +32,7 @@ module AssetLoader {
       loadStyle("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
       loadStyle("/dist/css/misc.css")
       loadScript("/dist/js/zenscroll-min.js")
+      loadScript("/dist/js/qrious.min.js")
     }
   }
 

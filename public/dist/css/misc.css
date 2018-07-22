@@ -90,7 +90,8 @@ h1, h2, h3, h4, h5, h6, label {
 }
 
 .button-warning {
-  background: rgb(223, 117, 20);
+  /* background: rgb(223, 117, 20); */
+  background: #E6675C; 
   /* this is an orange */
 }
 
