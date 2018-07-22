@@ -2115,7 +2115,7 @@ class $Donations extends Component {
       "src": `assets/images/logo.svg`
     })]), _createElement("ul", {
       className: `pure-menu-list`
-    }, [this.nav.bind(this)(`Home`, `/`, false), this.nav.bind(this)(`About`, `/#about`, false), this.nav.bind(this)(`Team`, `/#team`, false), this.nav.bind(this)(`Contact`, `/#contact`, false), this.nav.bind(this)(`Blog`, `https://blog.sushichain.io`, false), this.nav.bind(this)(`Roadmap`, `/roadmap`, false), this.nav.bind(this)(`Donations`, `/donations`, true)])])]), _createElement("div", {
+    }, [this.nav.bind(this)(`Home`, `/`, false), this.nav.bind(this)(`About`, `/#about`, false), this.nav.bind(this)(`Team`, `/#team`, false), this.nav.bind(this)(`Contact`, `/#contact`, false), this.nav.bind(this)(`Blog`, `https://blog.sushichain.io`, false), this.nav.bind(this)(`Donations`, `/donations`, true)])])]), _createElement("div", {
       className: `content-wrapper` + ` donations-spacer`
     }, [_createElement("div", {
       className: `content`
