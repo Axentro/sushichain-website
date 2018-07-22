@@ -307,6 +307,26 @@ const $AssetLoader = new(class {
         throw new DoError
       }
     })()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadScript.bind($AssetLoader)(`/dist/js/zenscroll-min.js`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadScript.bind($AssetLoader)(`/dist/js/qrious.min.js`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
       }
       catch(_error) {
         if (_error instanceof DoError) {
@@ -316,6 +336,10 @@ const $AssetLoader = new(class {
         }
       } 
     })()
+  }
+
+  unloadAllStyles() {
+    return $('link[rel=stylesheet]').remove();
   }
 })
 
@@ -1998,10 +2022,30 @@ class $Donations extends Component {
     })
   }
 
+  get bitcoinAddress() {
+    return `3E1qHfMMkpi5ekoopNAnHy8nxvd8gafosCx`
+  }
+
+  get ethereumAddress() {
+    return `0x62e293958BB1073B7cd42599cFed4ab38395D42E`
+  }
+
   componentDidMount() {
     return (async () => {
       try {
-         await $AssetLoader.loadMisc()
+         await (async ()=> {
+      try {
+        return await $AssetLoader.loadScript(`https://code.jquery.com/jquery-3.3.1.min.js`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await $AssetLoader.unloadAllStyles()
+
+     await $AssetLoader.loadMisc()
 
      await new Promise((_resolve) => {
       this.setState(_update(this.state, { ready: true }), _resolve)
@@ -2015,6 +2059,26 @@ class $Donations extends Component {
         }
       } 
     })()
+  }
+
+  copyAddress(id) {
+    return (() => {
+          var targetId = id
+          var copyText = document.getElementById(targetId);
+          copyText.select();
+          document.execCommand("copy");
+        })()
+  }
+
+  generateQrCode(address) {
+    return new QRious({value: address, size: 150}).toDataURL();
+  }
+
+  scrollToDonate(event) {
+    return (() => {
+              var donate = document.getElementById("donate-now");
+              zenscroll.to(donate, 400);
+            })()
   }
 
   socialLink(name, url, image) {
@@ -2045,111 +2109,172 @@ class $Donations extends Component {
     }, [_createElement("div", {
       className: `home-menu pure-menu pure-menu-horizontal pure-menu-fixed`
     }, [_createElement("a", {
-      "href": ``,
+      "href": `/`,
       className: `pure-menu-heading`
     }, [_createElement("img", {
       "src": `assets/images/logo.svg`
     })]), _createElement("ul", {
       className: `pure-menu-list`
-    }, [this.nav.bind(this)(`Home`, `/`, false), this.nav.bind(this)(`About`, `/`, false), this.nav.bind(this)(`Team`, `/`, false), this.nav.bind(this)(`Contact`, `/`, false), this.nav.bind(this)(`Blog`, `/`, false), this.nav.bind(this)(`Roadmap`, `/`, false), this.nav.bind(this)(`Donations`, `/`, true)])])]), _createElement("div", {
+    }, [this.nav.bind(this)(`Home`, `/`, false), this.nav.bind(this)(`About`, `/#about`, false), this.nav.bind(this)(`Team`, `/#team`, false), this.nav.bind(this)(`Contact`, `/#contact`, false), this.nav.bind(this)(`Blog`, `https://blog.sushichain.io`, false), this.nav.bind(this)(`Roadmap`, `/roadmap`, false), this.nav.bind(this)(`Donations`, `/donations`, true)])])]), _createElement("div", {
       className: `content-wrapper` + ` donations-spacer`
     }, [_createElement("div", {
       className: `content`
     }, [_createElement("h2", {
       className: `content-head is-center`
-    }, [`Help us raise money by donating`]), _createElement("div", {
+    }, [`Help us raise money by donating`])]), _createElement("div", {
+      className: `ribbon1 l-box-lrg pure-g`
+    }, [_createElement("div", {
+      className: `pure-u-1-1`
+    }, [_createElement("h2", {
+      className: `content-head content-head-ribbon1`
+    }, [`Why help us?`]), _createElement("p", {}, [`We are currently a self funded blockchain project. You might not realise but it takes a huge amount of time and money to create and run a custom blockchain. On top of that the cost of speaking and exhibiting at expos and conferences is very expensive.`]), _createElement("p", {}, [`Here at SushiChain we all work full time and contribute to SushiChain in our spare time. We have families, kids and mortgages and so the costs of driving SushiChain forward means we sacrifice spending money on ourselves and families in order to pursue our dreams of blockchain. So please help up out anyway you can. Any amount of donation is massively appreciated.`])])]), _createElement("div", {
+      className: `content`
+    }, [_createElement("div", {
       className: `pure-g`
     }, [_createElement("div", {
-      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
+      className: `pure-u-1-1`
+    }, [_createElement("h3", {
+      className: `content-head is-center`
+    }, [`Help us pay for these upcoming events`])])]), _createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `pure-u-1 pure-u-md-11-24` + ` donations-bg`
     }, [_createElement("h3", {
       className: `content-subhead`
-    }, [_createElement("i", {
-      className: `fa fa-rocket`
-    }), `Get Started Quickly`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])]), _createElement("div", {
-      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
+    }, [`Malta Blockchain Summit - 1st November 2018`]), _createElement("div", {
+      className: `donations-up`
+    }, [_createElement("strong", {}, [`St Julians, Malta`])]), _createElement("div", {}, [`Website: `, _createElement("a", {
+      "href": `https://maltablockchainsummit.com/`,
+      className: `link`
+    }, [`https://maltablockchainsummit.com/`])]), _createElement("div", {}, [`Listing: `, _createElement("a", {
+      "href": `https://maltablockchainsummit.com/list-of-partners/`,
+      className: `link`
+    }, [`Find us listed half way down the page`])]), _createElement("p", {}, [`Kingsley will be speaking and exhibiting at the Malta Blockchain summit to raise awareness for SushiChain. We will have a small booth/stand at the conference from which we will promote SushiChain.`]), _createElement("button", {
+      "onClick": (event => (this.scrollToDonate.bind(this))(_normalizeEvent(event))),
+      className: `button-secondary pure-button button-xlarge`
+    }, [`Donate now!`]), _createElement("p", {}, [_createElement("strong", {}, [`Cost breakdown`])]), _createElement("div", {
+      className: `costs`
+    }, [_createElement("table", {
+      className: `pure-table pure-table-bordered`
+    }, [_createElement("thead", {}, [_createElement("tr", {}, [_createElement("th", {}, [`Item`]), _createElement("th", {}, [`Description`]), _createElement("th", {}, [`Cost`])])]), _createElement("tbody", {}, [_createElement("tr", {}, [_createElement("td", {}, [`Exhibitor fee`]), _createElement("td", {}, [`Cost of exhibiting and speaking`]), _createElement("td", {}, [`£3000.00`])]), _createElement("tr", {}, [_createElement("td", {}, [`Travel & accommodation`]), _createElement("td", {}, [`Flights, hotel and taxis`]), _createElement("td", {}, [`£2000.00`])]), _createElement("tr", {}, [_createElement("td", {}, [`Print media`]), _createElement("td", {}, [`Booth decoration, flyers`]), _createElement("td", {}, [`£1000.00`])]), _createElement("tr", {
+      className: `pure-table-odd`
+    }, [_createElement("td", {}, [`Total`]), _createElement("td", {}), _createElement("td", {}, [`£6000.00`])])])])])]), _createElement("div", {
+      className: `pure-u-1-24`
+    }, [_createElement("br", {
+      className: `pure-u-md-1-24`
+    })]), _createElement("div", {
+      className: `pure-u-1 pure-u-md-11-24` + ` donations-bg`
     }, [_createElement("h3", {
       className: `content-subhead`
-    }, [_createElement("i", {
-      className: `fa fa-mobile`
-    }), `  Responsive Layouts`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])]), _createElement("div", {
-      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
+    }, [`London Business Show - 15th November 2018`]), _createElement("div", {
+      className: `donations-up`
+    }, [_createElement("strong", {}, [`London, UK`])]), _createElement("div", {}, [`Website: `, _createElement("a", {
+      "href": `http://www.greatbritishbusinessshow.co.uk/`,
+      className: `link`
+    }, [`http://www.greatbritishbusinessshow.co.uk/`])]), _createElement("div", {}, [`Listing: `, _createElement("a", {
+      "href": `http://www.greatbritishbusinessshow.co.uk/`,
+      className: `link`
+    }, [`Our exhibitors page`])]), _createElement("p", {}, [`Kingsley will be speaking and exhibiting at the London Business Show to raise awareness for SushiChain. We will have a small booth/stand at the conference from which we will promote SushiChain.`]), _createElement("button", {
+      "onClick": (event => (this.scrollToDonate.bind(this))(_normalizeEvent(event))),
+      className: `button-secondary pure-button button-xlarge`
+    }, [`Donate now!`]), _createElement("p", {}, [_createElement("strong", {}, [`Cost breakdown`])]), _createElement("div", {
+      className: `costs`
+    }, [_createElement("table", {
+      className: `pure-table pure-table-bordered`
+    }, [_createElement("thead", {}, [_createElement("tr", {}, [_createElement("th", {}, [`Item`]), _createElement("th", {}, [`Description`]), _createElement("th", {}, [`Cost`])])]), _createElement("tbody", {}, [_createElement("tr", {}, [_createElement("td", {}, [`Exhibitor fee`]), _createElement("td", {}, [`Cost of exhibiting and speaking`]), _createElement("td", {}, [`£5000.00`])]), _createElement("tr", {}, [_createElement("td", {}, [`Print media`]), _createElement("td", {}, [`Booth decoration, flyers`]), _createElement("td", {}, [`£1000.00`])]), _createElement("tr", {
+      className: `pure-table-odd`
+    }, [_createElement("td", {}, [`Total`]), _createElement("td", {}), _createElement("td", {}, [`£6000.00`])])])])])])]), _createElement("br", {}), _createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `pure-u-1 pure-u-md-11-24` + ` donations-bg`
     }, [_createElement("h3", {
       className: `content-subhead`
-    }, [_createElement("i", {
-      className: `fa fa-th-large`
-    }), `Modular`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])]), _createElement("div", {
-      className: `l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4`
-    }, [_createElement("h3", {
-      className: `content-subhead`
-    }, [_createElement("i", {
-      className: `fa fa-check-square-o`
-    }), `Plays Nice`]), _createElement("p", {}, [`Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.`])])])]), _createElement("div", {
+    }, [`Silicon Valley Blockchain Expo - 28th November 2018`]), _createElement("div", {
+      className: `donations-up`
+    }, [_createElement("strong", {}, [`Santa Clara, USA`])]), _createElement("div", {}, [`Website: `, _createElement("a", {
+      "href": `https://blockchain-expo.com/northamerica/`,
+      className: `link`
+    }, [`https://blockchain-expo.com/northamerica/`])]), _createElement("div", {}, [`Listing: `, _createElement("a", {
+      "href": `https://blockchain-expo.com/northamerica/partners/shushichain/`,
+      className: `link`
+    }, [`Our exhibitors page`])]), _createElement("p", {}, [`Kingsley will be speaking and exhibiting at the Silicon Valley Blockchain Expo to raise awareness for SushiChain. We will have a medium sized booth/stand at the conference from which we will promote SushiChain.`]), _createElement("button", {
+      "onClick": (event => (this.scrollToDonate.bind(this))(_normalizeEvent(event))),
+      className: `button-secondary pure-button button-xlarge`
+    }, [`Donate now!`]), _createElement("p", {}, [_createElement("strong", {}, [`Cost breakdown`])]), _createElement("div", {
+      className: `costs`
+    }, [_createElement("table", {
+      className: `pure-table pure-table-bordered`
+    }, [_createElement("thead", {}, [_createElement("tr", {}, [_createElement("th", {}, [`Item`]), _createElement("th", {}, [`Description`]), _createElement("th", {}, [`Cost`])])]), _createElement("tbody", {}, [_createElement("tr", {}, [_createElement("td", {}, [`Exhibitor fee`]), _createElement("td", {}, [`Cost of exhibiting and speaking`]), _createElement("td", {}, [`£3000.00`])]), _createElement("tr", {}, [_createElement("td", {}, [`Travel & accommodation`]), _createElement("td", {}, [`Flights, hotel and taxis`]), _createElement("td", {}, [`£2000.00`])]), _createElement("tr", {}, [_createElement("td", {}, [`Print media`]), _createElement("td", {}, [`Booth decoration, flyers`]), _createElement("td", {}, [`£1000.00`])]), _createElement("tr", {
+      className: `pure-table-odd`
+    }, [_createElement("td", {}, [`Total`]), _createElement("td", {}), _createElement("td", {}, [`£6000.00`])])])])])])])]), _createElement("div", {
       className: `ribbon l-box-lrg pure-g`
     }, [_createElement("div", {
       className: `l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5`
     }, [_createElement("img", {
       "width": `200`,
-      "alt": `File Icons`,
+      "alt": `Kingsley`,
       "src": `assets/images/kingsley2.png`,
       className: `pure-img-responsive`
     })]), _createElement("div", {
       className: `pure-u-1 pure-u-md-1-2 pure-u-lg-3-5`
     }, [_createElement("h2", {
       className: `content-head content-head-ribbon`
-    }, [`Laboris nisi ut aliquip.`]), _createElement("p", {}, [`  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor.`])])]), _createElement("div", {
+    }, [`We really appreciate your donation!`]), _createElement("p", {}, [`We have tried to list out exactly what your donations will be spent on. So you're not just blindly donating money.`, ` If you want to know more about our long term vision and plans check out our `, _createElement("a", {
+      "href": `/roadmap`,
+      className: `link2`
+    }, [`Roadmap`])])])]), _createElement("div", {
+      "id": `donate-now`,
       className: `content`
     }, [_createElement("h2", {
       className: `content-head is-center`
-    }, [`Dolore magna aliqua. Uis aute irure.`]), _createElement("div", {
+    }, [`How to donate`]), _createElement("div", {
       className: `pure-g`
     }, [_createElement("div", {
-      className: `l-box-lrg pure-u-1 pure-u-md-2-5`
-    }, [_createElement("form", {
-      className: `pure-form pure-form-stacked`
-    }, [_createElement("fieldset", {}, [_createElement("label", {
-      "for": `name`
-    }, [`Your Name`]), _createElement("input", {
-      "id": `name`,
-      "type": `text`,
-      "placeholder": `Your Name`
-    }), _createElement("label", {
-      "for": `email`
-    }, [`Your Email`]), _createElement("input", {
-      "id": `email`,
-      "type": `email`,
-      "placeholder": `Your Email`
-    }), _createElement("label", {
-      "for": `password`
-    }, [`Your Password`]), _createElement("input", {
-      "id": `password`,
-      "type": `password`,
-      "placeholder": `Your Password`
-    }), _createElement("button", {
-      "type": `submit`,
-      className: `pure-button`
-    }, [`Sign Up`])])])]), _createElement("div", {
-      className: `l-box-lrg pure-u-1 pure-u-md-3-5`
-    }, [_createElement("h4", {}, [`Contact Us`]), _createElement("p", {}, [`Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                              consequat.`]), _createElement("h4", {}, [`More Information`]), _createElement("p", {}, [`Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                              tempor incididunt ut labore et dolore magna aliqua.`])])])]), _createElement("div", {
+      className: `pure-u-1`
+    }, [`You can donate using Bitcoin, Ethereum or Paypal. If you don't know how to donate using a cryptocurrency then use the Paypal option. If you really want to donate but for some reason can't use any of these options please drop us an email or contact us on Twitter`])]), _createElement("div", {
+      className: `pure-g`
+    }, [_createElement("div", {
+      className: `pure-u-1 pure-u-md-1-3`
+    }, [_createElement("h4", {}, [`Bitcoin`]), _createElement("img", {
+      "src": this.generateQrCode.bind(this)(this.bitcoinAddress)
+    }), _createElement("br", {}), _createElement("input", {
+      "id": `bitcoin-address`,
+      "size": `40`,
+      "value": this.bitcoinAddress
+    }), _createElement("br", {}), _createElement("br", {}), _createElement("button", {
+      "onClick": (event => (((e) => {
+      return this.copyAddress.bind(this)(`bitcoin-address`)
+      }))(_normalizeEvent(event))),
+      className: `button-primary pure-button`
+    }, [`Copy address`])]), _createElement("div", {
+      className: `pure-u-1 pure-u-md-1-3`
+    }, [_createElement("h4", {}, [`Ethereum`]), _createElement("img", {
+      "src": this.generateQrCode.bind(this)(this.ethereumAddress)
+    }), _createElement("br", {}), _createElement("input", {
+      "id": `ethereum-address`,
+      "size": `50`,
+      "value": this.ethereumAddress
+    }), _createElement("br", {}), _createElement("br", {}), _createElement("button", {
+      "onClick": (event => (((e) => {
+      return this.copyAddress.bind(this)(`ethereum-address`)
+      }))(_normalizeEvent(event))),
+      className: `button-primary pure-button`
+    }, [`Copy address`])]), _createElement("div", {
+      className: `pure-u-1 pure-u-md-1-3`
+    }, [_createElement("h4", {}, [`Paypal`]), _createElement("p", {}, [`Coming soon`])])])]), _createElement("div", {
       className: `footer l-box is-center`
     }, [_createElement("div", {
       className: `pure-g`
     }, [_createElement("div", {
-      className: `pure-u-1-3`
+      className: `pure-u-1 pure-u-md-1-3`
     }, [_createElement("p", {
       className: `copyright`
     }, [`© SushiChain 2018. All Rights Reserved.`])]), _createElement("div", {
-      className: `pure-u-1-3`
+      className: `pure-u-1 pure-u-md-1-3`
     }, [_createElement("div", {
       className: `pure-g`
-    }, [this.socialLink.bind(this)(`Twitter`, ``, `twitter`), this.socialLink.bind(this)(`Slack`, ``, `slack-2`), this.socialLink.bind(this)(`Telegram`, ``, `telegram`), this.socialLink.bind(this)(`Discord`, ``, `discord`), this.socialLink.bind(this)(`Gitter`, ``, `gitter`), this.socialLink.bind(this)(`Github`, ``, `github`)])]), _createElement("div", {
-      className: `pure-u-1-3`
+    }, [this.socialLink.bind(this)(`Slack`, `https://bit.ly/2HJBu1z`, `slack-2`), this.socialLink.bind(this)(`Github`, `https://github.com/sushichain`, `github`), this.socialLink.bind(this)(`Telegram`, `https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw`, `telegram`), this.socialLink.bind(this)(`Discord`, `https://discord.gg/qBqfJPv`, `discord`), this.socialLink.bind(this)(`Gitter`, `https://gitter.im/SushiChain/Lobby`, `gitter`), this.socialLink.bind(this)(`Twitter`, `https://www.twitter.com/sushichainhq`, `twitter`)])]), _createElement("div", {
+      className: `pure-u-1 pure-u-md-1-3`
     }, [_createElement("p", {}, [_createElement("a", {
       "href": `mailto:info@sushichain.io`,
       "target": `_top`,
@@ -2173,7 +2298,49 @@ class $Home extends Component {
       try {
          await (async ()=> {
       try {
+        return await $AssetLoader.loadScript(`https://code.jquery.com/jquery-3.3.1.min.js`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await $AssetLoader.unloadAllStyles()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadScript(`/dist/js/zenscroll-min.js`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await (async ()=> {
+      try {
         return await $AssetLoader.loadStyle(`/dist/css/style.min.css`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadScript(`https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js`)
+      } catch(_error) {
+        
+
+        throw new DoError
+      }
+    })()
+
+     await (async ()=> {
+      try {
+        return await $AssetLoader.loadScript(`/dist/js/mirai.min.js`)
       } catch(_error) {
         
 
@@ -2184,6 +2351,8 @@ class $Home extends Component {
      await new Promise((_resolve) => {
       this.setState(_update(this.state, { ready: true }), _resolve)
     })
+
+     await this.scrollOnLoad.bind(this)()
       }
       catch(_error) {
         if (_error instanceof DoError) {
@@ -2193,6 +2362,19 @@ class $Home extends Component {
         }
       } 
     })()
+  }
+
+  scrollOnLoad() {
+    return (()=>{
+          try {
+           var loc = window.location.hash
+           var id = loc.substr(1);
+           var donate = document.getElementById(id);
+            zenscroll.to(donate, 400);
+          } catch (err) {
+
+          }
+        })()
   }
 
   render() {
@@ -2225,7 +2407,9 @@ class $Home extends Component {
     }, [`Contact`]), _createElement("a", {
       "href": `http://blog.sushichain.io/`,
       "target": `_blank`
-    }, [`Blog`])]), _createElement("div", {
+    }, [`Blog`]), _createElement("a", {
+      "href": `/donations`
+    }, [`Donations`])]), _createElement("div", {
       className: `mobile-trigger`
     }, [_createElement("span", {})])])])]), _createElement("main", {
       "id": `main`,
@@ -2388,7 +2572,7 @@ $Home.displayName = "Home"
 
 class $RoadMap extends Component {
   render() {
-    return _createElement("h1", {}, [`RoadMap`])
+    return _createElement("h1", {}, [`RoadMap coming soon`])
   }
 }
 
@@ -4889,6 +5073,15 @@ $Ui_Form_Field.defaultProps = {
 _insertStyles(`
   .donations-spacer {
     margin-top: 50px;
+  }
+
+  .donations-up {
+    margin-top: -12px;
+  }
+
+  .donations-bg {
+    border: 6px solid #F9F9F9;
+    padding: 20px;
   }
 
   .home-auto-width {
