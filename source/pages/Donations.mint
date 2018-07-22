@@ -347,10 +347,25 @@ component Donations {
 
           <div class="content">
             <h2 class="content-head is-center">
-              <{ "Dolore magna aliqua. Uis aute irure." }>
+              <{ "How to donate" }>
             </h2>
 
             <div class="pure-g">
+             <div class="pure-u-1">
+             <{"You can donate using Bitcoin, Ethereum or Paypal. If you don't know how to donate using a cryptocurrency then use the Paypal option. If you really want to donate but for some reason can't use any of these options please drop us an email or contact us on Twitter"}>
+             </div>
+            </div>
+
+            <div class="pure-g">
+             <div class="pure-u-1 pure-u-md-1-3">
+               <h4><{"Bitcoin"}></h4>
+               
+             </div>
+             <div class="pure-u-1 pure-u-md-1-3"></div>
+             <div class="pure-u-1 pure-u-md-1-3"></div>
+            </div>
+
+            /* <div class="pure-g">
               <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
                 <form class="pure-form pure-form-stacked">
                   <fieldset>
@@ -427,7 +442,7 @@ component Donations {
                   }>
                 </p>
               </div>
-            </div>
+            </div> */
           </div>
 
           <div class="footer l-box is-center">
