@@ -2606,7 +2606,12 @@ class $Home extends Component {
     }, [_createElement("img", {
       "src": `assets/images/minesh2.png`,
       "alt": `Minesh Patel`
-    }), _createElement("h3", {}, [`Minesh Patel`]), _createElement("span", {}, [`Product Manager`]), _createElement("p", {}, [`Minesh is an agile business analyst with a passion for solving problems through technology. Takes ideas from conception to launch. Excited about how Blockchain will reinvigorate the internet as we know it. Often found savouring sashimi!`])])])])])]), _createElement("section", {
+    }), _createElement("h3", {}, [`Minesh Patel`]), _createElement("span", {}, [`Product Manager`]), _createElement("p", {}, [`Minesh is an agile business analyst with a passion for solving problems through technology. Takes ideas from conception to launch. Excited about how Blockchain will reinvigorate the internet as we know it. Often found savouring sashimi!`])]), _createElement("div", {
+      className: `column column-m-12 column-t-6`
+    }, [_createElement("img", {
+      "src": `assets/images/tim.png`,
+      "alt": `Tim Tennant`
+    }), _createElement("h3", {}, [`Tim Tennant`]), _createElement("span", {}, [`Advisor`]), _createElement("p", {}, [`Hands on leader of software design and development teams with over 20 years of experience with brands such as Barclays, UBS, Credit Suisse, Citibank, Sky, Vodafone and Mars as well as many smaller businesses. Currently he is CTO of Nivo Solutions, which is a fintech startup providing an instant messaging platform with bank standard authentication, ID&V and encryption built in.`])])])])])]), _createElement("section", {
       "id": `contact`,
       className: `sc__contact`
     }, [_createElement("div", {
