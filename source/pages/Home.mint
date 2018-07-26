@@ -171,6 +171,13 @@ component Home {
                                       <span><{"Product Manager"}></span>
                                       <p><{"Minesh is an agile business analyst with a passion for solving problems through technology. Takes ideas from conception to launch. Excited about how Blockchain will reinvigorate the internet as we know it. Often found savouring sashimi!"}></p>
                                   </div>
+
+                                  <div class="column column-m-12 column-t-6">
+                                      <img src="assets/images/tim.png" alt="Tim Tennant" />
+                                      <h3><{"Tim Tennant"}></h3>
+                                      <span><{"Advisor"}></span>
+                                      <p><{"Hands on leader of software design and development teams with over 20 years of experience with brands such as Barclays, UBS, Credit Suisse, Citibank, Sky, Vodafone and Mars as well as many smaller businesses. Currently he is CTO of Nivo Solutions, which is a fintech startup providing an instant messaging platform with bank standard authentication, ID&V and encryption built in."}></p>
+                                  </div>
                               </div>
 
                           </div>
