@@ -16,6 +16,10 @@ component Main {
         contents = <RoadMap/>
       },
       {
+        name = "news",
+        contents = <News/>
+      },
+      {
         name = "not_found",
         contents =
           <div>

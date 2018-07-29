@@ -11,6 +11,12 @@ routes {
     }
   }
 
+  /news {
+    do {
+      Application.setPage("news")
+    }
+  }
+
   /home {
     do {
       Application.setPage("home")

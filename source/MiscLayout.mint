@@ -61,6 +61,7 @@ component MiscLayout {
            <{ nav("Blog", "https://blog.sushichain.io", false) }>
            <{ nav("Roadmap", "/roadmap", "roadmap" == name) }>
            <{ nav("Donations", "/donations", "donations" == name) }>
+           <{ nav("News", "/news", "news" == name) }>
          </ul>
        </div>
      </div>

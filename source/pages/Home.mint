@@ -57,6 +57,7 @@ component Home {
                           <a href="http://blog.sushichain.io/" target="_blank"><{"Blog"}></a>
                           <a href="/roadmap"><{"Roadmap"}></a>
                           <a href="/donations"><{"Donations"}></a>
+                          <a href="/news"><{"News"}></a>
                       </nav>
 
                       <div class="mobile-trigger">
@@ -240,6 +241,7 @@ component Home {
                               <li><a href="http://blog.sushichain.io/" target="_blank"><{"Blog"}></a></li>
                               <li><a href="/roadmap"><{"Roadmap"}></a></li>
                               <li><a href="/donations"><{"Donations"}></a></li>
+                              <li><a href="/news"><{"News"}></a></li>
                           </ul>
                       </nav>
                   </div>
