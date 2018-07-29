@@ -666,7 +666,7 @@ component Donations {
         </div>
       </MiscLayout>
     } else {
-      <div/>
+    <Loading/>
     }
   }
 }

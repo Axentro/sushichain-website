@@ -249,7 +249,7 @@ component RoadMap {
         </div>
       </MiscLayout>
     } else {
-      <div/>
+      <Loading/>
     }
   }
 }

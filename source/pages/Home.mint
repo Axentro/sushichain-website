@@ -248,7 +248,7 @@ component Home {
 
       </div>
     } else {
-      <div/>
+      <Loading/>
     }
   }
 }
