@@ -1,5 +1,5 @@
 component News {
-  state : Page.State { ready = false }
+  state ready : Bool = false
 
   fun componentDidMount : Void {
     do {
@@ -8,7 +8,7 @@ component News {
 
       AssetLoader.unloadAllStyles()
       AssetLoader.loadMisc()
-      next { state | ready = true }
+      next { ready = true }
     }
   }
 
@@ -22,7 +22,7 @@ component News {
   } */
 
   fun render : Html {
-    if (state.ready) {
+    if (ready) {
       <MiscLayout name="news">
         <div class="content">
           <h2 class="content-head is-center">

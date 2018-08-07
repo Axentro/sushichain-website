@@ -1,5 +1,5 @@
 component Donations {
-  state : Page.State { ready = false }
+  state ready : Bool = false
 
   get bitcoinAddress : String {
     "3E1qHfMMkpi5ekoopNAnHy8nxvd8gafosCx"
@@ -16,7 +16,7 @@ component Donations {
 
       AssetLoader.unloadAllStyles()
       AssetLoader.loadMisc()
-      next { state | ready = true }
+      next { ready = true }
     }
   }
 
@@ -54,7 +54,7 @@ component Donations {
   }
 
   fun render : Html {
-    if (state.ready) {
+    if (ready) {
       <MiscLayout name="donations">
         <div class="content">
           <h2 class="content-head is-center">
@@ -588,7 +588,7 @@ component Donations {
 
               <button
                 class="button-primary pure-button"
-                onClick={\e : Html.Event => copyAddress("bitcoin-address")}>
+                onClick={(event : Html.Event) : Void => {copyAddress("bitcoin-address")}}>
 
                 <{ "Copy address" }>
 
@@ -613,7 +613,7 @@ component Donations {
 
               <button
                 class="button-primary pure-button"
-                onClick={\e : Html.Event => copyAddress("ethereum-address")}>
+                onClick={(e : Html.Event) : Void => {copyAddress("ethereum-address")}}>
 
                 <{ "Copy address" }>
 

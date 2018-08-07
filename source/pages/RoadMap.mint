@@ -34,7 +34,7 @@ component Roadmap.Version {
 }
 
 component RoadMap {
-  state : Page.State { ready = false }
+  state ready : Bool = false
 
   fun componentDidMount : Void {
     do {
@@ -43,7 +43,7 @@ component RoadMap {
 
       AssetLoader.unloadAllStyles()
       AssetLoader.loadMisc()
-      next { state | ready = true }
+      next { ready = true }
     }
   }
 
@@ -83,7 +83,7 @@ component RoadMap {
   }
 
   fun render : Html {
-    if (state.ready) {
+    if (ready) {
       <MiscLayout name="roadmap">
         <div class="content">
           <h2 class="content-head is-center">

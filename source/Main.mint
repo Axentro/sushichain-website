@@ -1,3 +1,8 @@
+record Ui.Pager.Item {
+  contents : Html,
+  name : String
+}
+
 component Main {
   connect Application exposing { page, setPage }
 
@@ -36,8 +41,8 @@ component Main {
   } where {
     content =
       pages
-      |> Array.find(\item : Ui.Pager.Item => item.name == page)
-      |> Maybe.map(\item : Ui.Pager.Item => item.contents)
+      |> Array.find((item : Ui.Pager.Item) : Bool => { item.name == page })
+      |> Maybe.map((item : Ui.Pager.Item) : Html => {item.contents })
       |> Maybe.withDefault(<div/>)
   }
 }

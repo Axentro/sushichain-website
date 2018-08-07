@@ -1,9 +1,6 @@
-record Page.State {
-  ready : Bool
-}
 component Home {
 
-  state : Page.State { ready = false }
+  state ready : Bool = false
 
   fun scrollOnLoad() : Void {
     `(()=>{
@@ -29,7 +26,7 @@ component Home {
           AssetLoader.loadScript("/dist/js/mirai.min.js")
 
 
-          next { state | ready = true}
+          next { ready = true}
             scrollOnLoad()
       }
     }
@@ -39,7 +36,7 @@ component Home {
   }
 
   fun render : Html {
-    if(state.ready){
+    if(ready){
     <div class="wrapper">
 
           <header class="header" role="banner">
