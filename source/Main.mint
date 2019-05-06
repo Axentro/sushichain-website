@@ -41,8 +41,8 @@ component Main {
   } where {
     content =
       pages
-      |> Array.find((item : Ui.Pager.Item) : Bool => { item.name == page })
-      |> Maybe.map((item : Ui.Pager.Item) : Html => {item.contents })
+      |> Array.find((item : Ui.Pager.Item) : Bool { item.name == page })
+      |> Maybe.map((item : Ui.Pager.Item) : Html {item.contents })
       |> Maybe.withDefault(<div/>)
   }
 }

@@ -16,8 +16,8 @@ component Home {
     `
   }
 
-  fun componentDidMount : Void {
-        do {
+  fun componentDidMount : Promise(Never, Void) {
+        sequence {
           AssetLoader.loadScript("https://code.jquery.com/jquery-3.3.1.min.js")
           AssetLoader.unloadAllStyles()
           AssetLoader.loadScript("/dist/js/zenscroll-min.js")
@@ -187,14 +187,13 @@ component Home {
                           <div class="column column-m-12 column-t-8">
                               <span><{"Join the discussion"}></span>
                               <h2><{"Contact Us"}></h2>
-                              <p><{"Join our Slack Channel to get involved or follow us on Social Media"}></p>
-                              <a href="https://bit.ly/2HJBu1z" class="button"><{"Join Our Slack Channel"}></a>
+                              <p><{"Join our Telegram Channel to get involved or follow us on Social Media"}></p>
+                              <a href="https://t.me/sushichainhq" class="button"><{"Join Our Telegram Channel"}></a>
                               <ul class="social">
+                                  <li></li>
                                   <li class="github"><a href="https://github.com/sushichain"><{"Github"}></a></li>
-                                  <li class="telegram"><a href="https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw"><{"Telegram"}></a></li>
-                                  <li class="discord"><a href="https://discord.gg/qBqfJPv"><{"Discord"}></a></li>
-                                  <li class="gitter"><a href="https://gitter.im/SushiChain/Lobby"><{"Gitter"}></a></li>
                                   <li class="twitter"><a href="https://www.twitter.com/sushichainhq"><{"Twitter"}></a></li>
+                                  <li></li>
                               </ul>
                           </div>
                       </div>

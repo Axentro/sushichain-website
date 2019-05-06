@@ -9,8 +9,8 @@ component Donations {
     "0x62e293958BB1073B7cd42599cFed4ab38395D42E"
   }
 
-  fun componentDidMount : Void {
-    do {
+  fun componentDidMount : Promise(Never, Void) {
+    sequence {
       AssetLoader.loadScript(
         "https://code.jquery.com/jquery-3.3.1.min.js")
 
@@ -74,7 +74,7 @@ component Donations {
                 "ight not realise but it takes a huge amount of time and " \
                 "money to create and run a custom blockchain. On top of t" \
                 "hat the cost of speaking and exhibiting at expos and con" \
-                "ferences is very expensive. We need to do this to raise " \
+                "ferences is very expensive. We need to sequence this to raise " \
                 "awareness to help get our platform out there."
               }>
             </p>
@@ -588,7 +588,7 @@ component Donations {
 
               <button
                 class="button-primary pure-button"
-                onClick={(event : Html.Event) : Void => {copyAddress("bitcoin-address")}}>
+                onClick={(event : Html.Event) : Void {copyAddress("bitcoin-address")}}>
 
                 <{ "Copy address" }>
 
@@ -613,7 +613,7 @@ component Donations {
 
               <button
                 class="button-primary pure-button"
-                onClick={(e : Html.Event) : Void => {copyAddress("ethereum-address")}}>
+                onClick={(e : Html.Event) : Void {copyAddress("ethereum-address")}}>
 
                 <{ "Copy address" }>
 

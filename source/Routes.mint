@@ -1,30 +1,30 @@
 routes {
   /donations {
-    do {
+    sequence {
       Application.setPage("donations")
     }
   }
 
   /roadmap {
-    do {
+    sequence {
       Application.setPage("roadmap")
     }
   }
 
   /news {
-    do {
+    sequence {
       Application.setPage("news")
     }
   }
 
   /home {
-    do {
+    sequence {
       Application.setPage("home")
     }
   }
 
   / {
-    do {
+    sequence {
       Application.setPage("home")
     }
   }

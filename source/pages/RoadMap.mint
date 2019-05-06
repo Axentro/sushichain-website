@@ -36,8 +36,8 @@ component Roadmap.Version {
 component RoadMap {
   state ready : Bool = false
 
-  fun componentDidMount : Void {
-    do {
+  fun componentDidMount : Promise(Never, Void) {
+    sequence {
       AssetLoader.loadScript(
         "https://code.jquery.com/jquery-3.3.1.min.js")
 

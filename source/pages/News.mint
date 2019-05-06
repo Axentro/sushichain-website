@@ -1,8 +1,8 @@
 component News {
   state ready : Bool = false
 
-  fun componentDidMount : Void {
-    do {
+  fun componentDidMount : Promise(Never, Void) {
+    sequence {
       AssetLoader.loadScript(
         "https://code.jquery.com/jquery-3.3.1.min.js")
 
@@ -29,7 +29,7 @@ component News {
             <{ "Latest News" }>
           </h2>
 
-        <NewsItem title="Title" description="desc" date="now"/>
+        <NewsItem title="Updates coming soon" description="We are about to hit the hyperdrive" date="Monday, 6th May 2019"/>
 
         </div>
 

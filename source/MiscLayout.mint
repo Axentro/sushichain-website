@@ -80,8 +80,6 @@ component MiscLayout {
 
            <div class="pure-u-1 pure-u-md-1-3">
              <div class="pure-g">
-               <{ socialLink("Slack", "https://bit.ly/2HJBu1z", "slack-2") }>
-
                <{
                  socialLink(
                    "Github",
@@ -92,17 +90,8 @@ component MiscLayout {
                <{
                  socialLink(
                    "Telegram",
-                   "https://t.me/joinchat/Inebcg83C4ccxydPkzTdSw",
+                   "https://t.me/sushichainhq",
                    "telegram")
-               }>
-
-               <{ socialLink("Discord", "https://discord.gg/qBqfJPv", "discord") }>
-
-               <{
-                 socialLink(
-                   "Gitter",
-                   "https://gitter.im/SushiChain/Lobby",
-                   "gitter")
                }>
 
                <{

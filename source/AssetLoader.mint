@@ -25,8 +25,8 @@ module AssetLoader {
     `
   }
 
-  fun loadMisc() : Void {
-    do {
+  fun loadMisc() : Promise(Never, Void) {
+    sequence {
       loadStyle("https://unpkg.com/purecss@1.0.0/build/pure-min.css")
       loadStyle("https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css")
       loadStyle("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
