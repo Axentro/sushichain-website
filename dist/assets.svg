@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Artboard-7" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(43.000000, 40.000000)">
+            <rect id="Rectangle-8" stroke="#8DC07C" fill-rule="nonzero" x="0.5" y="0.5" width="152" height="104" rx="8"></rect>
+            <path d="M1.5,24.5 L151.5,24.5" id="Line-25" stroke="#8DC07C" stroke-linecap="square" fill-rule="nonzero"></path>
+            <text id="Block-1" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EBDBB1">
+                <tspan x="54" y="20">Block 1</tspan>
+            </text>
+            <text id="Transactions" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EBDBB1">
+                <tspan x="38" y="49">Transactions</tspan>
+            </text>
+            <path d="M19.5,62.5 L132.5,62.5" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+            <path d="M19.5,74.7 L132.5,74.7" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+            <path d="M19.5,85.25 L132.5,85.25" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+        </g>
+        <g id="Group" transform="translate(43.000000, 159.000000)">
+            <rect id="Rectangle-8" stroke="#8DC07C" fill-rule="nonzero" x="0.5" y="0.5" width="152" height="104" rx="8"></rect>
+            <path d="M1.5,24.5 L151.5,24.5" id="Line-25" stroke="#8DC07C" stroke-linecap="square" fill-rule="nonzero"></path>
+            <text id="Block-2" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EBDBB1">
+                <tspan x="54" y="20">Block 2</tspan>
+            </text>
+            <text id="Transactions" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EBDBB1">
+                <tspan x="38" y="49">Transactions</tspan>
+            </text>
+            <path d="M19.5,62.5 L132.5,62.5" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+            <path d="M19.5,74.7 L132.5,74.7" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+            <path d="M19.5,85.25 L132.5,85.25" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+        </g>
+        <rect id="Rectangle-8" stroke="#8DC07C" fill-rule="nonzero" x="43.5" y="286.5" width="152" height="223" rx="8"></rect>
+        <path d="M44.5,310.5 L194.5,310.5" id="Line-25" stroke="#8DC07C" stroke-linecap="square" fill-rule="nonzero"></path>
+        <text id="Block-3" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EBDBB1">
+            <tspan x="97" y="306">Block 3</tspan>
+        </text>
+        <text id="Transactions" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EBDBB1">
+            <tspan x="81" y="335">Transactions</tspan>
+        </text>
+        <path d="M62.5,348.5 L175.5,348.5" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+        <path d="M62.5,360.7 L175.5,360.7" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+        <path d="M62.5,371.25 L175.5,371.25" id="Line-26" stroke="#83A598" stroke-width="2" stroke-linecap="square" stroke-dasharray="1" fill-rule="nonzero"></path>
+        <polyline id="Line-27" stroke="#D79A20" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel" fill-rule="nonzero" points="32 118.5 32 152.5 208.714844 152.5 208.714844 185.441406"></polyline>
+        <polyline id="Line-27" stroke="#D79A20" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel" fill-rule="nonzero" points="32 240 32 274 208.714844 274 208.714844 306.941406"></polyline>
+        <polyline id="Line-27" stroke="#D79A20" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel" fill-rule="nonzero" points="31 485 31 519 207.714844 519 207.714844 551.941406"></polyline>
+        <rect id="Rectangle-9" stroke="#B06286" fill-rule="nonzero" x="62.5" y="385.5" width="113" height="115" rx="8"></rect>
+        <rect id="Rectangle-10" stroke="#B06286" fill-rule="nonzero" x="70.5" y="392.5" width="97" height="41" rx="8"></rect>
+        <rect id="Rectangle-10" stroke="#B06286" fill="#D3869B" fill-rule="nonzero" x="70.5" y="445.5" width="97" height="48" rx="8"></rect>
+        <text id="Smart-Asset" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EBDBB1">
+            <tspan x="82" y="417">Smart Asset</tspan>
+        </text>
+        <text id="Companion-Code" font-family="Tahoma-Bold, Tahoma" font-size="14" font-weight="bold" fill="#282828">
+            <tspan x="79.3413086" y="465">Companion </tspan>
+            <tspan x="101.445312" y="482">Code</tspan>
+        </text>
+        <g id="sword" transform="translate(609.845837, 411.845837) rotate(44.000000) translate(-609.845837, -411.845837) translate(520.845837, 322.845837)" fill-rule="nonzero">
+            <polygon id="Shape" fill="#D79A20" points="104.661929 121.857076 104.661929 109.014826 37.8413477 42.194245 42.194245 37.8413477 109.014826 104.661929 121.857076 104.661929 125 101.519005 29.4527014 0 4.35289732 0 36.037661 31.6847636 31.6847636 36.037661 0 4.35289732 0 29.4557073 101.519005 125"></polygon>
+            <polygon id="Shape" fill="#D79A20" points="104.939397 130 83 151.78719 97.8508654 156 118 135.995153 104.939397 130.804155"></polygon>
+            <path d="M110,126.376395 L121.563519,131 L131,121.563519 L126.376395,110 L110,110 L110,126.376395 Z M116.15279,116.149785 L122.305579,116.149785 L122.305579,122.302575 L116.15279,122.302575 L116.15279,116.149785 Z" id="Shape" fill="#D3869B"></path>
+            <polygon id="Shape" fill="#D79A20" points="135.994461 118 156 97.8508654 151.787676 83 130 104.939397 130.807062 104.939397"></polygon>
+            <path d="M177.370172,165 L165,177.370172 C166.063742,177.764903 167.192789,178 168.363921,178 C173.678277,178 178,173.678277 178,168.363921 C178,167.192789 177.767805,166.063742 177.370172,165 Z" id="Shape" fill="#D79A20"></path>
+            <polygon id="Shape" fill="#D79A20" points="155 169.117335 169.117722 155 174 159.882665 159.883782 174"></polygon>
+            <polygon id="Shape" fill="#D79A20" points="121 141.148184 141.148184 121 146 125.851816 125.851816 146"></polygon>
+            <polygon id="Shape" fill="#D79A20" points="136 143.91109 143.91109 136 161 153.08891 153.090404 161"></polygon>
+        </g>
+        <text id="Executed-on-a-node-a" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="262.995605" y="459">Executed on a node </tspan>
+            <tspan x="276.33252" y="476">and charged by </tspan>
+            <tspan x="271.304688" y="493">execution time in </tspan>
+            <tspan x="287.16748" y="510">milliseconds</tspan>
+        </text>
+        <path id="Line-28" d="M202,474.5 L211,479 L211,470 L202,474.5 Z M265.5,474 L210.5,474 L210,474 L210,475 L210.5,475 L265.5,475 L266,475 L266,474 L265.5,474 Z" fill="#D79A20" fill-rule="nonzero"></path>
+        <text id="Sword-Asset" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="572.149414" y="566">Sword Asset</tspan>
+        </text>
+        <text id="Attack:-10-Defence:" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="648" y="313">Attack: 10</tspan>
+            <tspan x="648" y="330">Defence: 8</tspan>
+        </text>
+        <path id="Line-29" d="M544.853084,61.1459774 L535.311376,64.3406323 L541.683783,70.6961363 L544.853084,61.1459774 Z M168.854023,438.853084 L364.926742,242.258895 L494.233517,112.608218 L539.205668,67.5164601 L539.558752,67.1624375 L538.850707,66.4562703 L538.497623,66.8102929 L493.525471,111.902051 L364.218696,241.552727 L168.145977,438.146916 L167.792894,438.500939 L168.500939,439.207106 L168.854023,438.853084 Z" fill="#D79A20" fill-rule="nonzero"></path>
+        <path id="Line-29" d="M181.120568,467.825625 L190.880964,465.379264 L185.019717,458.549492 L181.120568,467.825625 Z M187.853622,462.706261 L590.825625,116.879432 L591.205057,116.553807 L590.553807,115.794943 L590.174375,116.120568 L187.202372,461.947397 L186.822941,462.273022 L187.47419,463.031885 L187.853622,462.706261 Z" fill="#D79A20" fill-rule="nonzero"></path>
+        <text id="Asset-REST-API" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="512" y="54">Asset REST API</tspan>
+        </text>
+        <text id="Invokation-via-trans" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="576" y="107">Invokation via transaction</tspan>
+        </text>
+        <g id="Group-2" transform="translate(379.000000, 119.000000)" fill-rule="nonzero" stroke="#989719">
+            <g id="Group">
+                <path d="M0,26.2163462 L0.527777778,107.937613 L0.527777778,111.259615 C28.8376155,125.421837 50.8283562,132.502948 66.5,132.502948 C82.1716438,132.502948 104.33831,125.421837 133,111.259615 L133,22.9742713" id="Line-18" stroke-width="2" fill="#282828" stroke-linecap="square"></path>
+                <path d="M66.5,56.1967961 C103.226936,56.1967961 133,40.198951 133,25.8966346 C133,11.5943182 103.226936,0 66.5,0 C29.7730641,0 0,11.5943182 0,25.8966346 C0,40.198951 29.7730641,56.1967961 66.5,56.1967961 Z" id="Oval-4" stroke-width="4" fill="#EADCB1"></path>
+                <ellipse id="Oval-4" stroke-width="4" fill="#D3869B" cx="66.5" cy="25.8966346" rx="35.1375546" ry="14.3870192"></ellipse>
+                <path d="M66.75,58.0027778 L66.75,132.630556" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M12.9305556,69.825 L44.7027778,81.6472222" id="Line-19" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M12.9305556,82.3861111 L44.7027778,94.2083333" id="Line-19" stroke-width="2" stroke-linecap="square"></path>
+                <path d="M12.9305556,94.9472222 L44.7027778,106.769444" id="Line-19" stroke-width="2" stroke-linecap="square"></path>
+            </g>
+        </g>
+        <path id="Line-30" d="M675.5,124 L671,133 L680,133 L675.5,124 Z M676,287.5 L676,132.5 L676,132 L675,132 L675,132.5 L675,287.5 L675,288 L676,288 L676,287.5 Z" fill="#D79A20" fill-rule="nonzero"></path>
+    </g>
+</svg>

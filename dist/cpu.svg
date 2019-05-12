@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="308px" height="308px" viewBox="0 0 308 308" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-214.000000, -90.000000)">
+            <g id="Group-3" transform="translate(214.000000, 90.000000)">
+                <g id="Group" transform="translate(44.000000, 44.000000)">
+                    <rect id="Rectangle" stroke="#B06286" stroke-width="16" fill="#D3869B" fill-rule="nonzero" x="8" y="8" width="204" height="204" rx="8"></rect>
+                    <rect id="Rectangle-2" stroke="#EADCB1" stroke-width="10" fill-rule="nonzero" x="31.3247863" y="34.3333333" width="158.290598" height="151.333333" rx="8"></rect>
+                    <text id="CPU" font-family="Tahoma" font-size="62" font-weight="normal" fill="#EADCB1">
+                        <tspan x="53" y="135">CPU</tspan>
+                    </text>
+                </g>
+                <g id="Group-2" transform="translate(62.000000, 0.000000)" fill="#B06286" fill-rule="nonzero" stroke="#B06286">
+                    <rect id="Rectangle-3" x="34.1" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="0.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="67.7" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="101.3" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="134.9" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="168.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                </g>
+                <g id="Group-2" transform="translate(62.000000, 252.000000)" fill="#B06286" fill-rule="nonzero" stroke="#B06286">
+                    <rect id="Rectangle-3" x="34.1" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="0.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="67.7" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="101.3" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="134.9" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="168.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                </g>
+                <g id="Group-2" transform="translate(28.000000, 154.000000) rotate(90.000000) translate(-28.000000, -154.000000) translate(-64.000000, 126.000000)" fill="#B06286" fill-rule="nonzero" stroke="#B06286">
+                    <rect id="Rectangle-3" x="34.1" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="0.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="67.7" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="101.3" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="134.9" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="168.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                </g>
+                <g id="Group-2" transform="translate(280.000000, 154.000000) rotate(90.000000) translate(-280.000000, -154.000000) translate(188.000000, 126.000000)" fill="#B06286" fill-rule="nonzero" stroke="#B06286">
+                    <rect id="Rectangle-3" x="34.1" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="0.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="67.7" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="101.3" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="134.9" y="0.5" width="15" height="55" rx="7.5"></rect>
+                    <rect id="Rectangle-3" x="168.5" y="0.5" width="15" height="55" rx="7.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
