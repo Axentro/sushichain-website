@@ -199,6 +199,10 @@ component Home {
   <div class="siimple-navbar theme-navbar siimple-navbar--large">
     <img class="siimple-brand" src="/sc5_animated.svg"/>
 
+    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#roadmap">
+        "Roadmap"
+    </a>
+
     <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#specification">
         "Specs"
     </a>
@@ -780,6 +784,20 @@ component Home {
 
           </div>
 
+
+        </div>
+      </div>
+
+      <div class="siimple-grid-col--sm-hide divider"></div>
+      <div id="roadmap" class="siimple-grid-col--sm-hide siimple-content siimple-content--large siimple--py-5" align="center">
+        <div class="siimple--py-4">
+          <div class="siimple-h2 siimple--mb-2 aqua">
+            "Roadmap"
+          </div>
+
+          <div align="center" class="siimple-paragraph siimple-paragraph--lead fg">
+            <img src="Roadmap.svg"/>
+          </div>
 
         </div>
       </div>

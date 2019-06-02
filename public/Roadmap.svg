@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Roadmap</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-0.1%" y="-0.1%" width="100.2%" height="100.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Roadmap" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#282828" x="0" y="0" width="800" height="600"></rect>
+        <path d="M103,39 L654,39 L654,275.552387 L103,275.552387 L103,509 L654,509" id="Line-6" stroke="#83A598" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1,2,1,2" fill-rule="nonzero" filter="url(#filter-1)"></path>
+        <text id="HD-Wallets-Mobile-wa" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="257.740723" y="88">HD Wallets</tspan>
+            <tspan x="251.304688" y="105">Mobile wallet</tspan>
+            <tspan x="246.283691" y="122">Electron wallet</tspan>
+            <tspan x="255.426758" y="139">Hybrid PoW</tspan>
+        </text>
+        <path id="Line-5" d="M146.5,35.0416667 C144.014719,35.0416667 142,37.0563853 142,39.5416667 C142,42.026948 144.014719,44.0416667 146.5,44.0416667 C148.985281,44.0416667 151,42.026948 151,39.5416667 C151,37.0563853 148.985281,35.0416667 146.5,35.0416667 Z M146,43.5416667 L146,64.4583333 L146,64.9583333 L147,64.9583333 L147,64.4583333 L147,43.5416667 L147,43.0416667 L146,43.0416667 L146,43.5416667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M291.5,35.0416667 C289.014719,35.0416667 287,37.0563853 287,39.5416667 C287,42.026948 289.014719,44.0416667 291.5,44.0416667 C293.985281,44.0416667 296,42.026948 296,39.5416667 C296,37.0563853 293.985281,35.0416667 291.5,35.0416667 Z M291,43.5416667 L291,64.4583333 L291,64.9583333 L292,64.9583333 L292,64.4583333 L292,43.5416667 L292,43.0416667 L291,43.0416667 L291,43.5416667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M434.5,35.0416667 C432.014719,35.0416667 430,37.0563853 430,39.5416667 C430,42.026948 432.014719,44.0416667 434.5,44.0416667 C436.985281,44.0416667 439,42.026948 439,39.5416667 C439,37.0563853 436.985281,35.0416667 434.5,35.0416667 Z M434,43.5416667 L434,64.4583333 L434,64.9583333 L435,64.9583333 L435,64.4583333 L435,43.5416667 L435,43.0416667 L434,43.0416667 L434,43.5416667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M434.5,503.041667 C432.014719,503.041667 430,505.056385 430,507.541667 C430,510.026948 432.014719,512.041667 434.5,512.041667 C436.985281,512.041667 439,510.026948 439,507.541667 C439,505.056385 436.985281,503.041667 434.5,503.041667 Z M434,511.541667 L434,532.458333 L434,532.958333 L435,532.958333 L435,532.458333 L435,511.541667 L435,511.041667 L434,511.041667 L434,511.541667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M575.5,503.041667 C573.014719,503.041667 571,505.056385 571,507.541667 C571,510.026948 573.014719,512.041667 575.5,512.041667 C577.985281,512.041667 580,510.026948 580,507.541667 C580,505.056385 577.985281,503.041667 575.5,503.041667 Z M575,511.541667 L575,532.458333 L575,532.958333 L576,532.958333 L576,532.458333 L576,511.541667 L576,511.041667 L575,511.041667 L575,511.541667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M291.5,503.041667 C289.014719,503.041667 287,505.056385 287,507.541667 C287,510.026948 289.014719,512.041667 291.5,512.041667 C293.985281,512.041667 296,510.026948 296,507.541667 C296,505.056385 293.985281,503.041667 291.5,503.041667 Z M291,511.541667 L291,532.458333 L291,532.958333 L292,532.958333 L292,532.458333 L292,511.541667 L292,511.041667 L291,511.041667 L291,511.541667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M146.5,503.041667 C144.014719,503.041667 142,505.056385 142,507.541667 C142,510.026948 144.014719,512.041667 146.5,512.041667 C148.985281,512.041667 151,510.026948 151,507.541667 C151,505.056385 148.985281,503.041667 146.5,503.041667 Z M146,511.541667 L146,532.458333 L146,532.958333 L147,532.958333 L147,532.458333 L147,511.541667 L147,511.041667 L146,511.041667 L146,511.541667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M553.5,269.041667 C551.014719,269.041667 549,271.056385 549,273.541667 C549,276.026948 551.014719,278.041667 553.5,278.041667 C555.985281,278.041667 558,276.026948 558,273.541667 C558,271.056385 555.985281,269.041667 553.5,269.041667 Z M553,277.541667 L553,298.458333 L553,298.958333 L554,298.958333 L554,298.458333 L554,277.541667 L554,277.041667 L553,277.041667 L553,277.541667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M378.5,269.041667 C376.014719,269.041667 374,271.056385 374,273.541667 C374,276.026948 376.014719,278.041667 378.5,278.041667 C380.985281,278.041667 383,276.026948 383,273.541667 C383,271.056385 380.985281,269.041667 378.5,269.041667 Z M378,277.541667 L378,298.458333 L378,298.958333 L379,298.958333 L379,298.458333 L379,277.541667 L379,277.041667 L378,277.041667 L378,277.541667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M203.5,269.041667 C201.014719,269.041667 199,271.056385 199,273.541667 C199,276.026948 201.014719,278.041667 203.5,278.041667 C205.985281,278.041667 208,276.026948 208,273.541667 C208,271.056385 205.985281,269.041667 203.5,269.041667 Z M203,277.541667 L203,298.458333 L203,298.958333 L204,298.958333 L204,298.458333 L204,277.541667 L204,277.041667 L203,277.041667 L203,277.541667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <path id="Line-5" d="M577.5,35.0416667 C575.014719,35.0416667 573,37.0563853 573,39.5416667 C573,42.026948 575.014719,44.0416667 577.5,44.0416667 C579.985281,44.0416667 582,42.026948 582,39.5416667 C582,37.0563853 579.985281,35.0416667 577.5,35.0416667 Z M577,43.5416667 L577,64.4583333 L577,64.9583333 L578,64.9583333 L578,64.4583333 L578,43.5416667 L578,43.0416667 L577,43.0416667 L577,43.5416667 Z" fill="#8DC07C" fill-rule="nonzero"></path>
+        <text id="Launch-2019" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="106" y="22">Launch 2019</tspan>
+        </text>
+        <text id="Q2-2019" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="262" y="22">Q2 2019</tspan>
+        </text>
+        <text id="Q3-2019" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="404" y="22">Q3 2019</tspan>
+        </text>
+        <text id="Q4-2019" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="547" y="22">Q4 2019</tspan>
+        </text>
+        <text id="Master-nodes-Blockch" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="539.69043" y="88">Master nodes</tspan>
+            <tspan x="548.40625" y="105">Blockchain </tspan>
+            <tspan x="555.884766" y="122">explorer</tspan>
+        </text>
+        <text id="Taro-language-Smart" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="415.724609" y="88">Taro </tspan>
+            <tspan x="400.822266" y="105">language</tspan>
+            <tspan x="388.900391" y="122">Smart Assets</tspan>
+        </text>
+        <text id="Q1-2020" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="172" y="252">Q1 2020</tspan>
+        </text>
+        <text id="Q2-2020" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="348" y="252">Q2 2020</tspan>
+        </text>
+        <text id="Q3-2020" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="530" y="252">Q3 2020</tspan>
+        </text>
+        <text id="Q4-2020" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="129" y="492">Q4 2020</tspan>
+        </text>
+        <text id="Q1-2021" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="272" y="492">Q1 2021</tspan>
+        </text>
+        <text id="Q2-2021" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="416" y="492">Q2 2021</tspan>
+        </text>
+        <text id="Q3-2021" font-family="Tahoma" font-size="14" font-weight="normal" fill="#D3869B">
+            <tspan x="559" y="492">Q3 2021</tspan>
+        </text>
+        <text id="MainNet-Launch-dApps" font-family="Tahoma" font-size="14" font-weight="normal">
+            <tspan x="151.446289" y="325" fill="#FE8018">MainNet Launch</tspan>
+            <tspan x="182.071289" y="342" fill="#EADCB1">dApps </tspan>
+            <tspan x="159.687012" y="359" fill="#EADCB1">infrastructure</tspan>
+        </text>
+        <text id="TestNet-Launch-Core" font-family="Tahoma" font-size="14" font-weight="normal">
+            <tspan x="101.493652" y="88" fill="#FE8018">TestNet Launch</tspan>
+            <tspan x="100.338379" y="105" fill="#EADCB1">Core blockchain</tspan>
+        </text>
+        <text id="Developer-portal-Soc" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="332.47998" y="324">Developer portal</tspan>
+            <tspan x="309.480469" y="341">Social media integration</tspan>
+            <tspan x="309.873535" y="358">Guardian of Axum dApp</tspan>
+        </text>
+        <text id="dApp-Store" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="518.792969" y="324">dApp Store</tspan>
+        </text>
+        <text id="Crypto-exchange" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="122.775879" y="557">Crypto </tspan>
+            <tspan x="113.646484" y="574">exchange</tspan>
+        </text>
+        <text id="Payments-hub" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="261.756836" y="557">Payments </tspan>
+            <tspan x="279.824219" y="574">hub</tspan>
+        </text>
+        <text id="Preparation-for-next" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="515.949219" y="557">Preparation for next </tspan>
+            <tspan x="559.244629" y="574">phase</tspan>
+        </text>
+        <text id="Launch-in-house-dApp" font-family="Tahoma" font-size="14" font-weight="normal" fill="#EADCB1">
+            <tspan x="385.253418" y="557">Launch in-house </tspan>
+            <tspan x="417.071289" y="574">dApps</tspan>
+        </text>
+    </g>
+</svg>
