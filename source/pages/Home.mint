@@ -233,7 +233,7 @@ component Home {
         "for decentralised "<strong class="siimple-brand">"Apps"</strong>"."
       </div>
       <div class="docs-welcome-buttons">
-        <a href="https://github.com/SushiChain/sushichain-website/blob/deploy/sushichain_whitepaper_v.0.0.1.pdf" class="button-margin siimple-btn fg-dark bg-yellow">
+        <a href="https://github.com/SushiChain/sushichain-website/blob/deploy/sushichain_whitepaper_v.0.0.2.pdf" class="button-margin siimple-btn fg-dark bg-yellow">
             <b>"Read our whitepaper"</b>
         </a>
         <a href="https://twitter.com/sushichainhq" target="_blank" class="button-margin siimple-btn fg-dark bg-blue">
