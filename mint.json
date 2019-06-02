@@ -1,13 +1,12 @@
 {
-  "name": "sushichain-website",
-  "source-directories": [
-    "source"
-  ],
+  "name": "SushiChain Website",
   "application": {
-    "title": "SushiChain - Open Source Blockchain Platform",
     "head": "assets/head.html",
     "icon": "assets/icon.png"
   },
+  "source-directories": [
+    "source"
+  ],
   "test-directories": [
     "tests"
   ]
