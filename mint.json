@@ -2,7 +2,13 @@
   "name": "SushiChain Website",
   "application": {
     "head": "assets/head.html",
-    "icon": "assets/icon.png"
+    "icon": "assets/icon.png",
+    "title": "SushiChain - The sushi inspired, developer friendly, blockchain built for dapps!",
+    "meta": {
+      "description": "SushiChain is a decentralized app platform which provides developer friendly APIs for the development of decentralized applications",
+      "keywords": ["sushichain", "sushi", "decentralized", "application", "platform", "dapp", "dapps", "bitcoin", "ethereum", "dogecoin", "easy", "crypto", "developer", "friendly", "smart", "assets", "blockchain", "block"],
+      "author": "sushichain.io"
+    }
   },
   "source-directories": [
     "source"

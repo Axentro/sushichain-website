@@ -651,13 +651,13 @@ component Home {
             <ul>
               <li class="c1">
                 <img src="/sushi1a.svg"/>
-                <h3 class="aqua">"dApp store"</h3>
+                <h1 class="aqua">"dApp store"</h1>
                 <p class="fg">"The "<strong>"dApp store"</strong>" will be a "<strong>"one stop location"</strong>" to find new "<strong>"dApps"</strong>" that people have built on the platform. Similar to other popular app stores it will have reviews, comments and ratings."</p>
               </li>
 
               <li class="c2">
                 <img src="/sushi2a.svg"/>
-                <h3 class="aqua">"Integrated wallet & chat"</h3>
+                <h1 class="aqua">"Integrated wallet & chat"</h1>
                 <p class="fg">"We will build a "<strong>"cross platform GUI light wallet"</strong>" with a built in "<strong>"secure chat"</strong>" capability. Secure chat will also be able to perform "<strong>"wallet functionality"</strong>" such as checking balances and sending
                   transactions."
                 </p>
@@ -665,26 +665,26 @@ component Home {
 
               <li class="c3">
                 <img height="48" src="/sushi1a.svg"/>
-                <h3 class="aqua">"Social media integration"</h3>
+                <h1 class="aqua">"Social media integration"</h1>
                 <p>"We will provide a set of "<strong>"integrations"</strong>" for well known social media and chat platforms to provide similar but more "<strong>"restricted"</strong>" wallet functionality within the chat."</p>
               </li>
 
               <li class="c4">
                 <img height="48" src="/sushi2a.svg"/>
-                <h3 class="aqua">"Crypto exchange"</h3>
+                <h1 class="aqua">"Crypto exchange"</h1>
                 <p>"We intend to build a crypto exchange which in phase 1 will facilitate "<strong>"exchange"</strong>" of "<strong>"custom tokens"</strong>" with the default "<strong>"SUSHI"</strong>" token. In later phases more functionality will be added."</p>
               </li>
 
               <li class="c5">
                 <img height="48" src="/sushi1a.svg"/>
-                <h3 class="aqua">"Payments hub"</h3>
+                <h1 class="aqua">"Payments hub"</h1>
                 <p>"This will provide "<strong>"dApp"</strong>" builders with the capability to add "<strong>"shopping baskets"</strong>", "<strong>"stores"</strong>" and "<strong>"simple payment"</strong>" plugins to their dApp to support paying for things in both the default
                   "<strong>"SUSHI"</strong>" token as well as a "<strong>"custom token"</strong>"."</p>
               </li>
 
               <li class="c6">
                 <img height="48" src="/sushi2a.svg"/>
-                <h3 class="aqua">"Planned dApps"</h3>
+                <h1 class="aqua">"Planned dApps"</h1>
                 <p>"The SushiChain team also plan to release several of our own "<strong>"dApps"</strong>" which will run on the SushiChain platform. The first dApp we plan to release is an online competitive "<strong>"trading card game"</strong>" called "<strong>"Guardians of Axum"</strong>"."
                   "You can find more information about our "<strong>"Guardians of Axum"</strong>" game at "<a class="theme-link" href="http://www.guardiansofaxum.com">"www.guardiansofaxum.com"</a>"."</p>
               </li>
