@@ -2,9 +2,12 @@
   <head>
     <meta charset="utf-8" >
     <title>
-      
+      SushiChain - The sushi inspired, developer friendly, blockchain built for dapps!
     </title>
     <link rel="manifest" href="/manifest.json" >
+    <meta name="description" content="SushiChain is a decentralized app platform which provides developer friendly APIs for the development of decentralized applications" >
+    <meta name="keywords" content="sushichain,sushi,decentralized,application,platform,dapp,dapps,bitcoin,ethereum,dogecoin,easy,crypto,developer,friendly,smart,assets,blockchain,block" >
+    <meta name="author" content="sushichain.io" >
     <meta name="theme-color" content="" >
     <head>
       <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -24,10 +27,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
       <title>SushiChain - A decentralised apps platform</title>
-    
-      <meta name="keywords" content="SushiChain" />
-      <meta name="description" content="Decentralised apps platform">
-      <meta name="author" content="sushichain.io">
     
       <!-- Mobile Metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
@@ -70,6 +69,13 @@
     <link rel="apple-touch-icon-precomposed" href="/icon-180x180.png" >
   </head>
   <body>
+    <script type="text/javascript">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js')
+        })
+      }
+    </script>
     <script src="/index.js">
 
     </script>
