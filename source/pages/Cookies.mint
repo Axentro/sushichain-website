@@ -7,7 +7,7 @@ component Cookies {
   fun render : Html {
     <div id="top">
     <div class="siimple-navbar theme-navbar siimple-navbar--large">
-    <img class="siimple-brand" src="/sc5_animated.svg"/>
+    <img class="siimple-brand" src="/images/sc5_animated.svg"/>
 
     <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="/">
         "Home"

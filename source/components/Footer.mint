@@ -3,7 +3,7 @@ component Footer {
     <div class="theme-footer siimple-footer--large">
       <div class="siimple-grid-row">
         <div class="siimple-grid-col siimple-grid-col--3 siimple-grid-col--sm-12">
-            <a href="#top"><img class="theme-footer-title siimple-brand" src="/sc5.svg" width="150" /></a>
+            <a href="#top"><img class="theme-footer-title siimple-brand" src="/images/sc5.svg" width="150" /></a>
         </div>
 
         <div class="siimple-grid-col siimple-grid-col--3 siimple-grid-col--sm-12">
