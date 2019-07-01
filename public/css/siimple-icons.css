@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "SiimpleIcons";
-  src: url("./fonts/siimple-icons.font.ttf") format("truetype"), url("./fonts/siimple-icons.font.woff") format("woff"), url("./fonts/siimple-icons.font.woff2") format("woff2");
+  src: url("../fonts/siimple-icons.font.ttf") format("truetype"), url("../fonts/siimple-icons.font.woff") format("woff"), url("../fonts/siimple-icons.font.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }

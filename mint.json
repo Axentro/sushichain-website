@@ -7,7 +7,14 @@
     "meta": {
       "description": "SushiChain is a decentralized app platform which provides developer friendly APIs for the development of decentralized applications",
       "keywords": ["sushichain", "sushi", "decentralized", "application", "platform", "dapp", "dapps", "bitcoin", "ethereum", "dogecoin", "easy", "crypto", "developer", "friendly", "smart", "assets", "blockchain", "block"],
-      "author": "sushichain.io"
+      "author": "sushichain.io",
+      "twitter:card": "summary",
+      "twitter:site": "@sushichainhq",
+      "og:url": "https://sushichian.com",
+      "og:type": "website",
+      "og:title": "SushiChain - The user friendly blockchian",
+      "og:description": "SushiChain is a decentralized app platform which provides developer friendly APIs for the development of decentralized applications",
+      "og:image": "sushichain-card.png"
     }
   },
   "source-directories": [

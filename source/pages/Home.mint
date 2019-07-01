@@ -195,38 +195,8 @@ component Home {
   }
 
   fun render : Html {
-    <div>
-  <div class="siimple-navbar theme-navbar siimple-navbar--large">
-    <img class="siimple-brand" src="/sc5_animated.svg"/>
-
-    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#roadmap">
-        "Roadmap"
-    </a>
-
-    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#specification">
-        "Specs"
-    </a>
-
-    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#team">
-        "Team"
-    </a>
-
-    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="https://guide.sushichain.io">
-        "Docs"
-    </a>
-
-    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#smart-assets">
-        "Smart Assets"
-    </a>
-
-    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#dapps">
-        "dApps"
-    </a>
-
-    <a class="siimple-navbar-item siimple--float-right siimple--display-sm-none" href="#about">
-            "About"
-        </a>
-  </div>
+  <div>
+    <Header full="false" />
 
   <div>
 
@@ -592,7 +562,7 @@ component Home {
         </div>
 
         <div class="siimple-grid-col--sm-hide siimple-paragraph siimple-paragraph--lead siimple--text-center fg">
-          <img class="node-arch" src="/node-arch.svg" />
+          <img class="node-arch" src="/images/node-arch.svg" />
         </div>
 
         <div class="siimple-paragraph siimple-paragraph--lead siimple--text-justify fg">
@@ -623,7 +593,7 @@ component Home {
         </div>
 
         <div class="siimple-grid-col--sm-hide siimple-paragraph siimple-paragraph--lead siimple--text-center fg">
-          <img class="node-arch" src="/assets.svg"/>
+          <img class="node-arch" src="/images/assets.svg"/>
         </div>
 
         <div class="siimple-paragraph siimple-paragraph--lead siimple--text-justify fg">
@@ -650,13 +620,13 @@ component Home {
           <div class="leaf">
             <ul>
               <li class="c1">
-                <img src="/sushi1a.svg"/>
+                <img src="/images/sushi1a.svg"/>
                 <h1 class="aqua">"dApp store"</h1>
                 <p class="fg">"The "<strong>"dApp store"</strong>" will be a "<strong>"one stop location"</strong>" to find new "<strong>"dApps"</strong>" that people have built on the platform. Similar to other popular app stores it will have reviews, comments and ratings."</p>
               </li>
 
               <li class="c2">
-                <img src="/sushi2a.svg"/>
+                <img src="/images/sushi2a.svg"/>
                 <h1 class="aqua">"Integrated wallet & chat"</h1>
                 <p class="fg">"We will build a "<strong>"cross platform GUI light wallet"</strong>" with a built in "<strong>"secure chat"</strong>" capability. Secure chat will also be able to perform "<strong>"wallet functionality"</strong>" such as checking balances and sending
                   transactions."
@@ -664,26 +634,26 @@ component Home {
               </li>
 
               <li class="c3">
-                <img height="48" src="/sushi1a.svg"/>
+                <img height="48" src="/images/sushi1a.svg"/>
                 <h1 class="aqua">"Social media integration"</h1>
                 <p>"We will provide a set of "<strong>"integrations"</strong>" for well known social media and chat platforms to provide similar but more "<strong>"restricted"</strong>" wallet functionality within the chat."</p>
               </li>
 
               <li class="c4">
-                <img height="48" src="/sushi2a.svg"/>
+                <img height="48" src="/images/sushi2a.svg"/>
                 <h1 class="aqua">"Crypto exchange"</h1>
                 <p>"We intend to build a crypto exchange which in phase 1 will facilitate "<strong>"exchange"</strong>" of "<strong>"custom tokens"</strong>" with the default "<strong>"SUSHI"</strong>" token. In later phases more functionality will be added."</p>
               </li>
 
               <li class="c5">
-                <img height="48" src="/sushi1a.svg"/>
+                <img height="48" src="/images/sushi1a.svg"/>
                 <h1 class="aqua">"Payments hub"</h1>
                 <p>"This will provide "<strong>"dApp"</strong>" builders with the capability to add "<strong>"shopping baskets"</strong>", "<strong>"stores"</strong>" and "<strong>"simple payment"</strong>" plugins to their dApp to support paying for things in both the default
                   "<strong>"SUSHI"</strong>" token as well as a "<strong>"custom token"</strong>"."</p>
               </li>
 
               <li class="c6">
-                <img height="48" src="/sushi2a.svg"/>
+                <img height="48" src="/images/sushi2a.svg"/>
                 <h1 class="aqua">"Planned dApps"</h1>
                 <p>"The SushiChain team also plan to release several of our own "<strong>"dApps"</strong>" which will run on the SushiChain platform. The first dApp we plan to release is an online competitive "<strong>"trading card game"</strong>" called "<strong>"Guardians of Axum"</strong>"."
                   "You can find more information about our "<strong>"Guardians of Axum"</strong>" game at "<a class="theme-link" href="http://www.guardiansofaxum.com">"www.guardiansofaxum.com"</a>"."</p>
@@ -704,11 +674,11 @@ component Home {
           </div>
 
           <div class="siimple-paragraph siimple-paragraph--lead fg">
-            <img class="siimple--rounded" height="280" width="853" src="goa.jpg"/>
+            <img class="siimple--rounded" height="280" width="853" src="/images/goa.jpg"/>
           </div>
 
           <div class="siimple-paragraph siimple-paragraph--lead fg">
-            <img src="card_group.png"/>
+            <img src="/images/card_group.png"/>
           </div>
 
           <div class="siimple-paragraph siimple-paragraph--lead fg">
@@ -734,7 +704,7 @@ component Home {
               <TeamMember
                 name="Kingsley Hendrickse"
                 role="Founder & Lead developer"
-                image="/kingsley.png"
+                image="/images/kingsley.png"
                 description="Highly skilled developer with decades of experience. Expert in Blockchain technology and also loves
                 to eat Sushi - which is one of the main reasons he loves working on SushiChain!
                 "
@@ -743,7 +713,7 @@ component Home {
               <TeamMember
                 name="John Feras"
                 role="Core developer"
-                image="/jferas.png"
+                image="/images/jferas.png"
                 description="Software development professional with 40 years of experience in the fields of mobile applications, cable TV, compiler/interpreter design and implementation, and data security."
               />
             </div>
@@ -753,14 +723,14 @@ component Home {
               <TeamMember
                 name="Raymond Barlow"
                 role="Core developer"
-                image="/raymond.png"
+                image="/images/raymond.png"
                 description="Raymond is a polyglot developer who loves technology and looks forward to what it will do for society."
               />
 
               <TeamMember
                 name="Kostas Mamalis"
                 role="Core developer"
-                image="/kostas.png"
+                image="/images/kostas.png"
                 description="A versatile Dev with AWS skills and passionate about Ethereum, Solidity and generally Blockchain. Admittedly, quite partial to Sushi too."
               />
             </div>
@@ -770,14 +740,14 @@ component Home {
             <TeamMember
               name="Chris Watson"
               role="Core developer"
-              image="/watson.png"
+              image="/images/watson.png"
               description="Chris is a designer and developer with a passion for open source software and sushi."
             />
 
               <TeamMember
                 name="Bar Hofesh"
                 role="Security advisor"
-                image="/bar.png"
+                image="/images/bar.png"
                 description="A cyber security veteran with more than a decade of experience acting as a Security Officer, Researcher, Hacker, Developer and Software architect."
               />
             </div>
@@ -796,7 +766,7 @@ component Home {
           </div>
 
           <div align="center" class="siimple-paragraph siimple-paragraph--lead fg">
-            <img src="Roadmap.svg"/>
+            <img src="/images/Roadmap.svg"/>
           </div>
 
         </div>
