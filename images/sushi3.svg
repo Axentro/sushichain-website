@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="184px" height="183px" viewBox="0 0 184 183" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-5" transform="translate(-118.000000, -188.000000)" fill-rule="nonzero" stroke="#D65D0D">
+            <g id="Group-2" transform="translate(120.000000, 190.000000)">
+                <g id="Group">
+                    <path d="M90,76.0558143 C139.705627,76.0558143 180,54.4045953 180,35.0480769 C180,15.6915585 139.705627,0 90,0 C40.2943725,0 0,15.6915585 0,35.0480769 C0,54.4045953 40.2943725,76.0558143 90,76.0558143 Z" id="Oval-4" stroke-width="4" fill="#EADCB1"></path>
+                    <ellipse id="Oval-4" stroke-width="4" fill="#CB241C" cx="90" cy="35.0480769" rx="47.5545852" ry="19.4711538"></ellipse>
+                    <path d="M0,35.4807692 L0.714285714,146.08098 L0.714285714,150.576923 C39.0283518,169.74384 68.7902566,179.327299 90,179.327299 C111.209743,179.327299 141.209743,169.74384 180,150.576923 L180,31.0929988" id="Line-18" stroke-width="2" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
