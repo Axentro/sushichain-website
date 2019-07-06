@@ -196,7 +196,7 @@ component Home {
 
   fun render : Html {
   <div>
-    <Header full="false" />
+    <Header full="true" />
 
   <div>
 
